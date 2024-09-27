@@ -1,5 +1,6 @@
 /* eslint-disable implicit-arrow-linebreak */
 import to from "await-to-js";
+// eslint-disable-next-line import/no-cycle
 import request from "./request";
 
 export const getHomePageData = async () => {

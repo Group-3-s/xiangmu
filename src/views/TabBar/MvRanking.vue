@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <div>MV排行榜</div>
+  <div
+    class="flex items-center justify-center w-[100%] px-[4vw] py-[3vw] bg-[#fff] text-[#010101] text-[4.2vw] font-[600]"
+  >
+    MV排行榜
+  </div>
+  <div v-for="item in mv">
     <img :src="mv" alt="" />
-    <!-- {{ mv.id }} -->
+    {{ item.id }}
   </div>
 </template>
 
