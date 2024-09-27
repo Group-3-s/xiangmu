@@ -1,4 +1,6 @@
 <template>
-  <RouterView />
-  <div class="w-[100px] h-[100px] bg-red-400"></div>
+  <HomePage />
 </template>
+<script setup>
+import HomePage from "@/views/HomPage.vue";
+</script>
