@@ -1,4 +1,4 @@
-import MvRanking from "@/views/TabBar/MvRanking.vue";
+import MvRanking from "@/views/TabBar/ranking/MvRanking.vue";
 
 export default [
   {
