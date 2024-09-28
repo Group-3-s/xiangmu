@@ -8,7 +8,7 @@ const routes = [
   {
     path: "/home",
     // 按需引用 首页
-    component: () => import("@/views/HomPage.vue"),
+    component: () => import("@/views/HomePage.vue"),
   },
   {
     path: "/mvranking",
