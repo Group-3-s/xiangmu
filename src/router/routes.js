@@ -1,4 +1,6 @@
 import MvRanking from "@/views/TabBar/ranking/MvRanking.vue";
+import PlaylistSong from "@/views/PlaylistDetails/PlaylistSong.vue";
+import PlaylistColl from "@/views/PlaylistDetails/PlaylistColl.vue";
 
 const routes = [
   {
@@ -13,6 +15,14 @@ const routes = [
   {
     path: "/mvranking",
     component: MvRanking,
+  },
+  {
+    path: "/playlistsong",
+    component: PlaylistSong,
+  },
+  {
+    path: "/playlistcoll",
+    component: PlaylistColl,
   },
 ];
 

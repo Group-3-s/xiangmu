@@ -67,6 +67,7 @@
     </div>
     <div
       class="mx-[3.8vw] text-[#c0cbd8] text-[3.162vw] line-clamp-1 mt-[3.675vw]"
+      @click="showOverlay"
     >
       {{ menu.description }}
     </div>
@@ -189,12 +190,14 @@
         />
       </div>
     </div>
-    <div class="flex leading-[16vw]">
-      <div class="text-[3vw] text-[#999999]">
-        {{ menu.subscribedCount }}人收藏
+    <router-link :to="`/playlistcoll?id=${menu.id}`">
+      <div class="flex leading-[16vw]">
+        <div class="text-[3vw] text-[#999999]">
+          {{ menu.subscribedCount }}人收藏
+        </div>
+        <Icon icon="bi:chevron-right" class="mt-[6vw] mx-[2vw]" />
       </div>
-      <Icon icon="bi:chevron-right" class="mt-[6vw] mx-[2vw]" />
-    </div>
+    </router-link>
   </div>
   <div>
     <transition name="fade">
@@ -303,14 +306,14 @@
           <li>
             <Icon
               icon="ant-design:dingtalk"
-              style="color: #d8544e"
+              style="color: #529af1"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
           </li>
           <li>
             <Icon
               icon="fa6-brands:microblog"
-              style="color: #529af1"
+              style="color: #d8544e"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
           </li>
@@ -381,17 +384,18 @@
 <script setup>
 import { getPlaylistSong, getPlaylistSub } from "@/api";
 import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import { Icon } from "@iconify/vue";
 import PlaylistTop from "./PlaylistTop.vue";
 
+const route = useRoute();
 const router = useRouter();
 const BackHome = () => {
   router.back();
 };
 const menu = ref([]);
 const collection = ref([]);
-getPlaylistSong().then((res) => {
+getPlaylistSong(route.query.id).then((res) => {
   menu.value = res.data.playlist;
   collection.value = res.data.playlist.subscribers.slice(0, 5);
   console.log(res);
