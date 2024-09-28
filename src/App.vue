@@ -1,4 +1,7 @@
 <template>
   <RouterView />
-  <div class="w-[100px] h-[100px] bg-red-400"></div>
+  <PlaylistSong />
 </template>
+<script setup>
+import PlaylistSong from "./views/PlaylistDetails/PlaylistSong.vue";
+</script>
