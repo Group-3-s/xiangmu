@@ -31,6 +31,7 @@
         <img
           class="w-[28vw] h-[28vw] rounded-[3vw] text-white"
           :src="menu.coverImgUrl"
+          @click="showOverlay"
           alt=""
         />
       </div>
@@ -346,6 +347,35 @@
       </div>
     </transition>
   </div>
+  <div>
+    <div v-if="isOverlayVisible" class="overlay" @click="closeOverlay">
+      <div>
+        <img
+          class="w-[65vw] h-[65vw] rounded-[3vw] text-white absolute top-[15vw] left-[17vw]"
+          :src="menu.coverImgUrl"
+        />
+        <div style="color: gray" class="mt-[30vw]">{{ menu.name }}</div>
+        <div
+          class="w-[78vw] mt-[6vw] h-[1vw] border-b-2"
+          style="color: gray"
+        ></div>
+        <div class="mt-[3vw]">
+          <span style="color: gray" class="text-lg">标签：</span>
+          <span
+            v-for="item in menu.tags"
+            :key="item.length"
+            class="inline-block bg-[#b8bfc9] ml-[2vw] text-[3vw] rounded-[3vw] text-white opacity-80 px-[1vw] py-[0.5vw]"
+            >{{ item }}></span
+          >
+        </div>
+        <div class="mt-[5vw]">
+          <span style="color: gray" class="text-lg">{{
+            menu.description
+          }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
   <PlaylistTop />
 </template>
 <script setup>
@@ -381,6 +411,14 @@ const shareMaskClick = () => {
 const drawerVisible = ref(false);
 const toggleDrawer = () => {
   drawerVisible.value = !drawerVisible.value;
+};
+const isOverlayVisible = ref(false);
+
+const showOverlay = () => {
+  isOverlayVisible.value = true;
+};
+const closeOverlay = () => {
+  isOverlayVisible.value = false;
 };
 </script>
 <style scoped>
@@ -453,5 +491,19 @@ const toggleDrawer = () => {
 .slide-down-enter-to,
 .slide-down-leave-from {
   transform: translateY(0);
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-size: 24px;
 }
 </style>
