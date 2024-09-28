@@ -4,8 +4,13 @@
       <span
         @click="emit('clickTitle')"
         class="text-[#3e4659] font-bold my-[3vw] ml-[5vw]"
-        >{{ props.title }}></span
-      >
+        >{{ props.title
+        }}<Icon
+          icon="ic:baseline-arrow-forward-ios"
+          width="3vw"
+          height="3vw"
+          class="absolute top-[4.5vw] left-[21vw]"
+      /></span>
       <Icon
         @click="emit('clickMore')"
         icon="ri:more-2-fill"
@@ -28,3 +33,5 @@ const props = defineProps({
 
 const emit = defineEmits(["clickMore", "clickTitle"]);
 </script>
+
+<style></style>

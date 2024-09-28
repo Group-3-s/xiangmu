@@ -1,36 +1,35 @@
-<!-- 推荐歌单 -->
 <template>
-  <wrapper
-    :title="props.data.name"
-    @clickMore="showDrawer = !showDrawer"
-    @clickTitle="titleHander"
-    class="my-[3vw]"
-  >
-    <BetterScroll :config="{ scrollX: true, scrollY: false }" :dep="props.data">
-      <div
-        @click="clickHandler"
-        v-for="item in props.data.children"
-        :key="item.id"
-        class="h-[180px] w-[130px] mx-[2vw] relative border-[#EBEDF2]"
-      >
-        <img
-          class="w-[31.624vw] h-[31.453vw] rounded-[3vw] Shadow-custom"
-          :src="item.imageUrl"
-        />
-        <div class="absolute top-[0vw] right-[2vw] text-[10px] text-white flex">
-          <Icon
-            icon="ic:baseline-arrow-right"
-            width="4vw"
-            height="4vw"
-            style="color: white"
-          />{{ changeCount(item.count) }}
-        </div>
-
-        <div class="a overflow-hidden w-[130px] text-[13px] mt-[10px]">
-          {{ item.title }}
-        </div>
+  <wrapper :title="props.data.name" @clickMore="showDrawer = !showDrawer">
+    <div
+      class="w-[91vw] pt-[1vw] ml-[2vw] overflow-hidden scroll-wrapper border-[#EBEDF2]"
+    >
+      <div class="scroll-content flex w-[540vw] mb-[6.31vw]">
+        <ul
+          class="dark:bg-[#25272e] w-[91vw] scroll-item shadows bg-[#fff] mr-[2vw] rounded-[10px] px-[4vw] pt-[4vw] pb-[3.8vw]"
+        >
+          <li
+            v-for="(item, index) in props.data.children"
+            :key="index"
+            class="flex mt-[3vw]"
+          >
+            <div class="flex-1">
+              <div
+                class="dark:text-[#a5a7ae] text-[3.68vw] text-[#3E4558] overflow-hidden text-nowrap w-[220px]"
+              >
+                {{ item.title }}
+              </div>
+            </div>
+            <div class="flex-4">
+              <img
+                :src="item.imageUrl"
+                alt=""
+                class="w-[15vw] h-[15vw] rounded-[10px]"
+              />
+            </div>
+          </li>
+        </ul>
       </div>
-    </BetterScroll>
+    </div>
   </wrapper>
   <div>
     <transition name="fade">
@@ -75,44 +74,20 @@
   </div>
 </template>
 <script setup>
-import { defineProps, ref } from "vue";
-import BetterScroll from "@/components/BetterScroll.vue";
 import Wrapper from "@/components/Wrapper.vue";
-import { Icon } from "@iconify/vue";
+import { defineProps, ref } from "vue";
 
 const showDrawer = ref(false);
-const props = defineProps({
-  data: {},
-});
-const clickHandler = () => {};
-
-// const moreHandler = () => {};
 
 const handleMaskClick = () => {
   showDrawer.value = false;
 };
 
-const titleHander = () => {};
-
-// eslint-disable-next-line consistent-return
-const changeCount = (num) => {
-  if (num >= 100000000) {
-    return `${(num / 100000000).toFixed(2)}亿`;
-  }
-  if (num >= 10000) {
-    return `${(num / 10000).toFixed(2)}万`;
-  }
-};
+const props = defineProps({
+  data: {},
+});
 </script>
 <style scoped>
-.a {
-  width: 130px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 .mask {
   position: fixed;
   top: 0;

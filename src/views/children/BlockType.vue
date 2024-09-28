@@ -12,15 +12,18 @@ import { defineProps, computed } from "vue";
 import Menu from "./Menu.vue";
 import Banner from "./Banner.vue";
 import PalyList from "./PalyList.vue";
+import NewSongs from "./NewSongs.vue";
+import HotTopic from "./HotTopic.vue";
+import MusicCalendar from "./MusicCalendar.vue";
 
 const blockTypeComponentMap = {
   //
   HOMEPAGE_BANNER: Banner,
   HOMEPAGE_BLOCK_OLD_DRAGON_BALL: Menu,
   HOMEPAGE_BLOCK_PLAYLIST_RCMD: PalyList,
-  HOMEPAGE_BLOCK_NEW_ALBUM_NEW_SONG: "新歌新碟",
-  HOMEPAGE_BLOCK_HOT_TOPIC: "热门话题",
-  HOMEPAGE_MUSIC_CALENDAR: "音乐日历",
+  HOMEPAGE_BLOCK_NEW_ALBUM_NEW_SONG: NewSongs,
+  HOMEPAGE_BLOCK_HOT_TOPIC: HotTopic,
+  HOMEPAGE_MUSIC_CALENDAR: MusicCalendar,
   // HOMEPAGELBLOGK_MGC_PLAYLIST:“需达歌单”,
   HOMEPAGE_BLOCK_NEWLHOT_COMMENT: "热门评论",
   // HOMEPAGE_BLOCK_OFFICIAL_PLAYLIST:“官方数单”,
@@ -54,6 +57,30 @@ const propsData = computed(() => {
         children: props.data.creatives.map((item) => ({
           id: item.resources[0].resourceId,
           playCount: item.resources[0].resourceExtInfo.playCount,
+          imageUrl: item.resources[0].uiElement.image.imageUrl,
+          title: item.resources[0].uiElement.mainTitle.title,
+          count: item.resources[0].resourceExtInfo.playCount,
+        })),
+      };
+    case "HOMEPAGE_BLOCK_NEW_ALBUM_NEW_SONG":
+      return {
+        name: props.data.uiElement.subTitle.title,
+        children: props.data.creatives
+          .map((item) => item.resources)
+          .flat(Infinity),
+      };
+    case "HOMEPAGE_BLOCK_HOT_TOPIC":
+      return {
+        name: props.data.uiElement.subTitle.title,
+        children: props.data.creatives
+          .map((item) => item.resources)
+          .flat(Infinity),
+      };
+    case "HOMEPAGE_MUSIC_CALENDAR":
+      return {
+        name: props.data.uiElement.subTitle.title,
+        children: props.data.creatives.map((item) => ({
+          id: item.resources[0].resourceId,
           imageUrl: item.resources[0].uiElement.image.imageUrl,
           title: item.resources[0].uiElement.mainTitle.title,
         })),

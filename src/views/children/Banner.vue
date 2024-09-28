@@ -3,7 +3,7 @@
   <Swiper
     :loop="true"
     :autoplay="true"
-    pagination
+    :pagination="{ clickable: true }"
     :modules="[Autoplay]"
     class="rounded-[5vw]"
   >

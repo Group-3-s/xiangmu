@@ -43,7 +43,7 @@ onMounted(() => {
 });
 
 watchEffect(() => {
-  console.log(props.dep);
+  // console.log(props.dep);
   nextTick(() => bs?.refresh());
 });
 
