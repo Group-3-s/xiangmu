@@ -1,5 +1,6 @@
 /* eslint-disable implicit-arrow-linebreak */
 import to from "await-to-js";
+// eslint-disable-next-line import/no-cycle
 import request from "./request";
 
 export const getHomePageData = async () => {
@@ -10,3 +11,10 @@ export const getHomePageData = async () => {
 export const getHomePageMenu = () => request.get("/homepage/dragon/ball");
 export const loginByPhone = (data) => request.post("/login/cellphone", data);
 export const sendValidCode = (data) => request.post("/captcha/sent", data);
+export const getPlaylistSong = () =>
+  request.get("/playlist/detail?id=8725882112");
+export const getPlaylistSub = () =>
+  request.get("/playlist/subscribers?id=8725882112&limit=30");
+export const getPlaylisttop = () => request.get("/top/playlist");
+
+export const MvRanking = (data) => request.post("/top/mv?limit=50", data);

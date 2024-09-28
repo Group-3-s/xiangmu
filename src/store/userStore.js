@@ -2,6 +2,7 @@
 /* eslint-disable import/prefer-default-export */
 import { defineStore } from "pinia";
 import to from "await-to-js";
+// eslint-disable-next-line import/no-cycle
 import { loginByPhone } from "@/api";
 import router from "@/router";
 
