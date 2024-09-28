@@ -1,5 +1,6 @@
 /* eslint-disable implicit-arrow-linebreak */
 import to from "await-to-js";
+// eslint-disable-next-line import/no-cycle
 import request from "./request";
 
 export const getHomePageData = async () => {
@@ -15,3 +16,5 @@ export const getPlaylistSong = () =>
 export const getPlaylistSub = () =>
   request.get("/playlist/subscribers?id=8725882112&limit=30");
 export const getPlaylisttop = () => request.get("/top/playlist");
+
+export const MvRanking = (data) => request.post("/top/mv?limit=50", data);
