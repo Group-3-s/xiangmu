@@ -11,4 +11,4 @@ export const getHomePageData = async () => {
 export const getHomePageMenu = () => request.get("/homepage/dragon/ball");
 export const loginByPhone = (data) => request.post("/login/cellphone", data);
 export const sendValidCode = (data) => request.post("/captcha/sent", data);
-export const MvRanking = (data) => request.post("/top/mv?imit=10", data);
+export const MvRanking = (data) => request.post("/top/mv?limit=50", data);
