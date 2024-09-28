@@ -20,9 +20,15 @@
     </nav>
 
     <!-- 页面内容 -->
-    <div>
+    <!-- // eslint-disable-next-line vue/require-v-for-key -->
+    <div v-for="item in mv">
       <!-- 根据当前类别显示内容 -->
-      <div v-if="currentCategory === '内地'">内地内容</div>
+      <div v-if="currentCategory === '内地'">
+        <div>
+          <img :src="item.cover" alt="" />
+        </div>
+        <!-- {{ item.id }} -->
+      </div>
       <div v-if="currentCategory === '港台'">港台内容</div>
       <div v-if="currentCategory === '欧美'">欧美内容</div>
       <div v-if="currentCategory === '韩国'">韩国内容</div>
@@ -33,7 +39,21 @@
 
 <script setup>
 import { ref } from "vue";
+// eslint-disable-next-line import/no-cycle
+import { MvRanking } from "@/api";
+// import { useRouter } from "vue-router";
 
+// const router = useRouter();
+const mv = ref();
+
+MvRanking()
+  .then((res) => {
+    console.log(res.data.data);
+    mv.value = res.data.data;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 const categories = ["内地", "港台", "欧美", "韩国", "日本"];
 const currentCategory = ref("内地"); // 默认选中 '内地'
 </script>
@@ -45,7 +65,6 @@ nav {
   color: #2a3146;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
 }
 
 nav ul {
@@ -57,26 +76,26 @@ nav ul {
 }
 
 nav ul li {
-  flex: 1;
   width: 20%;
   height: 44px;
   margin: 0 10px;
+  transition: border-bottom 0.3s;
 }
-
+nav ul li:hover {
+  border-bottom: 3px solid red;
+}
 ul button {
+  width: 100%;
   height: 44px;
-  color: #2a3146;
+  color: #9599a3;
   text-decoration: none;
   cursor: pointer;
+  /* display: flex; */
   padding: 10px;
   transition: background-color 0.3s;
 }
 
 ul button:hover {
-  background-color: #555;
-}
-
-ul button.active {
-  background-color: #007bff;
+  color: #2a3146;
 }
 </style>
