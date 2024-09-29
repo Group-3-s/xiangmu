@@ -229,7 +229,7 @@ import { ref } from "vue";
 import { Icon } from "@iconify/vue";
 // eslint-disable-next-line import/no-cycle
 import { MvRanking } from "@/api";
-import TabBar from "@/components/TabBar.vue";
+import TabBar from "@/components/Tabbar.vue";
 
 const mv = ref([]);
 const categories = ["内地", "港台", "欧美", "韩国", "日本"];

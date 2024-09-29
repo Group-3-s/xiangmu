@@ -12,7 +12,7 @@
 import { ref } from "vue";
 import { getHomePageData } from "@/api";
 import BlockType from "@/views/children/BlockType.vue";
-import TabBar from "@/components/TabBar.vue";
+import TabBar from "@/components/Tabbar.vue";
 
 const pageData = ref([]);
 getHomePageData().then((res) => {
