@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import to from "await-to-js";
 // eslint-disable-next-line import/no-cycle
 import request from "./request";
@@ -11,4 +12,4 @@ export const getHomePageMenu = () => request.get("/homepage/dragon/ball");
 export const loginByPhone = (data) => request.post("/login/cellphone", data);
 export const sendValidCode = (data) => request.post("/captcha/sent", data);
 export const UserInfo = (id) =>
-  request.get("/user/account",{ params:{id}});
+  request.get(`/user/detail?uid=${"3277116167"}`);
