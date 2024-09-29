@@ -76,6 +76,7 @@
 <script setup>
 import { defineProps, ref } from "vue";
 import Wrapper from "@/components/Wrapper.vue";
+import { Icon } from "@iconify/vue";
 
 const showDrawer = ref(false);
 
