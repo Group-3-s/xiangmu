@@ -11,10 +11,10 @@ export const getHomePageData = async () => {
 export const getHomePageMenu = () => request.get("/homepage/dragon/ball");
 export const loginByPhone = (data) => request.post("/login/cellphone", data);
 export const sendValidCode = (data) => request.post("/captcha/sent", data);
-export const getPlaylistSong = () =>
-  request.get("/playlist/detail?id=8725882112");
-export const getPlaylistSub = () =>
-  request.get("/playlist/subscribers?id=8725882112&limit=30");
+export const getPlaylistSong = (id) =>
+  request.get("/playlist/detail", { params: { id } });
+export const getPlaylistSub = (id) =>
+  request.get("/playlist/subscribers?limit=30", { params: { id } });
 export const getPlaylisttop = () => request.get("/top/playlist");
 
 export const MvRanking = (data) =>
