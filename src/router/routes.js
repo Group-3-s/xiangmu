@@ -6,10 +6,10 @@ import loginPassword from "@/views/Login/loginPassword.vue";
 import loginCode from "@/views/Login/loginCaptcha.vue";
 
 const routes = [
-  {
-    path: "/",
-    redirect: "/home",
-  },
+  // {
+  //   path: "/",
+  //   redirect: "/home",
+  // },
   {
     path: "/home",
     // 按需引用 首页
