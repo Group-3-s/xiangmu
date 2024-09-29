@@ -13,22 +13,26 @@
         :key="item.id"
         class="h-[180px] w-[130px] mx-[2vw] relative border-[#EBEDF2]"
       >
-        <img
-          class="w-[31.624vw] h-[31.453vw] rounded-[3vw] Shadow-custom"
-          :src="item.imageUrl"
-        />
-        <div class="absolute top-[0vw] right-[2vw] text-[10px] text-white flex">
-          <Icon
-            icon="ic:baseline-arrow-right"
-            width="4vw"
-            height="4vw"
-            style="color: white"
-          />{{ changeCount(item.count) }}
-        </div>
+        <router-link :to="{ path: '/PlaylistSong', query: { id: item.id } }">
+          <img
+            class="w-[31.624vw] h-[31.453vw] rounded-[3vw] Shadow-custom"
+            :src="item.imageUrl"
+          />
+          <div
+            class="absolute top-[0vw] right-[2vw] text-[10px] text-white flex"
+          >
+            <Icon
+              icon="ic:baseline-arrow-right"
+              width="4vw"
+              height="4vw"
+              style="color: white"
+            />{{ changeCount(item.count) }}
+          </div>
 
-        <div class="a overflow-hidden w-[130px] text-[13px] mt-[10px]">
-          {{ item.title }}
-        </div>
+          <div class="a overflow-hidden w-[130px] text-[13px] mt-[10px]">
+            {{ item.title }}
+          </div>
+        </router-link>
       </div>
     </BetterScroll>
   </wrapper>

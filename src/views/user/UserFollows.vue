@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <img :src="menu[0].avatarUrl" alt="">
     </div>
 </template>
 
@@ -12,9 +12,8 @@ import { ref } from "vue"
 
 const route = useRoute();
 const menu = ref([])
-// const user = ref([])
 UserInfo1(route.query.id).then((res) => {
-    menu.value = res
+    menu.value = res.data.follow
     console.log(res);
 })
 </script>

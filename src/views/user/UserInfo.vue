@@ -1,5 +1,5 @@
 <template>
-    <div class=" ">
+    <div class="" :style="boxStyle">
         <div>
             <Icon icon="oui:word-wrap" @click="showDrawer = !showDrawer" />
         </div>
@@ -18,8 +18,8 @@
             <div class=" h-[70vw] w-[100vw] absolute z-index=2">
                 <img :src="user.backgroundUrl" alt="">
             </div>
-            <div class="h-[100vw] w-[80vw] bg-[#f5f4f4]  mt-[71vw] ml-[10vw] rounded-[3vw] absolute z-index=3 ">
-                <img :src="user.avatarUrl" alt="" class="h-[13vw] w-[13vw] ml-[33vw] mt-[22vw] rounded-[6vw]">
+            <div class="h-[100vw] w-[80vw] bg-[#f5f4f4]  mt-[97vw] ml-[10vw] rounded-[3vw] absolute z-index=3 ">
+                <img :src="user.avatarUrl" alt="" class="h-[13vw] w-[13vw] ml-[33vw] mt-[-6vw] rounded-[6vw]">
                 <div class="text-[4vw] font-semibold ml-[22vw] mr-[4vw] text-black mt-[4vw]">
                     {{ user.nickname }}
                 </div>
@@ -27,7 +27,10 @@
                     {{ user.signature }}
                 </div>
                 <div class="span">
-                    <span >{{ user.follows }} 关注</span>
+                    <router-link :to="{ path: '/userfollows' }">
+                        <span>{{ user.follows }} 关注</span>
+                    </router-link>
+
                     <span>{{ user.followeds }} 粉丝</span>
                     <span>lv 9</span>
                 </div>
@@ -40,11 +43,14 @@
                     <div class="bb">
                         编辑资料
                     </div>
+                    <div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <Tabbar></Tabbar>
 </template>
 <script setup>
 // eslint-disable-next-line import/no-cycle
@@ -63,6 +69,7 @@ import { UserInfo } from "@/api";
 import { useRoute } from "vue-router";
 import { ref } from "vue"
 import { Icon } from "@iconify/vue";
+import Tabbar from "@/components/Tabbar.vue";
 
 const route = useRoute();
 const showDrawer = ref(false);
@@ -92,12 +99,12 @@ span {
 }
 
 .span {
-    margin-left: 16vw;
+    margin-left: 26vw;
     color: gray;
 }
 
 .span1 {
-    margin-left: 5vw;
+    margin-left: 12vw;
 }
 
 .span1 span {
@@ -120,7 +127,7 @@ span {
 }
 
 .b {
-    margin-left: 13vw;
+    margin-left: 15vw;
     margin-top: 4vw;
 }
 

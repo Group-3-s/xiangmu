@@ -1,6 +1,9 @@
 <!-- eslint-disable max-len -->
 <template>
-  <div class="h-[85vw] bg-gradient-to-b from-[#4f6989] to-[#6e8bae] p-0 m-0">
+  <div
+    :style="boxStyle"
+    class="h-[85vw] bg-gradient-to-b from-[#4f6989] to-[#6e8bae] p-0 m-0"
+  >
     <div class="flex justify-between pt-[5vw]">
       <div class="flex">
         <Icon
@@ -26,49 +29,75 @@
         />
       </div>
     </div>
-    <div class="flex m-[3.8vw]">
-      <div>
-        <img
-          class="w-[28vw] h-[28vw] rounded-[3vw] text-white"
-          :src="menu.coverImgUrl"
-          @click="showOverlay"
-          alt=""
-        />
-      </div>
-      <div>
-        <div class="text-[4vw] font-semibold ml-[3vw] mr-[4vw] text-white">
-          {{ menu.name }}
-        </div>
-        <div class="ml-[3vw] mt-[2vw] flex flex-row">
-          <span
-            ><img
-              class="h-[6vw] w-[6vw] rounded-[3vw] mr-[2vw]"
-              :src="menu.creator.avatarUrl"
-              alt=""
-          /></span>
-          <span class="text-[3vw] text-white mt-[1vw]">{{
-            menu.creator.nickname
-          }}</span>
+    <div v-if="isViss">
+      <PlaylistTopsong />
+    </div>
+    <div v-if="isVis">
+      <div class="flex m-[3.8vw]">
+        <div class="relative">
+          <img
+            class="w-[28vw] h-[28vw] rounded-[3vw] text-white"
+            :src="menu.coverImgUrl"
+            @click="showOverlay"
+            alt=""
+          />
           <div
-            class="w-[12vw] h-[5.3vw] rounded-[2.65vw] bg-[#748caa] text-[3vw] text-center leading-[5.3vw] text-white inline-block ml-[2vw]"
+            class="absolute top-[1vw] right-[2vw] text-[10px] text-white flex"
           >
-            +关注
+            <Icon
+              icon="ic:baseline-arrow-right"
+              width="4vw"
+              height="4vw"
+              style="color: white"
+            />{{ changeCount(menu.playCount) }}
           </div>
         </div>
-        <div class="mt-[2vw] ml-[1vw]">
-          <span
-            v-for="item in menu.algTags"
-            :key="item.length"
-            class="inline-block bg-[#b8bfc9] ml-[2vw] text-[3vw] rounded-[1vw] text-white opacity-80 px-[1vw] py-[0.5vw]"
-            >{{ item }}></span
-          >
+        <div>
+          <div class="text-[4vw] font-semibold ml-[3vw] mr-[4vw] text-white">
+            {{ menu.name }}
+          </div>
+          <div class="ml-[3vw] mt-[2vw] flex flex-row">
+            <span
+              ><img
+                class="h-[6vw] w-[6vw] rounded-[3vw] mr-[2vw]"
+                :src="menu.creator.avatarUrl"
+                alt=""
+            /></span>
+            <span class="text-[3vw] text-white mt-[1vw]">{{
+              menu.creator.nickname
+            }}</span>
+            <div
+              class="w-[12vw] h-[5.3vw] rounded-[2.65vw] bg-[#748caa] text-[3vw] text-center leading-[5.3vw] text-white inline-block ml-[2vw]"
+            >
+              +关注
+            </div>
+          </div>
+          <div class="mt-[2vw] ml-[1vw]">
+            <span
+              v-for="item in menu.algTags"
+              :key="item.length"
+              class="inline-block bg-[#b8bfc9] ml-[2vw] text-[3vw] rounded-[1vw] text-white opacity-80 px-[1vw] py-[0.5vw]"
+              >{{ item }}></span
+            >
+          </div>
         </div>
+      </div>
+      <div
+        class="mx-[3.8vw] text-[#c0cbd8] text-[3.162vw] line-clamp-1 mt-[3.675vw]"
+        @click="showOverlay"
+      >
+        {{ menu.description }}
       </div>
     </div>
     <div
-      class="mx-[3.8vw] text-[#c0cbd8] text-[3.162vw] line-clamp-1 mt-[3.675vw]"
+      class="w-[5vw] h-[5vw] bg-gray-400 rounded-[2.5vw] absolute right-[2vw] top-[19vw]"
     >
-      {{ menu.description }}
+      <Icon
+        @click="fn"
+        :icon="currentIcon"
+        class="w-[5vw] h-[5vw]"
+        style="color: white"
+      />
     </div>
     <div class="flex justify-around mt-[4.5vw]">
       <div
@@ -189,12 +218,14 @@
         />
       </div>
     </div>
-    <div class="flex leading-[16vw]">
-      <div class="text-[3vw] text-[#999999]">
-        {{ menu.subscribedCount }}人收藏
+    <router-link :to="`/playlistcoll?id=${menu.id}`">
+      <div class="flex leading-[16vw]">
+        <div class="text-[3vw] text-[#999999]">
+          {{ menu.subscribedCount }}人收藏
+        </div>
+        <Icon icon="bi:chevron-right" class="mt-[6vw] mx-[2vw]" />
       </div>
-      <Icon icon="bi:chevron-right" class="mt-[6vw] mx-[2vw]" />
-    </div>
+    </router-link>
   </div>
   <div>
     <transition name="fade">
@@ -292,6 +323,7 @@
               style="color: #7cc955"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
+            <div class="text-center">微信</div>
           </li>
           <li>
             <Icon
@@ -299,20 +331,23 @@
               style="color: #57a8ec"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
+            <div class="text-center">QQ</div>
           </li>
           <li>
             <Icon
               icon="ant-design:dingtalk"
-              style="color: #d8544e"
+              style="color: #529af1"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
+            <div class="text-center">钉钉</div>
           </li>
           <li>
             <Icon
               icon="fa6-brands:microblog"
-              style="color: #529af1"
+              style="color: #d8544e"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
+            <div class="text-center">微博</div>
           </li>
           <li class="mr-[3vw]">
             <Icon
@@ -320,6 +355,7 @@
               style="color: gray"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
+            <div class="text-center">更多</div>
           </li>
         </ul>
       </div>
@@ -379,19 +415,22 @@
   <PlaylistTop />
 </template>
 <script setup>
+// eslint-disable-next-line import/no-cycle
 import { getPlaylistSong, getPlaylistSub } from "@/api";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref, computed } from "vue";
+import { useRouter, useRoute } from "vue-router";
 import { Icon } from "@iconify/vue";
 import PlaylistTop from "./PlaylistTop.vue";
+import PlaylistTopsong from "./PlaylistTopsong.vue";
 
+const route = useRoute();
 const router = useRouter();
 const BackHome = () => {
   router.back();
 };
 const menu = ref([]);
 const collection = ref([]);
-getPlaylistSong().then((res) => {
+getPlaylistSong(route.query.id).then((res) => {
   menu.value = res.data.playlist;
   collection.value = res.data.playlist.subscribers.slice(0, 5);
   console.log(res);
@@ -420,6 +459,38 @@ const showOverlay = () => {
 const closeOverlay = () => {
   isOverlayVisible.value = false;
 };
+// eslint-disable-next-line consistent-return
+const changeCount = (num) => {
+  if (num >= 100000000) {
+    return `${(num / 100000000).toFixed(2)}亿`;
+  }
+  if (num >= 10000) {
+    return `${(num / 10000).toFixed(2)}万`;
+  }
+};
+const icon1 = "mingcute:down-line";
+const icon2 = "mingcute:up-line";
+const defaultIcon = ref(true);
+const isLarge = ref(false);
+const isVis = ref(true);
+const isViss = ref(false);
+
+// eslint-disable-next-line arrow-body-style
+const currentIcon = computed(() => {
+  return defaultIcon.value ? icon1 : icon2;
+});
+const fn = () => {
+  defaultIcon.value = !defaultIcon.value;
+  isViss.value = !isViss.value;
+  isVis.value = !isVis.value;
+  isLarge.value = !isLarge.value;
+};
+// eslint-disable-next-line arrow-body-style
+const boxStyle = computed(() => {
+  return {
+    height: isLarge.value ? "110vw" : "85vw",
+  };
+});
 </script>
 <style scoped>
 .mask {

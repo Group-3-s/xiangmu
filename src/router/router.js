@@ -5,31 +5,39 @@ import loginPhone from "@/views/login/loginPhone.vue";
 import loginPassword from "@/views/login/loginPassword.vue";
 import loginCode from "@/views/login/loginCaptcha.vue";
 import UserFollows from "@/views/user/UserFollows.vue";
+import PlaylistSong from "@/views/PlaylistDetails/PlaylistSong.vue";
+import PlaylistColl from "@/views/PlaylistDetails/PlaylistColl.vue";
 
 const routes = [
-  {
-    path: "/",
-    redirect: "/home",
-  },
+  // {
+  //   path: "/",
+  //   redirect: "/home",
+  // },
   {
     path: "/home",
     // 按需引用 首页
-    component: () => import("@/views/HomPage.vue"),
+    component: () => import("@/views/HomePage.vue"),
   },
   {
     path: "/mvranking",
     component: MvRanking,
   },
   {
+    path: "/PlaylistSong",
+    component: PlaylistSong,
+  },
+  {
+    path: "/playlistsong",
+    component: PlaylistSong,
+  },
+  {
+    path: "/playlistcoll",
+    component: PlaylistColl,
+  },
+  {
     path: "/loginprompt",
     // name: loginPrompt,
     component: loginPrompt,
-
-    // children: {
-    //   path: "/loginphone",
-    //   // name: loginPhone,
-    //   component: loginPhone,
-    // },
   },
   {
     path: "/loginphone",
