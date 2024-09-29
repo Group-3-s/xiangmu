@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-[#f6f4f2] h-[65vw]">
-    <div class="text-[3.5vw] text-[#9d9b9b] p-[3vw]">你可能还会喜欢</div>
+  <div class="h-[57vw]">
+    <div class="text-[#c0d6d6] ml-[5vw] mt-[8vw]">喜欢这个歌单的用户也听了</div>
     <BetterScroll
       :config="{ scrollX: true, scrollY: false, click: true }"
       :dep="props.data"
@@ -11,11 +11,11 @@
         class="w-[30vw] h-[49vw] ml-[3.932vw] relative"
       >
         <img
-          class="w-[30vw] h-[30vw] rounded-[3vw] shadow-custom mt-[10px]"
+          class="w-[30vw] h-[30vw] rounded-[3vw] mt-[10px]"
           :src="item.coverImgUrl"
           alt=""
         />
-        <div class="absolute top-[3vw] right-[2vw] text-[10px] text-white flex">
+        <div class="absolute top-[4vw] right-[2vw] text-[10px] text-white flex">
           <Icon
             icon="ic:baseline-arrow-right"
             width="4vw"
@@ -23,7 +23,7 @@
             style="color: white"
           />{{ changeCount(item.playCount) }}
         </div>
-        <div class="mt-[2vw] line-clamp-2 hover:text-[#c8c9c9]">
+        <div class="mt-[2vw] line-clamp-2 text-[#ffffff]">
           {{ item.name }}
         </div>
       </div>
@@ -41,10 +41,9 @@ const props = defineProps({
 });
 const playtop = ref([]);
 getPlaylisttop().then((res) => {
-  playtop.value = res.data.playlists.slice(0, 6);
+  playtop.value = res.data.playlists.slice(6, 12);
   console.log(playtop.value);
 });
-// eslint-disable-next-line consistent-return
 const changeCount = (num) => {
   if (num >= 100000000) {
     return `${(num / 100000000).toFixed(2)}亿`;
