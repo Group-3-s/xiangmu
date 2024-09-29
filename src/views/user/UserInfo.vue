@@ -43,8 +43,11 @@
                     <div class="bb">
                         编辑资料
                     </div>
-                    <div>
-                        
+                    <div class="w-[10vw] h-[10vw] bg-gray-200 rounded-[5.5vw] absolute right-[23vw] top-[40vw]">
+                        <Icon @click="fn" :icon="currentIcon" class="w-[10vw] h-[10vw]" style="color: black" />
+                    </div>
+                    <div v-if="isViss">
+                       <UserArtist></UserArtist>
                     </div>
                 </div>
             </div>
@@ -67,9 +70,10 @@
 // eslint-disable-next-line import/no-cycle
 import { UserInfo } from "@/api";
 import { useRoute } from "vue-router";
-import { ref } from "vue"
+import { ref, computed } from "vue"
 import { Icon } from "@iconify/vue";
 import Tabbar from "@/components/Tabbar.vue";
+import UserArtist from "./UserArtist.vue";
 
 const route = useRoute();
 const showDrawer = ref(false);
@@ -78,6 +82,24 @@ const handleMackClik = () => {
 }
 const menu = ref([])
 const user = ref([])
+
+const icon1 = "mingcute:down-line";
+const icon2 = "mingcute:up-line";
+const defaultIcon = ref(true);
+const isLarge = ref(false);
+const isVis = ref(true);
+const isViss = ref(false);
+
+const currentIcon = computed(() => defaultIcon.value ? icon1 : icon2);
+const fn = () => {
+    defaultIcon.value = !defaultIcon.value;
+    isViss.value = !isViss.value;
+    isVis.value = !isVis.value;
+    isLarge.value = !isLarge.value;
+};
+const boxStyle = computed(() => ({
+    height: isLarge.value ? "110vw" : "85vw",
+}));
 UserInfo(route.query.id).then((res) => {
     menu.value = res.data.account
     user.value = res.data.profile
@@ -123,11 +145,12 @@ span {
     text-align: center;
     display: flex;
     align-items: center;
+    margin-left: 15vw;
     justify-content: center
 }
 
 .b {
-    margin-left: 15vw;
+
     margin-top: 4vw;
 }
 

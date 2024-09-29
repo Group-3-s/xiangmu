@@ -1,6 +1,5 @@
 <template>
     <div class="h-[57vw]">
-      <div class="text-[#c0d6d6] ml-[5vw] mt-[8vw]">喜欢这个歌单的用户也听了</div>
       <BetterScroll
         :config="{ scrollX: true, scrollY: false, click: true }"
         :dep="props.data"
