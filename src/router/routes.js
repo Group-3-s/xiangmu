@@ -1,5 +1,9 @@
-<<<<<<< HEAD
 import MvRanking from "@/views/TabBar/ranking/MvRanking.vue";
+import loginPrompt from "@/views/Login/loginPrompt.vue";
+import loginPhone from "@/views/Login/loginPhone.vue";
+import loginPassword from "@/views/Login/loginPassword.vue";
+// import loginCaptcha from "@/views/Login/loginCaptcha.vue";
+import loginCode from "@/views/Login/loginCaptcha.vue";
 
 const routes = [
   {
@@ -15,17 +19,6 @@ const routes = [
     path: "/mvranking",
     component: MvRanking,
   },
-];
-
-export default routes;
-=======
-import loginPrompt from "@/views/Login/loginPrompt.vue";
-import loginPhone from "@/views/Login/loginPhone.vue";
-import loginPassword from "@/views/Login/loginPassword.vue";
-// import loginCaptcha from "@/views/Login/loginCaptcha.vue";
-import loginCode from "@/views/Login/loginCode.vue";
-
-export default [
   {
     path: "/loginprompt",
     // name: loginPrompt,
@@ -54,4 +47,5 @@ export default [
     component: loginCode,
   },
 ];
->>>>>>> feature5
+
+export default routes;
