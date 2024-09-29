@@ -11,4 +11,11 @@ export const getHomePageData = async () => {
 export const getHomePageMenu = () => request.get("/homepage/dragon/ball");
 export const loginByPhone = (data) => request.post("/login/cellphone", data);
 export const sendValidCode = (data) => request.post("/captcha/sent", data);
-export const MvRanking = (data) => request.post("/top/mv?limit=50", data);
+
+// Mv排行榜API
+export const MvRanking = (data) =>
+  request.post(`/top/mv?limit=${50}&&area=${data}`, data);
+// export const MvRankinggt = (data) => request.post("/top/mv?limit=50", data);
+// export const MvRankingom = (data) => request.post("/top/mv?limit=50", data);
+// export const MvRankinghg = (data) => request.post("/top/mv?limit=50", data);
+// export const MvRankingrb = (data) => request.post("/top/mv?limit=50", data);
