@@ -5,11 +5,11 @@
         </div>
         <div>
             <transition name="fade">
-                <div v-if="showDrawer" class="mask" @click="handleMackClik">
+                <div v-if="showDrawer" class="mask z-index=999" @click="handleMackClik">
                 </div>
             </transition>
             <transition name="slide">
-                <div v-if="showDrawer" class="drawer">
+                <div v-if="showDrawer" class="drawer z-index=1000">
 
                 </div>
             </transition>
@@ -122,5 +122,47 @@ span {
 .b {
     margin-left: 13vw;
     margin-top: 4vw;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 调整透明度实现变暗效果 */
+    z-index: 999;
+    /* 确保遮罩层在抽屉下方 */
+}
+
+.drawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    /* 根据需要调整高度 */
+    background-color: white;
+    border-radius: 30px 30px 0 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    will-change: transform;
+    /* 优化性能 */
+}
+
+/* 定义过渡的样式 */
+.slide-enter-active {
+    transition: transform 0.55s ease-out;
+}
+
+.slide-leave-active {
+    transition: transform 0.5s ease-in;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+    transform: translateX(-100%);
+    /* 抽屉初始位置在屏幕外 */
 }
 </style>

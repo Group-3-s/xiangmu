@@ -26,6 +26,32 @@ importers:
       axios-mock-adapter:
         specifier: ^2.0.0
         version: 2.0.0(axios@1.7.7)
+<<<<<<< HEAD
+      eslint-import-resolver-alias:
+        specifier: ^1.1.2
+        version: 1.1.2(eslint-plugin-import@2.30.0)
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+      eslint-import-resolver-alias:
+        specifier: ^1.1.2
+        version: 1.1.2(eslint-plugin-import@2.30.0)
+=======
+<<<<<<< HEAD
+      eslint-import-resolver-alias:
+        specifier: ^1.1.2
+        version: 1.1.2(eslint-plugin-import@2.30.0)
+=======
+
+      element-ui:
+        specifier: ^2.15.14
+        version: 2.15.14(vue@3.5.4)
+      eslint-import-resolver-alias:
+        specifier: ^1.1.2
+        version: 1.1.2(eslint-plugin-import@2.30.0(eslint@8.57.0))
+
       eslint-import-resolver-alias:
         specifier: ^1.1.2
         version: 1.1.2(eslint-plugin-import@2.30.0)
@@ -37,6 +63,17 @@ importers:
         version: 2.2.2(vue@3.5.4)
       pinia-plugin-persistedstate:
         specifier: ^4.0.2
+
+        version: 4.0.2(pinia@2.2.2)
+
+        version: 4.0.2(pinia@2.2.2(vue@3.5.4))(rollup@4.21.2)
+
+        version: 4.0.2(pinia@2.2.2)
+
+        version: 4.0.2(pinia@2.2.2)
+
+        version: 4.0.2(pinia@2.2.2(vue@3.5.4))(rollup@4.21.2)
+
         version: 4.0.2(pinia@2.2.2)
       swiper:
         specifier: ^11.1.14
@@ -68,7 +105,19 @@ importers:
         version: 8.57.0
       eslint-config-airbnb-base:
         specifier: ^15.0.0
+
         version: 15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0)
+
+        version: 15.0.0(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0)
+
+        version: 15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0)
+
+        version: 15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0)
+=
+        version: 15.0.0(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0)
+
+        version: 15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0)
+
       eslint-config-prettier:
         specifier: ^9.1.0
         version: 9.1.0(eslint@8.57.0)
@@ -86,10 +135,18 @@ importers:
         version: 3.4.10
       unplugin-auto-import:
         specifier: ^0.18.3
+
         version: 0.18.3
       unplugin-vue-components:
         specifier: ^0.27.4
         version: 0.27.4(vue@3.5.4)
+
+        version: 0.18.3(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2)
+      unplugin-vue-components:
+        specifier: ^0.27.4
+        version: 0.27.4(@babel/parser@7.25.6)(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.4)
+
+
       vite:
         specifier: ^5.4.1
         version: 5.4.3
@@ -445,46 +502,156 @@ packages:
     resolution: {integrity: sha512-ztRJJMiE8nnU1YFcdbd9BcH6bGWG1z+jP+IPW2oDUAPxPjo9dverIOyXz76m6IPA6udEL12reYeLojzW2cYL7w==}
     cpu: [arm]
     os: [linux]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    libc: [glibc]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    libc: [glibc]
+
 
   '@rollup/rollup-linux-arm-musleabihf@4.21.2':
     resolution: {integrity: sha512-flOcGHDZajGKYpLV0JNc0VFH361M7rnV1ee+NTeC/BQQ1/0pllYcFmxpagltANYt8FYf9+kL6RSk80Ziwyhr7w==}
     cpu: [arm]
     os: [linux]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    libc: [musl]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    libc: [musl]
+>
 
   '@rollup/rollup-linux-arm64-gnu@4.21.2':
     resolution: {integrity: sha512-69CF19Kp3TdMopyteO/LJbWufOzqqXzkrv4L2sP8kfMaAQ6iwky7NoXTp7bD6/irKgknDKM0P9E/1l5XxVQAhw==}
     cpu: [arm64]
     os: [linux]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    libc: [glibc]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    libc: [glibc]
+
 
   '@rollup/rollup-linux-arm64-musl@4.21.2':
     resolution: {integrity: sha512-48pD/fJkTiHAZTnZwR0VzHrao70/4MlzJrq0ZsILjLW/Ab/1XlVUStYyGt7tdyIiVSlGZbnliqmult/QGA2O2w==}
     cpu: [arm64]
     os: [linux]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    libc: [musl]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    libc: [musl]
+
 
   '@rollup/rollup-linux-powerpc64le-gnu@4.21.2':
     resolution: {integrity: sha512-cZdyuInj0ofc7mAQpKcPR2a2iu4YM4FQfuUzCVA2u4HI95lCwzjoPtdWjdpDKyHxI0UO82bLDoOaLfpZ/wviyQ==}
     cpu: [ppc64]
     os: [linux]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    libc: [glibc]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    libc: [glibc]
+
 
   '@rollup/rollup-linux-riscv64-gnu@4.21.2':
     resolution: {integrity: sha512-RL56JMT6NwQ0lXIQmMIWr1SW28z4E4pOhRRNqwWZeXpRlykRIlEpSWdsgNWJbYBEWD84eocjSGDu/XxbYeCmwg==}
     cpu: [riscv64]
     os: [linux]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    libc: [glibc]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    libc: [glibc]
+
+
 
   '@rollup/rollup-linux-s390x-gnu@4.21.2':
     resolution: {integrity: sha512-PMxkrWS9z38bCr3rWvDFVGD6sFeZJw4iQlhrup7ReGmfn7Oukrr/zweLhYX6v2/8J6Cep9IEA/SmjXjCmSbrMQ==}
     cpu: [s390x]
     os: [linux]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    libc: [glibc]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    libc: [glibc]
+
+
 
   '@rollup/rollup-linux-x64-gnu@4.21.2':
     resolution: {integrity: sha512-B90tYAUoLhU22olrafY3JQCFLnT3NglazdwkHyxNDYF/zAxJt5fJUB/yBoWFoIQ7SQj+KLe3iL4BhOMa9fzgpw==}
     cpu: [x64]
     os: [linux]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    libc: [glibc]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    libc: [glibc]
+
 
   '@rollup/rollup-linux-x64-musl@4.21.2':
     resolution: {integrity: sha512-7twFizNXudESmC9oneLGIUmoHiiLppz/Xs5uJQ4ShvE6234K0VB1/aJYU3f/4g7PhssLGKBVCC37uRkkOi8wjg==}
     cpu: [x64]
     os: [linux]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    libc: [musl]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    libc: [musl]
+
 
   '@rollup/rollup-win32-arm64-msvc@4.21.2':
     resolution: {integrity: sha512-9rRero0E7qTeYf6+rFh3AErTNU1VCQg2mn7CQcI44vNUWM9Ze7MSRS/9RFuSsox+vstRt97+x3sOhEey024FRQ==}
@@ -640,6 +807,22 @@ packages:
     resolution: {integrity: sha512-bMxMKAjg13EBSVscxTaYA4mRc5t1UAXa2kXiGTNfZ079HIWXEkKmkgFrh/nJqamaLSrXO5H4WFFkPEaLJWbs3A==}
     engines: {node: '>= 0.4'}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  async-validator@1.8.5:
+    resolution: {integrity: sha512-tXBM+1m056MAX0E8TL2iCjg8WvSyXu0Zc8LNtYqrVeyoL3+esHRZ4SieE9fKQyyU09uONjnMEjrNBMqT0mbvmA==}
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  async-validator@1.8.5:
+    resolution: {integrity: sha512-tXBM+1m056MAX0E8TL2iCjg8WvSyXu0Zc8LNtYqrVeyoL3+esHRZ4SieE9fKQyyU09uONjnMEjrNBMqT0mbvmA==}
+
+
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
@@ -666,6 +849,25 @@ packages:
   axios@1.7.7:
     resolution: {integrity: sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+  babel-helper-vue-jsx-merge-props@2.0.3:
+    resolution: {integrity: sha512-gsLiKK7Qrb7zYJNgiXKpXblxbV5ffSwR0f5whkPAaBAR4fhi6bwRZxX9wBlIc5M/v8CCkXUbXZL4N/nSE97cqg==}
+
+  babel-runtime@6.26.0:
+    resolution: {integrity: sha512-ITKNuq2wKlW1fJg9sSW52eepoYgZBggvOAHC0u/CYu/qxQ9EVzThCgR69BnSXLHjy2f7SY5zaQ4yt7H9ZVxY2g==}
+
+<<<<<<< HEAD
+=======
+>
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
@@ -773,6 +975,14 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
+
+  core-js@2.6.12:
+    resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==}
+    deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+
+<<<<<<< HEAD
+=======
+
   cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -820,6 +1030,23 @@ packages:
   deep-pick-omit@1.2.0:
     resolution: {integrity: sha512-2CGvfTM2c+IP/MhdRZMpaHhTc6zIlgz3tQXJ/VGAkc7mjMrjqSU28qiI63yEcy+fcYfd/K+NNJcGRzap4M4bqw==}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+  deepmerge@1.5.2:
+    resolution: {integrity: sha512-95k0GDqvBjZavkuvzx/YqVLv/6YYa17fz6ILMSf7neqQITCPbnfEnQvEgMPNjH4kgobe7+WIL0yJEHku+H3qtQ==}
+    engines: {node: '>=0.10.0'}
+
+<<<<<<< HEAD
+=======
+
   define-data-property@1.1.4:
     resolution: {integrity: sha512-rBMvIzlpA8v6E+SJZoo++HAYqsLrkg7MSfIinMPFhmkorw7X+dOXVJQs+QT69zGkzMyfDnIMN2Wid1+NbL3T+A==}
     engines: {node: '>= 0.4'}
@@ -862,6 +1089,23 @@ packages:
   electron-to-chromium@1.5.19:
     resolution: {integrity: sha512-kpLJJi3zxTR1U828P+LIUDZ5ohixyo68/IcYOHLqnbTPr/wdgn4i1ECvmALN9E16JPA6cvCG5UG79gVwVdEK5w==}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEA
+=======
+
+  element-ui@2.15.14:
+    resolution: {integrity: sha512-2v9fHL0ZGINotOlRIAJD5YuVB8V7WKxrE9Qy7dXhRipa035+kF7WuU/z+tEmLVPBcJ0zt8mOu1DKpWcVzBK8IA==}
+    peerDependencies:
+      vue: ^2.5.17
+
+<<<<<<< HEAD
+=======
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
 
@@ -1503,6 +1747,21 @@ packages:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  normalize-wheel@1.0.1:
+    resolution: {integrity: sha512-1OnlAPZ3zgrk8B91HyRj+eVv+kS5u+Z0SCsak6Xil/kmgEia50ga7zfkumayonZrImffAxPU/5WcyGhzetHNPA==}
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  normalize-wheel@1.0.1:
+    resolution: {integrity: sha512-1OnlAPZ3zgrk8B91HyRj+eVv+kS5u+Z0SCsak6Xil/kmgEia50ga7zfkumayonZrImffAxPU/5WcyGhzetHNPA==}
+
   npm-run-path@5.3.0:
     resolution: {integrity: sha512-ppwTtiJZq0O/ai0z7yfudtBpWIoxM8yE6nHi1X47eFR2EWORqfbu6CnPlNsjeN683eT0qG6H/Pyf9fCcvjnnnQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -1723,9 +1982,45 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  regenerator-runtime@0.11.1:
+    resolution: {integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==}
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  regenerator-runtime@0.11.1:
+    resolution: {integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==}
+
+>>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
+>>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
+=======
+>>>>>>> feature5
+>>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
+>>>>>>> 646a0fce3fef158602cac801765dcfd18ee7f0b8
   regexp.prototype.flags@1.5.2:
     resolution: {integrity: sha512-NcDiDkTLuPR+++OCKB0nWafEmhg/Da8aUPLPMQbK+bxKKCm1/S5he+AqYa4PlMCVBalb4/yxIRub6qkEx5yJbw==}
     engines: {node: '>= 0.4'}
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  resize-observer-polyfill@1.5.1:
+    resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  resize-observer-polyfill@1.5.1:
+    resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
 
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
@@ -1888,6 +2183,22 @@ packages:
   thenify@3.3.1:
     resolution: {integrity: sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+  throttle-debounce@1.1.0:
+    resolution: {integrity: sha512-XH8UiPCQcWNuk2LYePibW/4qL97+ZQ1AN3FNXwZRBNPPowo/NRU5fAlDCSNBJIYCKbioZfuYtMhG4quqoJhVzg==}
+    engines: {node: '>=4'}
+
+<<<<<<< HEAD
+=======
   to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
@@ -2405,9 +2716,26 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
+
   '@nuxt/kit@3.13.2':
+
+
+  '@nuxt/kit@3.13.2(rollup@4.21.2)':
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  '@nuxt/kit@3.13.2':
+=======
+<<<<<<< HEAD
+  '@nuxt/kit@3.13.2':
+=======
+  '@nuxt/kit@3.13.2(rollup@4.21.2)':
+
+=======
+  '@nuxt/kit@3.13.2':
+
     dependencies:
-      '@nuxt/schema': 3.13.2
+      '@nuxt/schema': 3.13.2(rollup@4.21.2)
       c12: 1.11.2
       consola: 3.2.3
       defu: 6.1.4
@@ -2425,7 +2753,7 @@ snapshots:
       semver: 7.6.3
       ufo: 1.5.4
       unctx: 2.3.1
-      unimport: 3.12.0
+      unimport: 3.12.0(rollup@4.21.2)
       untyped: 1.4.2
     transitivePeerDependencies:
       - magicast
@@ -2433,8 +2761,24 @@ snapshots:
       - supports-color
       - webpack-sources
 
+
   '@nuxt/schema@3.13.2':
-    dependencies:
+
+
+  '@nuxt/schema@3.13.2(rollup@4.21.2)':
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  '@nuxt/schema@3.13.2':
+=======
+<<<<<<< HEAD
+  '@nuxt/schema@3.13.2':
+=======
+  '@nuxt/schema@3.13.2(rollup@4.21.2)':
+
+=======
+  '@nuxt/schema@3.13.2':
+
       compatx: 0.1.8
       consola: 3.2.3
       defu: 6.1.4
@@ -2445,7 +2789,7 @@ snapshots:
       std-env: 3.7.0
       ufo: 1.5.4
       uncrypto: 0.1.3
-      unimport: 3.12.0
+      unimport: 3.12.0(rollup@4.21.2)
       untyped: 1.4.2
     transitivePeerDependencies:
       - rollup
@@ -2455,11 +2799,29 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
+<<<<<<< HEAD
+  '@rollup/pluginutils@5.1.1':
+=======
+<<<<<<< HEAD
+  '@rollup/pluginutils@5.1.1(rollup@4.21.2)':
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  '@rollup/pluginutils@5.1.1':
+=======
+<<<<<<< HEAD
+  '@rollup/pluginutils@5.1.1':
+=======
+  '@rollup/pluginutils@5.1.1(rollup@4.21.2)':
+
+=======
   '@rollup/pluginutils@5.1.1':
     dependencies:
       '@types/estree': 1.0.5
       estree-walker: 2.0.2
       picomatch: 2.3.1
+    optionalDependencies:
+      rollup: 4.21.2
 
   '@rollup/rollup-android-arm-eabi@4.21.2':
     optional: true
@@ -2676,6 +3038,22 @@ snapshots:
       is-array-buffer: 3.0.4
       is-shared-array-buffer: 1.0.3
 
+
+  asynckit@0.4.0: {}
+
+
+  asynckit@0.4.0: {}
+
+
+  asynckit@0.4.0: {}
+
+  async-validator@1.8.5:
+    dependencies:
+      babel-runtime: 6.26.0
+
+  asynckit@0.4.0: {}
+
+
   asynckit@0.4.0: {}
 
   autoprefixer@10.4.20(postcss@8.4.45):
@@ -2707,6 +3085,20 @@ snapshots:
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
+
+  balanced-match@1.0.2: {}
+
+  binary-extensions@2.3.0: {}
+
+  boolbase@1.0.0: {}
+
+
+  babel-helper-vue-jsx-merge-props@2.0.3: {}
+
+  babel-runtime@6.26.0:
+    dependencies:
+      core-js: 2.6.12
+      regenerator-runtime: 0.11.1
 
   balanced-match@1.0.2: {}
 
@@ -2822,6 +3214,19 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  core-js@2.6.12: {}
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  core-js@2.6.12: {}
+
   cross-spawn@7.0.3:
     dependencies:
       path-key: 3.1.1
@@ -2862,6 +3267,20 @@ snapshots:
 
   deep-pick-omit@1.2.0: {}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  deepmerge@1.5.2: {}
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  deepmerge@1.5.2: {}
+
+
   define-data-property@1.1.4:
     dependencies:
       es-define-property: 1.0.0
@@ -2897,6 +3316,23 @@ snapshots:
   eastasianwidth@0.2.0: {}
 
   electron-to-chromium@1.5.19: {}
+
+
+
+  emoji-regex@9.2.2: {}
+
+  entities@4.5.0: {}
+
+
+  element-ui@2.15.14(vue@3.5.4):
+    dependencies:
+      async-validator: 1.8.5
+      babel-helper-vue-jsx-merge-props: 2.0.3
+      deepmerge: 1.5.2
+      normalize-wheel: 1.0.1
+      resize-observer-polyfill: 1.5.1
+      throttle-debounce: 1.1.0
+      vue: 3.5.4
 
   emoji-regex@8.0.0: {}
 
@@ -3013,7 +3449,24 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
+<<<<<<< HEAD
   eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0):
+=======
+<<<<<<< HEAD
+  eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0):
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0):
+=======
+<<<<<<< HEAD
+  eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0):
+=======
+  eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0):
+
+=======
+  eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0):
+
     dependencies:
       confusing-browser-globals: 1.0.11
       eslint: 8.57.0
@@ -3026,7 +3479,23 @@ snapshots:
     dependencies:
       eslint: 8.57.0
 
+<<<<<<< HEAD
   eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.30.0):
+=======
+<<<<<<< HEAD
+  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.30.0(eslint@8.57.0)):
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.30.0):
+=======
+<<<<<<< HEAD
+  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.30.0):
+=======
+  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.30.0(eslint@8.57.0)):
+
+  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.30.0):
+
     dependencies:
       eslint-plugin-import: 2.30.0(eslint@8.57.0)
 
@@ -3041,6 +3510,7 @@ snapshots:
   eslint-module-utils@2.11.0(eslint-import-resolver-node@0.3.9)(eslint@8.57.0):
     dependencies:
       debug: 3.2.7
+    optionalDependencies:
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
@@ -3617,7 +4087,20 @@ snapshots:
 
   normalize-range@0.1.2: {}
 
-  npm-run-path@5.3.0:
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  normalize-wheel@1.0.1: {}
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  normalize-wheel@1.0.1: {}
+
+
     dependencies:
       path-key: 4.0.0
 
@@ -3734,12 +4217,30 @@ snapshots:
 
   pify@2.3.0: {}
 
+<<<<<<< HEAD
   pinia-plugin-persistedstate@4.0.2(pinia@2.2.2):
+=======
+<<<<<<< HEAD
+  pinia-plugin-persistedstate@4.0.2(pinia@2.2.2(vue@3.5.4))(rollup@4.21.2):
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  pinia-plugin-persistedstate@4.0.2(pinia@2.2.2):
+=======
+<<<<<<< HEAD
+  pinia-plugin-persistedstate@4.0.2(pinia@2.2.2):
+=======
+  pinia-plugin-persistedstate@4.0.2(pinia@2.2.2(vue@3.5.4))(rollup@4.21.2):
+
+=======
+  pinia-plugin-persistedstate@4.0.2(pinia@2.2.2):
+
     dependencies:
-      '@nuxt/kit': 3.13.2
+      '@nuxt/kit': 3.13.2(rollup@4.21.2)
       deep-pick-omit: 1.2.0
       defu: 6.1.4
       destr: 2.0.3
+    optionalDependencies:
       pinia: 2.2.2(vue@3.5.4)
     transitivePeerDependencies:
       - magicast
@@ -3778,8 +4279,20 @@ snapshots:
   postcss-load-config@4.0.2(postcss@8.4.45):
     dependencies:
       lilconfig: 3.1.2
-      postcss: 8.4.45
       yaml: 2.5.1
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    optionalDependencies:
+      postcss: 8.4.45
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    optionalDependencies:
+      postcss: 8.4.45
 
   postcss-nested@6.2.0(postcss@8.4.45):
     dependencies:
@@ -3820,6 +4333,20 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  regenerator-runtime@0.11.1: {}
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  regenerator-runtime@0.11.1: {}
+
+
   regexp.prototype.flags@1.5.2:
     dependencies:
       call-bind: 1.0.7
@@ -3827,7 +4354,32 @@ snapshots:
       es-errors: 1.3.0
       set-function-name: 2.0.2
 
+<<<<<<< HEAD
   resolve-from@4.0.0: {}
+
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  resolve-from@4.0.0: {}
+
+=======
+<<<<<<< HEAD
+  resolve-from@4.0.0: {}
+
+=======
+
+  resize-observer-polyfill@1.5.1: {}
+
+  resolve-from@4.0.0: {}
+
+<<<<<<< HEAD
+=======
+
+=======
+  resolve-from@4.0.0: {}
+
 
   resolve@1.22.8:
     dependencies:
@@ -4040,7 +4592,22 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
+
   to-fast-properties@2.0.0: {}
+
+
+  to-fast-properties@2.0.0: {}
+
+
+  to-fast-properties@2.0.0: {}
+
+  throttle-debounce@1.1.0: {}
+
+  to-fast-properties@2.0.0: {}
+
+
+  to-fast-properties@2.0.0: {}
+
 
   to-regex-range@5.0.1:
     dependencies:
@@ -4115,9 +4682,20 @@ snapshots:
 
   unicorn-magic@0.1.0: {}
 
+
   unimport@3.12.0:
+
+  unimport@3.12.0(rollup@4.21.2):
+  unimport@3.12.0:
+
+  unimport@3.12.0:
+
+  unimport@3.12.0(rollup@4.21.2):
+
+  unimport@3.12.0:
+
     dependencies:
-      '@rollup/pluginutils': 5.1.1
+      '@rollup/pluginutils': 5.1.1(rollup@4.21.2)
       acorn: 8.12.1
       escape-string-regexp: 5.0.0
       estree-walker: 3.0.3
@@ -4134,24 +4712,59 @@ snapshots:
       - rollup
       - webpack-sources
 
+<<<<<<< HEAD
   unplugin-auto-import@0.18.3:
+=======
+<<<<<<< HEAD
+  unplugin-auto-import@0.18.3(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2):
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  unplugin-auto-import@0.18.3:
+=======
+<<<<<<< HEAD
+  unplugin-auto-import@0.18.3:
+=======
+  unplugin-auto-import@0.18.3(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2):
+
+=======
+  unplugin-auto-import@0.18.3:
+
     dependencies:
       '@antfu/utils': 0.7.10
-      '@rollup/pluginutils': 5.1.1
+      '@rollup/pluginutils': 5.1.1(rollup@4.21.2)
       fast-glob: 3.3.2
       local-pkg: 0.5.0
       magic-string: 0.30.11
       minimatch: 9.0.5
-      unimport: 3.12.0
+      unimport: 3.12.0(rollup@4.21.2)
       unplugin: 1.14.1
+    optionalDependencies:
+      '@nuxt/kit': 3.13.2(rollup@4.21.2)
     transitivePeerDependencies:
       - rollup
       - webpack-sources
 
+<<<<<<< HEAD
   unplugin-vue-components@0.27.4(vue@3.5.4):
+=======
+<<<<<<< HEAD
+  unplugin-vue-components@0.27.4(@babel/parser@7.25.6)(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.4):
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  unplugin-vue-components@0.27.4(vue@3.5.4):
+=======
+<<<<<<< HEAD
+  unplugin-vue-components@0.27.4(vue@3.5.4):
+=======
+  unplugin-vue-components@0.27.4(@babel/parser@7.25.6)(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.4):
+
+  unplugin-vue-components@0.27.4(vue@3.5.4):
+
     dependencies:
       '@antfu/utils': 0.7.10
-      '@rollup/pluginutils': 5.1.1
+      '@rollup/pluginutils': 5.1.1(rollup@4.21.2)
       chokidar: 3.6.0
       debug: 4.3.7
       fast-glob: 3.3.2
@@ -4161,6 +4774,9 @@ snapshots:
       mlly: 1.7.1
       unplugin: 1.14.1
       vue: 3.5.4
+    optionalDependencies:
+      '@babel/parser': 7.25.6
+      '@nuxt/kit': 3.13.2(rollup@4.21.2)
     transitivePeerDependencies:
       - rollup
       - supports-color
