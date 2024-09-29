@@ -1,5 +1,6 @@
 import MvRanking from "@/views/TabBar/ranking/MvRanking.vue";
 import PlaylistSong from "@/views/PlaylistDetails/PlaylistSong.vue";
+import PlaylistColl from "@/views/PlaylistDetails/PlaylistColl.vue";
 import loginPrompt from "@/views/Login/loginPrompt.vue";
 import loginPhone from "@/views/Login/loginPhone.vue";
 import loginPassword from "@/views/Login/loginPassword.vue";
@@ -23,6 +24,14 @@ const routes = [
   {
     path: "/PlaylistSong",
     component: PlaylistSong,
+  },
+  {
+    path: "/playlistsong",
+    component: PlaylistSong,
+  },
+  {
+    path: "/playlistcoll",
+    component: PlaylistColl,
   },
   {
     path: "/loginprompt",
