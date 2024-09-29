@@ -6,9 +6,9 @@
       class="aa flex flex-grow justify-between text-center text-[#9195a0] bg-white"
     >
       <li
-        v-for="(item, index) in routerList"
-        :key="index"
-        class="w-[70px] h-[52px] hover:text-[#ff5151]"
+        v-for="item in routerList"
+        :key="item"
+        class="w-[70px] h-[52px]"
         @click="switchTab(item.path)"
       >
         <icon :icon="item.iconUrl" class="text-[22px] ml-[25px]" />
@@ -23,7 +23,6 @@ import { Icon } from "@iconify/vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-
 const routerList = [
   {
     title: "发现",
