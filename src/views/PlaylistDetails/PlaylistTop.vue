@@ -8,13 +8,21 @@
       <div
         v-for="item in playtop"
         :key="item.id"
-        class="w-[30vw] h-[49vw] ml-[3.932vw]"
+        class="w-[30vw] h-[49vw] ml-[3.932vw] relative"
       >
         <img
           class="w-[30vw] h-[30vw] rounded-[3vw] shadow-custom mt-[10px]"
           :src="item.coverImgUrl"
           alt=""
         />
+        <div class="absolute top-[3vw] right-[2vw] text-[10px] text-white flex">
+          <Icon
+            icon="ic:baseline-arrow-right"
+            width="4vw"
+            height="4vw"
+            style="color: white"
+          />{{ changeCount(item.playCount) }}
+        </div>
         <div class="mt-[2vw] line-clamp-2 hover:text-[#c8c9c9]">
           {{ item.name }}
         </div>
@@ -26,6 +34,7 @@
 import { ref, defineProps } from "vue";
 import { getPlaylisttop } from "@/api";
 import BetterScroll from "@/components/BetterScroll.vue";
+import { Icon } from "@iconify/vue";
 
 const props = defineProps({
   data: {},
@@ -35,4 +44,12 @@ getPlaylisttop().then((res) => {
   playtop.value = res.data.playlists.slice(0, 6);
   console.log(playtop.value);
 });
+const changeCount = (num) => {
+  if (num >= 100000000) {
+    return `${(num / 100000000).toFixed(2)}亿`;
+  }
+  if (num >= 10000) {
+    return `${(num / 10000).toFixed(2)}万`;
+  }
+};
 </script>

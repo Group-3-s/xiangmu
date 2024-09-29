@@ -20,6 +20,7 @@
           class="w-[14vw] h-[14vw] rounded-[7vw] mt-[3vw]"
           alt=""
         />
+
         <div class="text-[4vw] text-[#373737] leading-[20vw] ml-[5vw]">
           {{ item.nickname }}
         </div>
