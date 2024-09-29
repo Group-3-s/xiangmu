@@ -44,6 +44,7 @@ getPlaylisttop().then((res) => {
   playtop.value = res.data.playlists.slice(6, 12);
   console.log(playtop.value);
 });
+// eslint-disable-next-line consistent-return
 const changeCount = (num) => {
   if (num >= 100000000) {
     return `${(num / 100000000).toFixed(2)}亿`;

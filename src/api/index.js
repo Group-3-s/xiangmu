@@ -17,4 +17,5 @@ export const getPlaylistSub = (id) =>
   request.get("/playlist/subscribers?limit=30", { params: { id } });
 export const getPlaylisttop = () => request.get("/top/playlist");
 
-export const MvRanking = (data) => request.post("/top/mv?limit=50", data);
+export const MvRanking = (data) =>
+  request.post(`/top/mv?limit=${50}&&area=${data}`, data);
