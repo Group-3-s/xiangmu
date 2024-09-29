@@ -4,6 +4,7 @@ import loginPrompt from "@/views/login/loginPrompt.vue";
 import loginPhone from "@/views/login/loginPhone.vue";
 import loginPassword from "@/views/login/loginPassword.vue";
 import loginCode from "@/views/login/loginCaptcha.vue";
+import UserFollows from "@/views/user/UserFollows.vue";
 
 const routes = [
   {
@@ -47,8 +48,12 @@ const routes = [
     component: loginCode,
   },
   {
-    Path: "/user",
+    path: "/user",
     component: UserInfo
+  }, 
+  {
+    path:"/userfollows",
+    component:UserFollows
   }
 ];
 

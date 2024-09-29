@@ -27,8 +27,8 @@
                     {{ user.signature }}
                 </div>
                 <div class="span">
-                    <span>27 关注</span>
-                    <span>5 粉丝</span>
+                    <span >{{ user.follows }} 关注</span>
+                    <span>{{ user.followeds }} 粉丝</span>
                     <span>lv 9</span>
                 </div>
                 <div class="span1">
