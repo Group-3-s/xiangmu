@@ -27,13 +27,21 @@
       </div>
     </div>
     <div class="flex m-[3.8vw]">
-      <div>
+      <div class="relative">
         <img
           class="w-[28vw] h-[28vw] rounded-[3vw] text-white"
           :src="menu.coverImgUrl"
           @click="showOverlay"
           alt=""
         />
+        <div class="absolute top-[0vw] right-[2vw] text-[10px] text-white flex">
+          <Icon
+            icon="ic:baseline-arrow-right"
+            width="4vw"
+            height="4vw"
+            style="color: white"
+          />{{ changeCount(menu.playCount) }}
+        </div>
       </div>
       <div>
         <div class="text-[4vw] font-semibold ml-[3vw] mr-[4vw] text-white">
@@ -423,6 +431,14 @@ const showOverlay = () => {
 };
 const closeOverlay = () => {
   isOverlayVisible.value = false;
+};
+const changeCount = (num) => {
+  if (num >= 100000000) {
+    return `${(num / 100000000).toFixed(2)}亿`;
+  }
+  if (num >= 10000) {
+    return `${(num / 10000).toFixed(2)}万`;
+  }
 };
 </script>
 <style scoped>
