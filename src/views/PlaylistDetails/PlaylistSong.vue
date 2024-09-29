@@ -379,6 +379,7 @@
   <PlaylistTop />
 </template>
 <script setup>
+// eslint-disable-next-line import/no-cycle
 import { getPlaylistSong, getPlaylistSub } from "@/api";
 import { ref } from "vue";
 import { useRouter } from "vue-router";

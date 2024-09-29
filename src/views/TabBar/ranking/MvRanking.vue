@@ -21,7 +21,11 @@
 
     <!-- 页面内容 -->
     <!-- // eslint-disable-next-line vue/require-v-for-key -->
-    <div class="overflow-auto px-[4vw] mt-[3vw]" v-for="(item, number) in mv" :key="item.id">
+    <div
+      class="overflow-auto px-[4vw] mt-[3vw]"
+      v-for="(item, number) in mv"
+      :key="item.id"
+    >
       <!-- 根据当前类别显示内容 -->
       <div v-if="currentCategory === '内地'">
         <div class="w-[92vw]">
@@ -34,7 +38,10 @@
           </div>
           <div class="h-[15vw] flex items-center flex-wrap">
             <div class="flex h-[5vw] w-[100vw]">
-              <span class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]">{{ number + 1 }}</span>
+              <span
+                class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]"
+                >{{ number + 1 }}</span
+              >
 
               <span
                 class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]"
@@ -74,19 +81,20 @@
             </div>
           </div>
         </div> -->
-        </div>
+      </div>
       <div v-if="currentCategory === '欧美'">欧美内容</div>
       <div v-if="currentCategory === '韩国'">韩国内容</div>
       <div v-if="currentCategory === '日本'">日本内容</div>
     </div>
   </div>
+  <TabBar></TabBar>
 </template>
 
 <script setup>
 import { ref } from "vue";
 // eslint-disable-next-line import/no-cycle
 import { MvRanking } from "@/api";
-
+import TabBar from "@/components/TabBar.vue";
 
 const mv = ref();
 
