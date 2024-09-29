@@ -130,14 +130,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
   allowScroll();
 });
-// 提示框
-showDialog({
-  message:
-    " 服务条款和隐私政策提示 欢迎使用网易云音乐! 在您使用网易云音乐前，请您认真阅读并了解《服务条款》 《隐私政策》。  如您未满14周岁,您还需通知您的监护人共同阅读《儿童隐私政策》， 点击“同 意”即表示您和您的监护人已阅读并同意全部条款。",
-  theme: "round-button",
-}).then(() => {
-  // on close
-});
+
 // 路由
 </script>
 <style scoped>
