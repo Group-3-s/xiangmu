@@ -1,6 +1,7 @@
-/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable no-unused-vars */
 import to from "await-to-js";
-// eslint-disable-next-line import/no-cycle
+// eslint-disable-next-line import/no-cycle, import/no-named-as-default
 import request from "./request";
 
 export const getHomePageData = async () => {
@@ -17,4 +18,10 @@ export const getPlaylistSub = (id) =>
 export const getPlaylisttop = () => request.get("/top/playlist");
 
 export const MvRanking = (data) =>
-  request.post(`/top/mv?limit=${50}&&area=${data}`, data);
+  request.post(`/top/mv?limit=${50}&&area=${data}`, data); 
+// 用户列表
+export const UserInfo = (id) =>
+  request.get(`/user/detail?uid=${"3277116167"}`);
+// 用户关注
+export const UserInfo1 = (id) =>
+  request.get(`/user/follows?uid=${"3277116167"}`);

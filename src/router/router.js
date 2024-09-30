@@ -1,11 +1,12 @@
+import UserInfo from "@/views/user/UserInfo.vue";
 import MvRanking from "@/views/TabBar/ranking/MvRanking.vue";
-import PlaylistSong from "@/views/PlaylistDetails/PlaylistSong.vue";
-import PlaylistColl from "@/views/PlaylistDetails/PlaylistColl.vue";
 import loginPrompt from "@/views/Login/loginPrompt.vue";
 import loginPhone from "@/views/Login/loginPhone.vue";
 import loginPassword from "@/views/Login/loginPassword.vue";
-// import loginCaptcha from "@/views/Login/loginCaptcha.vue";
 import loginCode from "@/views/Login/loginCode.vue";
+import UserFollows from "@/views/user/UserFollows.vue";
+import PlaylistSong from "@/views/PlaylistDetails/PlaylistSong.vue";
+import PlaylistColl from "@/views/PlaylistDetails/PlaylistColl.vue";
 
 const routes = [
   {
@@ -54,6 +55,14 @@ const routes = [
     path: "/logincode",
     component: loginCode,
   },
+  {
+    path: "/user",
+    component: UserInfo
+  },
+  {
+    path: "/userfollows",
+    component: UserFollows
+  }
 ];
 
 export default routes;
