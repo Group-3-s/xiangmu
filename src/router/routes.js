@@ -42,6 +42,16 @@ const routes = [
     name: "logincode",
     component: () => import("@/views/Login/loginCode.vue"),
   },
+  {
+    path: "/palyer",
+    name: "palyer",
+    component: () => import("@/views/player/player.vue"),
+  },
+  {
+    path: "/playerfab",
+    name: "playerfab",
+    component: () => import("@/views/player/playerfab.vue"),
+  },
 ];
 
 export default routes;
