@@ -112,6 +112,7 @@
         <span class="text-white mt-[2vw] ml-[1vw]">{{ menu.shareCount }}</span>
       </div>
       <div
+        @click="comments"
         class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
       >
         <Icon

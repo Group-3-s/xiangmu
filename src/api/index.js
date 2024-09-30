@@ -10,18 +10,26 @@ export const getHomePageData = async () => {
   return res.data.data.blocks;
 };
 export const getHomePageMenu = () => request.get("/homepage/dragon/ball");
+// 手机号登录
 export const loginByPhone = (data) => request.post("/login/cellphone", data);
+// 验证码登录
 export const sendValidCode = (data) => request.post("/captcha/sent", data);
+// 歌单详情
 export const getPlaylistSong = (data) => request.post("/playlist/detail", data);
+
 export const getPlaylistSub = (id) =>
   request.get("/playlist/subscribers?limit=30", { params: { id } });
 export const getPlaylisttop = () => request.get("/top/playlist");
 
+// MV排行榜
 export const MvRanking = (data) =>
-  request.post(`/top/mv?limit=${50}&&area=${data}`, data); 
+  request.post(`/top/mv?limit=${50}&&area=${data}`, data);
 // 用户列表
-export const UserInfo = (id) =>
-  request.get(`/user/detail?uid=${"3277116167"}`);
+export const UserInfo = (id) => request.get(`/user/detail?uid=${"3277116167"}`);
 // 用户关注
 export const UserInfo1 = (id) =>
   request.get(`/user/follows?uid=${"3277116167"}`);
+
+// 歌单评论
+export const getPlaylistComment = (id) =>
+  request.get("/comment/playlist?id=705123491", { params: id });

@@ -57,12 +57,16 @@ const routes = [
   },
   {
     path: "/user",
-    component: UserInfo
+    component: UserInfo,
   },
   {
     path: "/userfollows",
-    component: UserFollows
-  }
+    component: UserFollows,
+  },
+  {
+    path: "/playlistcomment",
+    component: () => import("@/views/PlaylistDetails/PlaylistComment.vue"),
+  },
 ];
 
 export default routes;
