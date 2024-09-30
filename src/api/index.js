@@ -11,10 +11,13 @@ export const getHomePageData = async () => {
 export const getHomePageMenu = () => request.get("/homepage/dragon/ball");
 export const loginByPhone = (data) => request.post("/login/cellphone", data);
 export const sendValidCode = (data) => request.post("/captcha/sent", data);
+// 推荐歌单界面
 export const getPlaylistSong = (id) =>
   request.get("/playlist/detail", { params: { id } });
+// 推荐歌单界面收藏（收藏者api）
 export const getPlaylistSub = (id) =>
-  request.get("/playlist/subscribers?limit=30", { params: { id } });
+  request.get("/playlist/subscribers", { params: { id } });
+// 推荐歌单界面最下边（最后你可能喜欢）
 export const getPlaylisttop = () => request.get("/top/playlist");
 
 export const MvRanking = (data) =>
