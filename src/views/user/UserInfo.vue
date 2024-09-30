@@ -1,5 +1,5 @@
 <template>
-    <div class="" :style="boxStyle">
+    <div class=" " :style="boxStyle">
         <div>
             <Icon icon="oui:word-wrap" @click="showDrawer = !showDrawer" />
         </div>
@@ -10,7 +10,64 @@
             </transition>
             <transition name="slide">
                 <div v-if="showDrawer" class="drawer z-index=1000">
-
+                    <div class="neck">
+                        <div @click="touser" class="neck1">
+                            <span >{{ user.nickname }}</span>
+                            <span ><Icon icon="bytesize:chevron-right" /></span>
+                        </div>
+                        <span class="neck2"><Icon icon="teenyicons:scan-outline" /></span>
+                    </div>
+                    <div class=" w-[70vw] h-[50vw] bg-[#f5f4f4] lv">
+                        <ul>
+                            <li></li>
+                            <li>我的消息</li>
+                            <li class="lvicon"><Icon icon="bytesize:chevron-right" /></li>
+                        </ul>
+                        <ul>
+                            <li></li>
+                            <li>云贝中心</li>
+                            <li class="lvicon"><Icon icon="bytesize:chevron-right" /></li>
+                        </ul>
+                        <ul>
+                            <li></li>
+                            <li>创作者中心</li>
+                            <li class="lvicon1"><Icon icon="bytesize:chevron-right" /></li>
+                        </ul>
+                    </div>
+                    <div class=" w-[70vw] h-[50vw] bg-[#f5f4f4] lv">
+                        <ul>
+                            <li></li>
+                            <li>我的消息</li>
+                            <li class="lvicon"><Icon icon="bytesize:chevron-right" /></li>
+                        </ul>
+                        <ul>
+                            <li></li>
+                            <li>云贝中心</li>
+                            <li class="lvicon"><Icon icon="bytesize:chevron-right" /></li>
+                        </ul>
+                        <ul>
+                            <li></li>
+                            <li>创作者中心</li>
+                            <li class="lvicon1"><Icon icon="bytesize:chevron-right" /></li>
+                        </ul>
+                    </div>
+                    <div class=" w-[70vw] h-[50vw] bg-[#f5f4f4] lv">
+                        <ul>
+                            <li></li>
+                            <li>我的消息</li>
+                            <li class="lvicon"><Icon icon="bytesize:chevron-right" /></li>
+                        </ul>
+                        <ul>
+                            <li></li>
+                            <li>云贝中心</li>
+                            <li class="lvicon"><Icon icon="bytesize:chevron-right" /></li>
+                        </ul>
+                        <ul>
+                            <li></li>
+                            <li>创作者中心</li>
+                            <li class="lvicon1"><Icon icon="bytesize:chevron-right" /></li>
+                        </ul>
+                    </div>
                 </div>
             </transition>
         </div>
@@ -18,13 +75,10 @@
             <div class=" h-[70vw] w-[100vw] absolute z-index=2">
                 <img :src="user.backgroundUrl" alt="">
             </div>
-            <div class="h-[100vw] w-[80vw] bg-[#f5f4f4]  mt-[97vw] ml-[10vw] rounded-[3vw] absolute z-index=3 ">
+            <div class="h-[100vw] w-[80vw] mt-[97vw] ml-[10vw] rounded-[3vw] absolute z-index=3  bg-[#f5f4f4]">
                 <img :src="user.avatarUrl" alt="" class="h-[13vw] w-[13vw] ml-[33vw] mt-[-6vw] rounded-[6vw]">
-                <div class="text-[4vw] font-semibold ml-[22vw] mr-[4vw] text-black mt-[4vw]">
+                <div class="text-[4vw] font-semibold ml-[31vw] mr-[4vw] text-black mt-[4vw]">
                     {{ user.nickname }}
-                </div>
-                <div class="signature font-semibold mr-[4vw]">
-                    {{ user.signature }}
                 </div>
                 <div class="span">
                     <router-link :to="{ path: '/userfollows' }">
@@ -43,16 +97,27 @@
                     <div class="bb">
                         编辑资料
                     </div>
-                    <div class="w-[10vw] h-[10vw] bg-gray-200 rounded-[5.5vw] absolute right-[23vw] top-[40vw]">
+                    <div class="w-[10vw] h-[10vw] bg-gray-200 rounded-[5.5vw] absolute right-[15vw] top-[34vw]">
                         <Icon @click="fn" :icon="currentIcon" class="w-[10vw] h-[10vw]" style="color: black" />
                     </div>
                     <div v-if="isViss">
-                       <UserArtist></UserArtist>
+                        <UserArtist></UserArtist>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- <div class=" absolute bottom-[0] w-[100%] wl-[3vw] mt-[3vw]  h-[100vw]  ">
+        <span>
+            主页
+        </span>
+        <span>
+            动态
+        </span>
+        <span>
+            播客
+        </span>
+    </div> -->
     <Tabbar></Tabbar>
 </template>
 <script setup>
@@ -69,13 +134,14 @@
 
 // eslint-disable-next-line import/no-cycle
 import { UserInfo } from "@/api";
-import { useRoute } from "vue-router";
+import { useRoute,useRouter } from "vue-router";
 import { ref, computed } from "vue"
 import { Icon } from "@iconify/vue";
 import Tabbar from "@/components/Tabbar.vue";
 import UserArtist from "./UserArtist.vue";
 
 const route = useRoute();
+const router =useRouter()
 const showDrawer = ref(false);
 const handleMackClik = () => {
     showDrawer.value = false
@@ -100,6 +166,10 @@ const fn = () => {
 const boxStyle = computed(() => ({
     height: isLarge.value ? "110vw" : "85vw",
 }));
+
+const touser = ()=>{
+router.push({name:"user"})
+}
 UserInfo(route.query.id).then((res) => {
     menu.value = res.data.account
     user.value = res.data.profile
@@ -109,6 +179,44 @@ UserInfo(route.query.id).then((res) => {
 
 </script>
 <style scoped>
+.neck{
+    display: flex;
+    margin-top: 4vw;
+    margin-left: 6vw;
+}
+.neck1{
+    display: flex;
+    margin-top: 4vw;
+    margin-left: 6vw;
+}
+.neck1 span:nth-child(2){
+    margin-top: 1vw;
+    margin-left: 0vw;
+}
+.neck2{
+    margin-left: 36vw;
+    margin-top: 4vw;
+}
+.lv{
+    border-radius: 5vw;
+    margin-left: 4vw;
+    margin-top: 10vw;
+}
+ul{
+    display: flex;
+}
+ul li{
+    margin-left: 8vw;
+    margin-top: 8vw;
+}
+.lvicon{
+    margin-left: 28vw;
+    margin-top: 10vw;
+}
+.lvicon1{
+    margin-left: 23vw;
+    margin-top: 10vw;
+}
 .signature {
     width: 270px;
     white-space: nowrap;
@@ -145,7 +253,7 @@ span {
     text-align: center;
     display: flex;
     align-items: center;
-    margin-left: 15vw;
+    margin-left: 25vw;
     justify-content: center
 }
 
@@ -174,7 +282,7 @@ span {
     height: 100%;
     /* 根据需要调整高度 */
     background-color: white;
-    border-radius: 30px 30px 0 0;
+    border-radius: 0px 30px 0 0;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     will-change: transform;

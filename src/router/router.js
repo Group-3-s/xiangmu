@@ -9,10 +9,10 @@ import PlaylistSong from "@/views/PlaylistDetails/PlaylistSong.vue";
 import PlaylistColl from "@/views/PlaylistDetails/PlaylistColl.vue";
 
 const routes = [
-  // {
-  //   path: "/",
-  //   redirect: "/home",
-  // },
+  {
+    path: "/",
+    redirect: "/home",
+  },
   {
     path: "/home",
     // 按需引用 首页
