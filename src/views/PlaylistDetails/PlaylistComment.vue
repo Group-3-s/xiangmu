@@ -13,12 +13,12 @@
 </template>
 
 <script setup>
-import { getPlaylistComment, getPlaylistSong } from "@/api";
+import { getPlaylistComment } from "@/api";
 import { ref } from "vue";
 import { Icon } from "@iconify/vue";
-import { useRoute } from "vue-router";
+// import { useRoute } from "vue-router";
 const plcom = ref({});
-const route = useRoute();
+// const route = useRoute();
 // const total = ref();
 getPlaylistComment()
   .then((res) => {
@@ -31,12 +31,12 @@ getPlaylistComment()
   });
 console.log(plcom);
 
-getPlaylistSong(route.query.id).then((res) => {
-  console.log(res);
-}).catch((error)=>{
-    console.log(error);
+// getPlaylistSong(route.query.id).then((res) => {
+//   console.log(res);
+// }).catch((error)=>{
+//     console.log(error);
     
-});
-console.log(route.query.id);
+// });
+// console.log(route.query.id);
 
 </script>
