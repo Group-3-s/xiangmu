@@ -1,5 +1,12 @@
 const routes = [
+<<<<<<< HEAD
   { path: "/", redirect: "/home" },
+=======
+  {
+    path: "/",
+    redirect: "/home",
+  },
+>>>>>>> 458080172097db092b647f1fabc1a73d875d7c7f
   {
     path: "/home",
     // 按需引用 首页
