@@ -32,10 +32,6 @@ const routes = [
     path: "/loginpsd",
     component: loginPassword,
   },
-  // {path :"/logincaptcha",
-  //   component:loginCaptcha
-
-  // }
   {
     path: "/logincode",
     component: loginCode,

@@ -9,8 +9,19 @@ export const getHomePageData = async () => {
   return res.data.data.blocks;
 };
 export const getHomePageMenu = () => request.get("/homepage/dragon/ball");
+// 登录
 export const loginByPhone = (data) => request.post("/login/cellphone", data);
-export const sendValidCode = (data) => request.post("/captcha/sent", data);
+// 接收验证码api
+export const sendValidCode = (data) =>
+  request.post("/captcha/sent", data);
+// 二维码
+export const sendCodekey = (data) =>
+  request.post(`/login/qr/key?timestamp=${Date.now()}`, data);
+export const sendCodecreate = (data) =>
+  request.post(`/login/qr/create?qrimg=true&timestamp=${Date.now()}`, data);
+export const sendCodecheck = (data) =>
+  request.post(`/login/qr/check?timestamp=${Date.now()}`, data);
+
 export const getPlaylistSong = () =>
   request.get("/playlist/detail?id=8725882112");
 export const getPlaylistSub = () =>

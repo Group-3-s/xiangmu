@@ -5,33 +5,88 @@
       <goBack></goBack>
       <h3 class="mt-[-8vw] ml-[14vw] text-xl">手机登录</h3>
     </div>
+    <br />
     <!-- 提示 -->
-
     <!-- psd-->
     <Myinput
       placeholder="请输入密码"
+      type="password"
       :value="userInfo.password"
       @update:value="(e) => (userInfo.password = e)"
       class="px-[10px] mt-[10px]"
+    /><br />
+    <Myinput
+      placeholder="请输入验证码"
+      :value="userInfo.captcha"
+      @update:value="(e) => (userInfo.captcha = e)"
+      class="ml-[3vw]"
     />
+    <van-button
+      @click="sendCode"
+      :loading="loading"
+      type="success"
+      loading-text="发送中"
+      >发送验证码</van-button
+    >
     <van-button
       round
       color="#fff9f7"
       type="primary"
       plain
+      @click="userStore.userLogin(userInfo)"
       class="w-[70vw] h-[12vw] btn"
-      >下一步</van-button
+      >登录</van-button
     >
   </div>
 </template>
 <script setup>
 import goBack from "@/components/goBack.vue";
 import Myinput from "@/components/Myinput.vue";
-import { ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { sendValidCode } from "@/api";
+import { useRequest } from "vue-request";
+import { useUserStore } from "@/store";
+
+import { ref, watch, watchEffect } from "vue";
+const route = useRoute();
+const router = useRouter();
 const userInfo = ref({
-  //   phone: "",
+  phone: "",
   password: "",
-  //   captcha: "",
+  captcha: "",
+});
+// const keyword = route.query.keyword;
+// console.log(keyword);
+// const sendCode = () => {
+//   sendValidCode({ phone: route.query.keyword })
+//     .then((res) => {
+//       console.log(res);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
+// 发送验证码
+const {
+  run: sendCode,
+  data: result,
+  loading,
+} = useRequest(() => {
+  sendValidCode({ phone: route.query.keyword }),
+    {
+      manual: true, // 手动发送请求
+    };
+});
+
+watch(result, () => {
+  if (result.value.data.code !== 200) {
+    showToast(result.value.data.message);
+  }
+});
+// 登录
+const userStore = useUserStore();
+watchEffect(() => {
+  console.log(userStore);
 });
 </script>
 <style scoped>

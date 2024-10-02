@@ -14,7 +14,8 @@ export const useUserStore = defineStore("user", {
   },
   getters: {
     cookie(state) {
-      return state.userInfo?.cookie;
+      const cookie = state.userInfo?.cookie;
+      return cookie;
     },
   },
   actions: {
@@ -22,7 +23,7 @@ export const useUserStore = defineStore("user", {
       const [err, res] = await to(loginByPhone(data));
       if (res) {
         this.userInfo = res.data;
-        // router.replace("/");
+        router.replace("/home");
       }
     },
   },
