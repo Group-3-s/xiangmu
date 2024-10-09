@@ -6,22 +6,19 @@
     :key="item.blockCode"
     class="m-[3vw]"
   />
-  <!-- <Menu :menu="menu" /> -->
+  <TabBar></TabBar>
 </template>
 <script setup>
 import { ref } from "vue";
 import { getHomePageData } from "@/api";
 import BlockType from "@/views/children/BlockType.vue";
-// import Menu from "./children/Menu.vue";
+import TabBar from "@/components/Tabbar.vue";
 
-// const menu = ref([]);
 const pageData = ref([]);
 getHomePageData().then((res) => {
   console.log(res);
   pageData.value = res;
 });
-
-// setup onBeforeMount  onMounted...
 </script>
 
 <style scoped>
