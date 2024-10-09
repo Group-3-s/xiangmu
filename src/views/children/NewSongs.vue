@@ -71,6 +71,7 @@
 <script setup>
 import { defineProps, ref } from "vue";
 import Wrapper from "@/components/Wrapper.vue";
+import { Icon } from "@iconify/vue";
 
 // import BetterScroll from "@/components/BetterScroll.vue";
 
