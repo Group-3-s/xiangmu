@@ -15,7 +15,16 @@ export const getPlaylistSong = (id) =>
   request.get("/playlist/detail", { params: { id } });
 export const getPlaylistSub = (id) =>
   request.get("/playlist/subscribers?limit=30", { params: { id } });
+//
 export const getPlaylisttop = () => request.get("/top/playlist");
-
+// 获取MV排行榜
 export const MvRanking = (data) =>
   request.post(`/top/mv?limit=${50}&&area=${data}`, data);
+// 歌曲播放url
+export const Song = (data) => request.get(`/song/url?id=${data}`, data);
+// 判断歌曲是否能够播放
+export const SongPermissions = (data) =>
+  request.get(`/check/music?id=${data}`, data);
+// 歌曲详细
+export const SongDelailed = (data) =>
+  request.get(`/song/detail?ids=${data}`, data);

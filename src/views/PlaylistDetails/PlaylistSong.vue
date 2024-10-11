@@ -178,6 +178,7 @@
           v-for="(item, index) in menu.tracks"
           :key="index"
           class="flex justify-between"
+          @click="GoPlayer(item.id)"
         >
           <div class="flex h-[15vw]">
             <div
@@ -413,6 +414,7 @@
     </div>
   </div>
   <PlaylistTop />
+  <!-- <player></player> -->
 </template>
 <script setup>
 // eslint-disable-next-line import/no-cycle
@@ -422,11 +424,17 @@ import { useRouter, useRoute } from "vue-router";
 import { Icon } from "@iconify/vue";
 import PlaylistTop from "./PlaylistTop.vue";
 import PlaylistTopsong from "./PlaylistTopsong.vue";
+// import player from "../player/player.vue";
 
 const route = useRoute();
 const router = useRouter();
 const BackHome = () => {
   router.back();
+};
+
+const GoPlayer = (id) => {
+  const query = { id };
+  router.push({ name: "playerfab", query });
 };
 const menu = ref([]);
 const collection = ref([]);

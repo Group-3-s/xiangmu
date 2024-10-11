@@ -26,36 +26,12 @@ importers:
       axios-mock-adapter:
         specifier: ^2.0.0
         version: 2.0.0(axios@1.7.7)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-      eslint-import-resolver-alias:
-        specifier: ^1.1.2
-        version: 1.1.2(eslint-plugin-import@2.30.0)
-=======
-<<<<<<< HEAD
-      eslint-import-resolver-alias:
-        specifier: ^1.1.2
-        version: 1.1.2(eslint-plugin-import@2.30.0)
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
       element-ui:
         specifier: ^2.15.14
         version: 2.15.14(vue@3.5.4)
       eslint-import-resolver-alias:
         specifier: ^1.1.2
         version: 1.1.2(eslint-plugin-import@2.30.0(eslint@8.57.0))
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-      eslint-import-resolver-alias:
-        specifier: ^1.1.2
-        version: 1.1.2(eslint-plugin-import@2.30.0)
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
       localforage:
         specifier: ^1.10.0
         version: 1.10.0
@@ -64,23 +40,7 @@ importers:
         version: 2.2.2(vue@3.5.4)
       pinia-plugin-persistedstate:
         specifier: ^4.0.2
-<<<<<<< HEAD
         version: 4.0.2(pinia@2.2.2(vue@3.5.4))(rollup@4.21.2)
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        version: 4.0.2(pinia@2.2.2)
-=======
-<<<<<<< HEAD
-        version: 4.0.2(pinia@2.2.2)
-=======
-        version: 4.0.2(pinia@2.2.2(vue@3.5.4))(rollup@4.21.2)
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-        version: 4.0.2(pinia@2.2.2)
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
       swiper:
         specifier: ^11.1.14
         version: 11.1.14
@@ -90,6 +50,9 @@ importers:
       vue:
         specifier: ^3.4.37
         version: 3.5.4
+      vue-audio-better:
+        specifier: ^3.0.1
+        version: 3.0.1
       vue-request:
         specifier: ^2.0.4
         version: 2.0.4(vue@3.5.4)
@@ -111,23 +74,7 @@ importers:
         version: 8.57.0
       eslint-config-airbnb-base:
         specifier: ^15.0.0
-<<<<<<< HEAD
         version: 15.0.0(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0)
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        version: 15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0)
-=======
-<<<<<<< HEAD
-        version: 15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0)
-=======
-        version: 15.0.0(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0)
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-        version: 15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0)
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
       eslint-config-prettier:
         specifier: ^9.1.0
         version: 9.1.0(eslint@8.57.0)
@@ -145,35 +92,10 @@ importers:
         version: 3.4.10
       unplugin-auto-import:
         specifier: ^0.18.3
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
-        version: 0.18.3
-      unplugin-vue-components:
-        specifier: ^0.27.4
-        version: 0.27.4(vue@3.5.4)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
         version: 0.18.3(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2)
       unplugin-vue-components:
         specifier: ^0.27.4
         version: 0.27.4(@babel/parser@7.25.6)(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.4)
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
       vite:
         specifier: ^5.4.1
         version: 5.4.3
@@ -529,172 +451,55 @@ packages:
     resolution: {integrity: sha512-ztRJJMiE8nnU1YFcdbd9BcH6bGWG1z+jP+IPW2oDUAPxPjo9dverIOyXz76m6IPA6udEL12reYeLojzW2cYL7w==}
     cpu: [arm]
     os: [linux]
-<<<<<<< HEAD
     libc: [glibc]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    libc: [glibc]
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
 
   '@rollup/rollup-linux-arm-musleabihf@4.21.2':
     resolution: {integrity: sha512-flOcGHDZajGKYpLV0JNc0VFH361M7rnV1ee+NTeC/BQQ1/0pllYcFmxpagltANYt8FYf9+kL6RSk80Ziwyhr7w==}
     cpu: [arm]
     os: [linux]
-<<<<<<< HEAD
     libc: [musl]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    libc: [musl]
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
 
   '@rollup/rollup-linux-arm64-gnu@4.21.2':
     resolution: {integrity: sha512-69CF19Kp3TdMopyteO/LJbWufOzqqXzkrv4L2sP8kfMaAQ6iwky7NoXTp7bD6/irKgknDKM0P9E/1l5XxVQAhw==}
     cpu: [arm64]
     os: [linux]
-<<<<<<< HEAD
     libc: [glibc]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    libc: [glibc]
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
 
   '@rollup/rollup-linux-arm64-musl@4.21.2':
     resolution: {integrity: sha512-48pD/fJkTiHAZTnZwR0VzHrao70/4MlzJrq0ZsILjLW/Ab/1XlVUStYyGt7tdyIiVSlGZbnliqmult/QGA2O2w==}
     cpu: [arm64]
     os: [linux]
-<<<<<<< HEAD
     libc: [musl]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    libc: [musl]
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
 
   '@rollup/rollup-linux-powerpc64le-gnu@4.21.2':
     resolution: {integrity: sha512-cZdyuInj0ofc7mAQpKcPR2a2iu4YM4FQfuUzCVA2u4HI95lCwzjoPtdWjdpDKyHxI0UO82bLDoOaLfpZ/wviyQ==}
     cpu: [ppc64]
     os: [linux]
-<<<<<<< HEAD
     libc: [glibc]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    libc: [glibc]
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
 
   '@rollup/rollup-linux-riscv64-gnu@4.21.2':
     resolution: {integrity: sha512-RL56JMT6NwQ0lXIQmMIWr1SW28z4E4pOhRRNqwWZeXpRlykRIlEpSWdsgNWJbYBEWD84eocjSGDu/XxbYeCmwg==}
     cpu: [riscv64]
     os: [linux]
-<<<<<<< HEAD
     libc: [glibc]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    libc: [glibc]
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
 
   '@rollup/rollup-linux-s390x-gnu@4.21.2':
     resolution: {integrity: sha512-PMxkrWS9z38bCr3rWvDFVGD6sFeZJw4iQlhrup7ReGmfn7Oukrr/zweLhYX6v2/8J6Cep9IEA/SmjXjCmSbrMQ==}
     cpu: [s390x]
     os: [linux]
-<<<<<<< HEAD
     libc: [glibc]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    libc: [glibc]
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
 
   '@rollup/rollup-linux-x64-gnu@4.21.2':
     resolution: {integrity: sha512-B90tYAUoLhU22olrafY3JQCFLnT3NglazdwkHyxNDYF/zAxJt5fJUB/yBoWFoIQ7SQj+KLe3iL4BhOMa9fzgpw==}
     cpu: [x64]
     os: [linux]
-<<<<<<< HEAD
     libc: [glibc]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    libc: [glibc]
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
 
   '@rollup/rollup-linux-x64-musl@4.21.2':
     resolution: {integrity: sha512-7twFizNXudESmC9oneLGIUmoHiiLppz/Xs5uJQ4ShvE6234K0VB1/aJYU3f/4g7PhssLGKBVCC37uRkkOi8wjg==}
     cpu: [x64]
     os: [linux]
-<<<<<<< HEAD
     libc: [musl]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    libc: [musl]
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
 
   '@rollup/rollup-win32-arm64-msvc@4.21.2':
     resolution: {integrity: sha512-9rRero0E7qTeYf6+rFh3AErTNU1VCQg2mn7CQcI44vNUWM9Ze7MSRS/9RFuSsox+vstRt97+x3sOhEey024FRQ==}
@@ -750,6 +555,9 @@ packages:
 
   '@vue/compiler-dom@3.5.4':
     resolution: {integrity: sha512-yP9RRs4BDLOLfldn6ah+AGCNovGjMbL9uHvhDHf5wan4dAHLnFGOkqtfE7PPe4HTXIqE7l/NILdYw53bo1C8jw==}
+
+  '@vue/compiler-sfc@2.7.16':
+    resolution: {integrity: sha512-KWhJ9k5nXuNtygPU7+t1rX6baZeqOYLEforUPjgNDBnLicfHCoi48H87Q8XyLZOrNNsmhuwKqtpDQWjEFe6Ekg==}
 
   '@vue/compiler-sfc@3.5.4':
     resolution: {integrity: sha512-P+yiPhL+NYH7m0ZgCq7AQR2q7OIE+mpAEgtkqEeH9oHSdIRvUO+4X6MPvblJIWcoe4YC5a2Gdf/RsoyP8FFiPQ==}
@@ -850,24 +658,9 @@ packages:
     resolution: {integrity: sha512-bMxMKAjg13EBSVscxTaYA4mRc5t1UAXa2kXiGTNfZ079HIWXEkKmkgFrh/nJqamaLSrXO5H4WFFkPEaLJWbs3A==}
     engines: {node: '>= 0.4'}
 
-<<<<<<< HEAD
   async-validator@1.8.5:
     resolution: {integrity: sha512-tXBM+1m056MAX0E8TL2iCjg8WvSyXu0Zc8LNtYqrVeyoL3+esHRZ4SieE9fKQyyU09uONjnMEjrNBMqT0mbvmA==}
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-  async-validator@1.8.5:
-    resolution: {integrity: sha512-tXBM+1m056MAX0E8TL2iCjg8WvSyXu0Zc8LNtYqrVeyoL3+esHRZ4SieE9fKQyyU09uONjnMEjrNBMqT0mbvmA==}
-
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
@@ -894,27 +687,12 @@ packages:
   axios@1.7.7:
     resolution: {integrity: sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   babel-helper-vue-jsx-merge-props@2.0.3:
     resolution: {integrity: sha512-gsLiKK7Qrb7zYJNgiXKpXblxbV5ffSwR0f5whkPAaBAR4fhi6bwRZxX9wBlIc5M/v8CCkXUbXZL4N/nSE97cqg==}
 
   babel-runtime@6.26.0:
     resolution: {integrity: sha512-ITKNuq2wKlW1fJg9sSW52eepoYgZBggvOAHC0u/CYu/qxQ9EVzThCgR69BnSXLHjy2f7SY5zaQ4yt7H9ZVxY2g==}
 
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
@@ -1022,25 +800,10 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   core-js@2.6.12:
     resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==}
     deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
 
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -1088,25 +851,10 @@ packages:
   deep-pick-omit@1.2.0:
     resolution: {integrity: sha512-2CGvfTM2c+IP/MhdRZMpaHhTc6zIlgz3tQXJ/VGAkc7mjMrjqSU28qiI63yEcy+fcYfd/K+NNJcGRzap4M4bqw==}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   deepmerge@1.5.2:
     resolution: {integrity: sha512-95k0GDqvBjZavkuvzx/YqVLv/6YYa17fz6ILMSf7neqQITCPbnfEnQvEgMPNjH4kgobe7+WIL0yJEHku+H3qtQ==}
     engines: {node: '>=0.10.0'}
 
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   define-data-property@1.1.4:
     resolution: {integrity: sha512-rBMvIzlpA8v6E+SJZoo++HAYqsLrkg7MSfIinMPFhmkorw7X+dOXVJQs+QT69zGkzMyfDnIMN2Wid1+NbL3T+A==}
     engines: {node: '>= 0.4'}
@@ -1149,26 +897,11 @@ packages:
   electron-to-chromium@1.5.19:
     resolution: {integrity: sha512-kpLJJi3zxTR1U828P+LIUDZ5ohixyo68/IcYOHLqnbTPr/wdgn4i1ECvmALN9E16JPA6cvCG5UG79gVwVdEK5w==}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   element-ui@2.15.14:
     resolution: {integrity: sha512-2v9fHL0ZGINotOlRIAJD5YuVB8V7WKxrE9Qy7dXhRipa035+kF7WuU/z+tEmLVPBcJ0zt8mOu1DKpWcVzBK8IA==}
     peerDependencies:
       vue: ^2.5.17
 
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
 
@@ -1502,6 +1235,9 @@ packages:
   hookable@5.5.3:
     resolution: {integrity: sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==}
 
+  howler@2.2.4:
+    resolution: {integrity: sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w==}
+
   human-signals@5.0.0:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
@@ -1810,24 +1546,9 @@ packages:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
 
-<<<<<<< HEAD
   normalize-wheel@1.0.1:
     resolution: {integrity: sha512-1OnlAPZ3zgrk8B91HyRj+eVv+kS5u+Z0SCsak6Xil/kmgEia50ga7zfkumayonZrImffAxPU/5WcyGhzetHNPA==}
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-  normalize-wheel@1.0.1:
-    resolution: {integrity: sha512-1OnlAPZ3zgrk8B91HyRj+eVv+kS5u+Z0SCsak6Xil/kmgEia50ga7zfkumayonZrImffAxPU/5WcyGhzetHNPA==}
-
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   npm-run-path@5.3.0:
     resolution: {integrity: sha512-ppwTtiJZq0O/ai0z7yfudtBpWIoxM8yE6nHi1X47eFR2EWORqfbu6CnPlNsjeN683eT0qG6H/Pyf9fCcvjnnnQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -2028,6 +1749,11 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
+  prettier@2.8.8:
+    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+
   proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
@@ -2048,46 +1774,16 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
-<<<<<<< HEAD
   regenerator-runtime@0.11.1:
     resolution: {integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==}
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-  regenerator-runtime@0.11.1:
-    resolution: {integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==}
-
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   regexp.prototype.flags@1.5.2:
     resolution: {integrity: sha512-NcDiDkTLuPR+++OCKB0nWafEmhg/Da8aUPLPMQbK+bxKKCm1/S5he+AqYa4PlMCVBalb4/yxIRub6qkEx5yJbw==}
     engines: {node: '>= 0.4'}
 
-<<<<<<< HEAD
   resize-observer-polyfill@1.5.1:
     resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-  resize-observer-polyfill@1.5.1:
-    resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
-
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
@@ -2162,6 +1858,10 @@ packages:
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
+    engines: {node: '>=0.10.0'}
+
+  source-map@0.6.1:
+    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
   std-env@3.7.0:
@@ -2249,25 +1949,10 @@ packages:
   thenify@3.3.1:
     resolution: {integrity: sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   throttle-debounce@1.1.0:
     resolution: {integrity: sha512-XH8UiPCQcWNuk2LYePibW/4qL97+ZQ1AN3FNXwZRBNPPowo/NRU5fAlDCSNBJIYCKbioZfuYtMhG4quqoJhVzg==}
     engines: {node: '>=4'}
 
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
@@ -2411,6 +2096,9 @@ packages:
       terser:
         optional: true
 
+  vue-audio-better@3.0.1:
+    resolution: {integrity: sha512-rr0cItOgMHYOLy7VvIHowWGqm+qLcCpj4BZ+4saAHQCSwGcV8TTCefLyGpdIjlJtqL8ytBjjtObft6WSkQoAKQ==}
+
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
     engines: {node: '>=12'}
@@ -2442,6 +2130,10 @@ packages:
     resolution: {integrity: sha512-4fKZygS8cH1yCyuabAXGUAsyi1b2/o/OKgu/RUb+znIYOxPRxdkytJEx+0wGcpBE1pX6vUgh5jwWOKRGvuA/7Q==}
     peerDependencies:
       vue: ^3.2.0
+
+  vue@2.7.16:
+    resolution: {integrity: sha512-4gCtFXaAA3zYZdTp5s4Hl2sozuySsgz4jy1EnpBHNfpMa9dK1ZCG7viqBPCwXtmgc8nHqUsAu3G4gtmXkkY3Sw==}
+    deprecated: Vue 2 has reached EOL and is no longer actively maintained. See https://v2.vuejs.org/eol/ for more details.
 
   vue@3.5.4:
     resolution: {integrity: sha512-3yAj2gkmiY+i7+22A1PWM+kjOVXjU74UPINcTiN7grIVPyFFI0lpGwHlV/4xydDmobaBn7/xmi+YG8HeSlCTcg==}
@@ -2785,23 +2477,7 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-<<<<<<< HEAD
   '@nuxt/kit@3.13.2(rollup@4.21.2)':
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  '@nuxt/kit@3.13.2':
-=======
-<<<<<<< HEAD
-  '@nuxt/kit@3.13.2':
-=======
-  '@nuxt/kit@3.13.2(rollup@4.21.2)':
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  '@nuxt/kit@3.13.2':
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
     dependencies:
       '@nuxt/schema': 3.13.2(rollup@4.21.2)
       c12: 1.11.2
@@ -2829,23 +2505,7 @@ snapshots:
       - supports-color
       - webpack-sources
 
-<<<<<<< HEAD
   '@nuxt/schema@3.13.2(rollup@4.21.2)':
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  '@nuxt/schema@3.13.2':
-=======
-<<<<<<< HEAD
-  '@nuxt/schema@3.13.2':
-=======
-  '@nuxt/schema@3.13.2(rollup@4.21.2)':
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  '@nuxt/schema@3.13.2':
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
     dependencies:
       compatx: 0.1.8
       consola: 3.2.3
@@ -2867,23 +2527,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-<<<<<<< HEAD
   '@rollup/pluginutils@5.1.1(rollup@4.21.2)':
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  '@rollup/pluginutils@5.1.1':
-=======
-<<<<<<< HEAD
-  '@rollup/pluginutils@5.1.1':
-=======
-  '@rollup/pluginutils@5.1.1(rollup@4.21.2)':
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  '@rollup/pluginutils@5.1.1':
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
     dependencies:
       '@types/estree': 1.0.5
       estree-walker: 2.0.2
@@ -2974,6 +2618,14 @@ snapshots:
     dependencies:
       '@vue/compiler-core': 3.5.4
       '@vue/shared': 3.5.4
+
+  '@vue/compiler-sfc@2.7.16':
+    dependencies:
+      '@babel/parser': 7.25.6
+      postcss: 8.4.45
+      source-map: 0.6.1
+    optionalDependencies:
+      prettier: 2.8.8
 
   '@vue/compiler-sfc@3.5.4':
     dependencies:
@@ -3106,33 +2758,12 @@ snapshots:
       is-array-buffer: 3.0.4
       is-shared-array-buffer: 1.0.3
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  asynckit@0.4.0: {}
-
-=======
-<<<<<<< HEAD
-  asynckit@0.4.0: {}
-
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   async-validator@1.8.5:
     dependencies:
       babel-runtime: 6.26.0
 
   asynckit@0.4.0: {}
 
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  asynckit@0.4.0: {}
-
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   autoprefixer@10.4.20(postcss@8.4.45):
     dependencies:
       browserslist: 4.23.3
@@ -3163,26 +2794,6 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
-  balanced-match@1.0.2: {}
-
-  binary-extensions@2.3.0: {}
-
-  boolbase@1.0.0: {}
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   babel-helper-vue-jsx-merge-props@2.0.3: {}
 
   babel-runtime@6.26.0:
@@ -3196,13 +2807,6 @@ snapshots:
 
   boolbase@1.0.0: {}
 
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   brace-expansion@1.1.11:
     dependencies:
       balanced-match: 1.0.2
@@ -3311,22 +2915,8 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-<<<<<<< HEAD
   core-js@2.6.12: {}
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-  core-js@2.6.12: {}
-
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   cross-spawn@7.0.3:
     dependencies:
       path-key: 3.1.1
@@ -3367,22 +2957,8 @@ snapshots:
 
   deep-pick-omit@1.2.0: {}
 
-<<<<<<< HEAD
   deepmerge@1.5.2: {}
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-  deepmerge@1.5.2: {}
-
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   define-data-property@1.1.4:
     dependencies:
       es-define-property: 1.0.0
@@ -3419,26 +2995,6 @@ snapshots:
 
   electron-to-chromium@1.5.19: {}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
-  emoji-regex@8.0.0: {}
-
-  emoji-regex@9.2.2: {}
-
-  entities@4.5.0: {}
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   element-ui@2.15.14(vue@3.5.4):
     dependencies:
       async-validator: 1.8.5
@@ -3455,13 +3011,6 @@ snapshots:
 
   entities@4.5.0: {}
 
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   es-abstract@1.23.3:
     dependencies:
       array-buffer-byte-length: 1.0.1
@@ -3571,23 +3120,7 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-<<<<<<< HEAD
   eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0):
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0):
-=======
-<<<<<<< HEAD
-  eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0):
-=======
-  eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0):
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.30.0)(eslint@8.57.0):
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
     dependencies:
       confusing-browser-globals: 1.0.11
       eslint: 8.57.0
@@ -3600,23 +3133,7 @@ snapshots:
     dependencies:
       eslint: 8.57.0
 
-<<<<<<< HEAD
   eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.30.0(eslint@8.57.0)):
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.30.0):
-=======
-<<<<<<< HEAD
-  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.30.0):
-=======
-  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.30.0(eslint@8.57.0)):
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.30.0):
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
     dependencies:
       eslint-plugin-import: 2.30.0(eslint@8.57.0)
 
@@ -3948,6 +3465,8 @@ snapshots:
 
   hookable@5.5.3: {}
 
+  howler@2.2.4: {}
+
   human-signals@5.0.0: {}
 
   ignore@5.3.2: {}
@@ -4208,22 +3727,8 @@ snapshots:
 
   normalize-range@0.1.2: {}
 
-<<<<<<< HEAD
   normalize-wheel@1.0.1: {}
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-  normalize-wheel@1.0.1: {}
-
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   npm-run-path@5.3.0:
     dependencies:
       path-key: 4.0.0
@@ -4341,23 +3846,7 @@ snapshots:
 
   pify@2.3.0: {}
 
-<<<<<<< HEAD
   pinia-plugin-persistedstate@4.0.2(pinia@2.2.2(vue@3.5.4))(rollup@4.21.2):
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  pinia-plugin-persistedstate@4.0.2(pinia@2.2.2):
-=======
-<<<<<<< HEAD
-  pinia-plugin-persistedstate@4.0.2(pinia@2.2.2):
-=======
-  pinia-plugin-persistedstate@4.0.2(pinia@2.2.2(vue@3.5.4))(rollup@4.21.2):
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  pinia-plugin-persistedstate@4.0.2(pinia@2.2.2):
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
     dependencies:
       '@nuxt/kit': 3.13.2(rollup@4.21.2)
       deep-pick-omit: 1.2.0
@@ -4403,22 +3892,8 @@ snapshots:
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.5.1
-<<<<<<< HEAD
     optionalDependencies:
       postcss: 8.4.45
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    optionalDependencies:
-      postcss: 8.4.45
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
 
   postcss-nested@6.2.0(postcss@8.4.45):
     dependencies:
@@ -4440,6 +3915,9 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
+  prettier@2.8.8:
+    optional: true
+
   proxy-from-env@1.1.0: {}
 
   punycode@2.3.1: {}
@@ -4459,22 +3937,8 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-<<<<<<< HEAD
   regenerator-runtime@0.11.1: {}
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-  regenerator-runtime@0.11.1: {}
-
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   regexp.prototype.flags@1.5.2:
     dependencies:
       call-bind: 1.0.7
@@ -4482,31 +3946,10 @@ snapshots:
       es-errors: 1.3.0
       set-function-name: 2.0.2
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  resolve-from@4.0.0: {}
-
-=======
-<<<<<<< HEAD
-  resolve-from@4.0.0: {}
-
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   resize-observer-polyfill@1.5.1: {}
 
   resolve-from@4.0.0: {}
 
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  resolve-from@4.0.0: {}
-
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   resolve@1.22.8:
     dependencies:
       is-core-module: 2.15.1
@@ -4598,6 +4041,8 @@ snapshots:
   slash@5.1.0: {}
 
   source-map-js@1.2.1: {}
+
+  source-map@0.6.1: {}
 
   std-env@3.7.0: {}
 
@@ -4718,31 +4163,10 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  to-fast-properties@2.0.0: {}
-
-=======
-<<<<<<< HEAD
-  to-fast-properties@2.0.0: {}
-
-=======
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   throttle-debounce@1.1.0: {}
 
   to-fast-properties@2.0.0: {}
 
-<<<<<<< HEAD
-=======
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  to-fast-properties@2.0.0: {}
-
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
@@ -4816,23 +4240,7 @@ snapshots:
 
   unicorn-magic@0.1.0: {}
 
-<<<<<<< HEAD
   unimport@3.12.0(rollup@4.21.2):
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  unimport@3.12.0:
-=======
-<<<<<<< HEAD
-  unimport@3.12.0:
-=======
-  unimport@3.12.0(rollup@4.21.2):
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  unimport@3.12.0:
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
     dependencies:
       '@rollup/pluginutils': 5.1.1(rollup@4.21.2)
       acorn: 8.12.1
@@ -4851,23 +4259,7 @@ snapshots:
       - rollup
       - webpack-sources
 
-<<<<<<< HEAD
   unplugin-auto-import@0.18.3(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2):
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  unplugin-auto-import@0.18.3:
-=======
-<<<<<<< HEAD
-  unplugin-auto-import@0.18.3:
-=======
-  unplugin-auto-import@0.18.3(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2):
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  unplugin-auto-import@0.18.3:
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
     dependencies:
       '@antfu/utils': 0.7.10
       '@rollup/pluginutils': 5.1.1(rollup@4.21.2)
@@ -4883,23 +4275,7 @@ snapshots:
       - rollup
       - webpack-sources
 
-<<<<<<< HEAD
   unplugin-vue-components@0.27.4(@babel/parser@7.25.6)(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.4):
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  unplugin-vue-components@0.27.4(vue@3.5.4):
-=======
-<<<<<<< HEAD
-  unplugin-vue-components@0.27.4(vue@3.5.4):
-=======
-  unplugin-vue-components@0.27.4(@babel/parser@7.25.6)(@nuxt/kit@3.13.2(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.4):
->>>>>>> 7b9cea5a11aeb57a5a3e30ec17e85871a4edce08
->>>>>>> 946cd3dedb6132736de0cdd9712dd99a08569793
-=======
-  unplugin-vue-components@0.27.4(vue@3.5.4):
->>>>>>> feature5
->>>>>>> ecf420e95ae03fa8ea459c321b48ab3e707e7b58
     dependencies:
       '@antfu/utils': 0.7.10
       '@rollup/pluginutils': 5.1.1(rollup@4.21.2)
@@ -4964,6 +4340,11 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
+  vue-audio-better@3.0.1:
+    dependencies:
+      howler: 2.2.4
+      vue: 2.7.16
+
   vue-demi@0.14.10(vue@3.5.4):
     dependencies:
       vue: 3.5.4
@@ -4990,6 +4371,11 @@ snapshots:
     dependencies:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.4
+
+  vue@2.7.16:
+    dependencies:
+      '@vue/compiler-sfc': 2.7.16
+      csstype: 3.1.3
 
   vue@3.5.4:
     dependencies:

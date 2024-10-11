@@ -1,17 +1,8 @@
-import MvRanking from "@/views/TabBar/ranking/MvRanking.vue";
-import PlaylistSong from "@/views/PlaylistDetails/PlaylistSong.vue";
-import PlaylistColl from "@/views/PlaylistDetails/PlaylistColl.vue";
-import loginPrompt from "@/views/Login/loginPrompt.vue";
-import loginPhone from "@/views/Login/loginPhone.vue";
-import loginPassword from "@/views/Login/loginPassword.vue";
-// import loginCaptcha from "@/views/Login/loginCaptcha.vue";
-import loginCode from "@/views/Login/loginCode.vue";
-
 const routes = [
-  // {
-  //   path: "/",
-  //   redirect: "/home",
-  // },
+  {
+    path: "/",
+    redirect: "/home",
+  },
   {
     path: "/home",
     // 按需引用 首页
@@ -19,32 +10,28 @@ const routes = [
   },
   {
     path: "/mvranking",
-    component: MvRanking,
+    name: "mvranking",
+    component: () => import("@/views/TabBar/ranking/MvRanking.vue"),
   },
   {
     path: "/PlaylistSong",
-    component: PlaylistSong,
-  },
-  {
-    path: "/playlistsong",
-    component: PlaylistSong,
+    name: "PlaylistSong",
+    component: () => import("@/views/PlaylistDetails/PlaylistSong.vue"),
   },
   {
     path: "/playlistcoll",
-    component: PlaylistColl,
+    name: "playlistcoll",
+    component: () => import("@/views/PlaylistDetails/PlaylistColl.vue"),
   },
   {
     path: "/loginprompt",
-    // name: loginPrompt,
-    component: loginPrompt,
-  },
-  {
-    path: "/loginphone",
-    component: loginPhone,
+    name: "loginprompt",
+    component: () => import("@/views/Login/loginPrompt.vue"),
   },
   {
     path: "/loginpsd",
-    component: loginPassword,
+    name: "loginpsd",
+    component: () => import("@/views/Login/loginPassword.vue"),
   },
   // {path :"/logincaptcha",
   //   component:loginCaptcha
@@ -52,7 +39,18 @@ const routes = [
   // }
   {
     path: "/logincode",
-    component: loginCode,
+    name: "logincode",
+    component: () => import("@/views/Login/loginCode.vue"),
+  },
+  {
+    path: "/palyer",
+    name: "palyer",
+    component: () => import("@/views/player/player.vue"),
+  },
+  {
+    path: "/playerfab",
+    name: "playerfab",
+    component: () => import("@/views/player/playerfab.vue"),
   },
 ];
 
