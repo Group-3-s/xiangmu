@@ -304,12 +304,10 @@ const BackHome = () => {
   router.back();
 };
 
-
 const GoPlayer = (id) => {
   const query = { id };
   router.push({ name: "playerfab", query });
 };
-
 const menu = ref([]);
 const collection = ref([]);
 getPlaylistSong(route.query.id).then((res) => {
