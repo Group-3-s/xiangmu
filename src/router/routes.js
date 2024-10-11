@@ -35,7 +35,14 @@ const routes = [
   },
   // {path :"/logincaptcha",
   //   component:loginCaptcha
-
+  {
+    path: "/user",
+    component: () => import("@/views/user/UserInfo.vue"),
+  },
+  {
+    path: "/userfollows",
+    component: () => import("@/views/user/UserFollows.vue"),
+  },
   // }
   {
     path: "/logincode",
@@ -51,6 +58,11 @@ const routes = [
     path: "/playerfab",
     name: "playerfab",
     component: () => import("@/views/player/playerfab.vue"),
+  },
+  // 歌单评论
+  {
+    path: "/playlistcomment",
+    component: () => import("@/views/PlaylistDetails/PlaylistComment.vue"),
   },
 ];
 

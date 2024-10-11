@@ -31,9 +31,6 @@
         <div class="a overflow-hidden w-[130px] text-[13px] mt-[10px]">
           {{ item.title }}
         </div>
-        <<<<<<< HEAD =======
-        <!-- </router-link> -->
-        >>>>>>> 7cd665a58d1c65fed4349f2aafed6bc6031a74a1
       </div>
     </BetterScroll>
   </wrapper>

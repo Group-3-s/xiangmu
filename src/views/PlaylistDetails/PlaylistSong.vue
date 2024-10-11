@@ -474,13 +474,10 @@ const BackHome = () => {
   router.back();
 };
 
-<<<<<<< HEAD
 const GoPlayer = (id) => {
   const query = { id };
   router.push({ name: "playerfab", query });
 };
-=======
->>>>>>> 7cd665a58d1c65fed4349f2aafed6bc6031a74a1
 const menu = ref([]);
 const collection = ref([]);
 getPlaylistSong(route.query.id).then((res) => {

@@ -22,10 +22,8 @@ export const getPlaylistSong = (id) =>
 // export const getPlaylistSong = (data) => request.post("/playlist/detail", data);
 
 export const getPlaylistSub = (id) =>
-<<<<<<< HEAD
   request.get("/playlist/subscribers?limit=30", { params: { id } });
-//
-export const getPlaylisttop = () => request.get("/top/playlist");
+
 // 获取MV排行榜
 export const MvRanking = (data) =>
   request.post(`/top/mv?limit=${50}&&area=${data}`, data);
@@ -37,14 +35,8 @@ export const SongPermissions = (data) =>
 // 歌曲详细
 export const SongDelailed = (data) =>
   request.get(`/song/detail?ids=${data}`, data);
-=======
-  request.get("/playlist/subscribers", { params: { id } });
 // 推荐歌单界面最下边（最后你可能喜欢）
 export const getPlaylisttop = () => request.get("/top/playlist");
-
-// MV排行榜
-export const MvRanking = (data) =>
-  request.post(`/top/mv?limit=${50}&&area=${data}`, data);
 // 用户列表
 export const UserInfo = (id) => request.get(`/user/detail?uid=${"3277116167"}`);
 // 用户关注
@@ -54,4 +46,3 @@ export const UserInfo1 = (id) =>
 // 歌单评论
 export const getPlaylistComment = (data) =>
   request.get(`/comment/playlist?id=${705123491}&&limit=${20}`, data);
->>>>>>> 7cd665a58d1c65fed4349f2aafed6bc6031a74a1
