@@ -7,8 +7,9 @@
     >
       <li
         v-for="item in routerList"
-        :key="item"
+        :key="item.title"
         class="w-[70px] h-[52px]"
+        :class="{active:item.path===activePath}"
         @click="switchTab(item.path)"
       >
         <icon :icon="item.iconUrl" class="text-[22px] ml-[25px]" />
@@ -21,53 +22,58 @@
 <script setup>
 import { Icon } from "@iconify/vue";
 import { useRouter } from "vue-router";
+import { ref, onMounted } from "vue";
 
+const activePath = ref("/")
 const router = useRouter();
-const routerList = [
+const routerList = ref([
   {
     title: "发现",
     path: "/home",
     iconUrl: "simple-icons:neteasecloudmusic",
-    color: "color:black",
-    selected: "color:red",
+    color: "black",
+    selected: "red",
   },
   {
     title: "排行榜",
     path: "/mvranking",
     iconUrl: "icon-park-outline:ranking",
-    color: "color:black",
-    selected: "color:red",
+    color: "black",
+
   },
   {
     title: "我的",
-    path:"/user",
+    path: "/user",
     iconUrl: "mingcute:music-line",
-    color: "color:black",
-    selected: "color:red",
+    color: "black",
+
   },
   {
     title: "关注",
     path: "/home",
     iconUrl: "octicon:people-16",
-    color: "color:black",
-    selected: "color:red",
+    color: "black",
+
   },
   {
     title: "社区",
     path: "/home",
     iconUrl: "fluent:chat-multiple-32-regular",
-    color: "color:black",
-    selected: "color:red",
-  },
-];
+    color: "black",
 
+  },
+])
+onMounted(()=>{
+  activePath.value = routerList.value[0].path
+})
 const switchTab = (path) => {
   router.push(path);
+  activePath.value = path
 };
 </script>
 
 <style scoped>
-.aa:hover {
+li.active {
   color: red;
 }
 </style>
