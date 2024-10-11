@@ -40,7 +40,7 @@ const routerList = [
   },
   {
     title: "我的",
-    path: "/home",
+    path:"/user",
     iconUrl: "mingcute:music-line",
     color: "color:black",
     selected: "color:red",

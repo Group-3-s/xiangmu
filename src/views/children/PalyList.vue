@@ -13,9 +13,11 @@
         class="h-[180px] w-[130px] mx-[2vw] relative border-[#EBEDF2]"
         @click.stop="clickHandler(item.id)"
       >
+        <!-- <router-link :to="`/playlistsong?id=${item.id}`"> -->
         <img
           class="w-[31.624vw] h-[31.453vw] rounded-[3vw] Shadow-custom"
           :src="item.imageUrl"
+          @click="getlist(item.id)"
         />
         <div class="absolute top-[0vw] right-[2vw] text-[10px] text-white flex">
           <Icon
@@ -29,6 +31,9 @@
         <div class="a overflow-hidden w-[130px] text-[13px] mt-[10px]">
           {{ item.title }}
         </div>
+        <<<<<<< HEAD =======
+        <!-- </router-link> -->
+        >>>>>>> 7cd665a58d1c65fed4349f2aafed6bc6031a74a1
       </div>
     </BetterScroll>
   </wrapper>
@@ -79,6 +84,7 @@ import { defineProps, ref } from "vue";
 import BetterScroll from "@/components/BetterScroll.vue";
 import Wrapper from "@/components/Wrapper.vue";
 import { Icon } from "@iconify/vue";
+
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -87,13 +93,13 @@ const showDrawer = ref(false);
 const props = defineProps({
   data: {},
 });
-
-const clickHandler = (id) => {
-  const query = { id };
-  router.push({ name: "PlaylistSong", query });
-  console.log(1);
+const clickHandler = () => {};
+const getlist = (id) => {
+  // eslint-disable-next-line prefer-const, object-shorthand
+  let query = { id: id };
+  router.push({ path: "/playlistsong", query });
+  console.log(id);
 };
-//  <router-link :to="{ path: '/PlaylistSong', query: { id: item.id } }">
 // const moreHandler = () => {};
 
 const handleMaskClick = () => {

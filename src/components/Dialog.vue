@@ -10,9 +10,9 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { Popup } from "vant";
-import { onMounted } from "vue";
+import { ref , onMounted } from "vue";
+// import { Popup } from "vant";
+
 const showPopup = ref(false);
 onMounted(() => {
   showPopup.value = true;

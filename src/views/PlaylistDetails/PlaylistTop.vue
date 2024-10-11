@@ -10,22 +10,26 @@
         :key="item.id"
         class="w-[30vw] h-[49vw] ml-[3.932vw] relative"
       >
-        <img
-          class="w-[30vw] h-[30vw] rounded-[3vw] shadow-custom mt-[10px]"
-          :src="item.coverImgUrl"
-          alt=""
-        />
-        <div class="absolute top-[3vw] right-[2vw] text-[10px] text-white flex">
-          <Icon
-            icon="ic:baseline-arrow-right"
-            width="4vw"
-            height="4vw"
-            style="color: white"
-          />{{ changeCount(item.playCount) }}
-        </div>
-        <div class="mt-[2vw] line-clamp-2 hover:text-[#c8c9c9]">
-          {{ item.name }}
-        </div>
+        <router-link :to="`/playlistsong?id=${item.id}`">
+          <img
+            class="w-[30vw] h-[30vw] rounded-[3vw] shadow-custom mt-[10px]"
+            :src="item.coverImgUrl"
+            alt=""
+          />
+          <div
+            class="absolute top-[3vw] right-[2vw] text-[10px] text-white flex"
+          >
+            <Icon
+              icon="ic:baseline-arrow-right"
+              width="4vw"
+              height="4vw"
+              style="color: white"
+            />{{ changeCount(item.playCount) }}
+          </div>
+          <div class="mt-[2vw] line-clamp-2 hover:text-[#c8c9c9]">
+            {{ item.name }}
+          </div>
+        </router-link>
       </div>
     </BetterScroll>
   </div>
@@ -42,7 +46,6 @@ const props = defineProps({
 const playtop = ref([]);
 getPlaylisttop().then((res) => {
   playtop.value = res.data.playlists.slice(0, 6);
-  console.log(playtop.value);
 });
 // eslint-disable-next-line consistent-return
 const changeCount = (num) => {
