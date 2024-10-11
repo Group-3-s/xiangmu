@@ -4,6 +4,7 @@ import to from "await-to-js";
 // eslint-disable-next-line import/no-cycle, import/no-named-as-default
 import request from "./request";
 
+// 首页
 export const getHomePageData = async () => {
   const [error, res] = await to(request.get("/homepage/block/page"));
   if (error) return console.log("请求出错！");
@@ -32,4 +33,4 @@ export const UserInfo1 = (id) =>
 
 // 歌单评论
 export const getPlaylistComment = (data) =>
-  request.get(`/comment/playlist?id=${705123491}&&limit=${20}`, data);
+  request.get(`/comment/playlist?limit=${20}`, data);
