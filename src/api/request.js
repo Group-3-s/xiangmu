@@ -35,7 +35,7 @@ http.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.log(error.data.code);
+    console.log(error);
   }
 );
 

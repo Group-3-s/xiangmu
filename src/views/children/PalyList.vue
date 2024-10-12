@@ -8,10 +8,10 @@
   >
     <BetterScroll :config="{ scrollX: true, scrollY: false }" :dep="props.data">
       <div
-        @click="clickHandler"
         v-for="item in props.data.children"
         :key="item.id"
         class="h-[180px] w-[130px] mx-[2vw] relative border-[#EBEDF2]"
+        @click.stop="clickHandler(item.id)"
       >
         <!-- <router-link :to="`/playlistsong?id=${item.id}`"> -->
         <img
@@ -31,7 +31,6 @@
         <div class="a overflow-hidden w-[130px] text-[13px] mt-[10px]">
           {{ item.title }}
         </div>
-        <!-- </router-link> -->
       </div>
     </BetterScroll>
   </wrapper>
@@ -82,13 +81,15 @@ import { defineProps, ref } from "vue";
 import BetterScroll from "@/components/BetterScroll.vue";
 import Wrapper from "@/components/Wrapper.vue";
 import { Icon } from "@iconify/vue";
-// eslint-disable-next-line import/newline-after-import
+
 import { useRouter } from "vue-router";
+
+const router = useRouter();
+
 const showDrawer = ref(false);
 const props = defineProps({
   data: {},
 });
-const router = useRouter();
 const clickHandler = () => {};
 const getlist = (id) => {
   // eslint-disable-next-line prefer-const, object-shorthand

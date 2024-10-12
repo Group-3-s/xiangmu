@@ -28,6 +28,7 @@
 import goBack from "@/components/goBack.vue";
 import Myinput from "@/components/Myinput.vue";
 import { ref } from "vue";
+
 const userInfo = ref({
   //   phone: "",
   password: "",
