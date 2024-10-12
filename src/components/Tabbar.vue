@@ -9,7 +9,7 @@
         v-for="item in routerList"
         :key="item.title"
         class="w-[70px] h-[52px]"
-        :class="{active:item.path===activePath}"
+        :class="{ active: item.path === activePath }"
         @click="switchTab(item.path)"
       >
         <icon :icon="item.iconUrl" class="text-[22px] ml-[25px]" />
@@ -24,51 +24,42 @@ import { Icon } from "@iconify/vue";
 import { useRouter } from "vue-router";
 import { ref, onMounted } from "vue";
 
-const activePath = ref("/")
+const activePath = ref("/");
 const router = useRouter();
 const routerList = ref([
   {
     title: "发现",
     path: "/home",
     iconUrl: "simple-icons:neteasecloudmusic",
-    color: "black",
-    selected: "red",
   },
   {
     title: "排行榜",
     path: "/mvranking",
     iconUrl: "icon-park-outline:ranking",
-    color: "black",
-
   },
   {
     title: "我的",
     path: "/user",
     iconUrl: "mingcute:music-line",
-    color: "black",
-
   },
   {
     title: "关注",
     path: "/home",
     iconUrl: "octicon:people-16",
-    color: "black",
-
   },
   {
     title: "社区",
     path: "/home",
     iconUrl: "fluent:chat-multiple-32-regular",
-    color: "black",
-
   },
-])
-onMounted(()=>{
-  activePath.value = routerList.value[0].path
-})
+]);
+onMounted(() => {
+  activePath.value = routerList.value[0].path;
+  console.log(routerList.value);
+});
 const switchTab = (path) => {
   router.push(path);
-  activePath.value = path
+  activePath.value = path;
 };
 </script>
 
