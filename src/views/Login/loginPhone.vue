@@ -66,8 +66,6 @@ const enterPasd = () => {
     router.push({ path: "/loginpsd", query: { keyword: userInfo.phone } });
   }
 };
-
-
 </script>
 <style scoped>
 ::v-deep(.btn) {

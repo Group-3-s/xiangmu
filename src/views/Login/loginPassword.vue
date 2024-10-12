@@ -47,7 +47,7 @@ import { sendValidCode } from "@/api";
 import { useRequest } from "vue-request";
 import { useUserStore } from "@/store";
 
-import { ref, watch, watchEffect } from "vue";
+import { ref, watchEffect } from "vue";
 const route = useRoute();
 const router = useRouter();
 const userInfo = ref({
@@ -55,34 +55,34 @@ const userInfo = ref({
   password: "",
   captcha: "",
 });
-// const keyword = route.query.keyword;
-// console.log(keyword);
-// const sendCode = () => {
-//   sendValidCode({ phone: route.query.keyword })
-//     .then((res) => {
-//       console.log(res);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+const keyword = route.query.keyword;
+console.log(keyword);
+const sendCode = () => {
+  sendValidCode({ phone: route.query.keyword })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 // 发送验证码
-const {
-  run: sendCode,
-  data: result,
-  loading,
-} = useRequest(() => {
-  sendValidCode({ phone: route.query.keyword }),
-    {
-      manual: true, // 手动发送请求
-    };
-});
+// const {
+//   run: sendCode,
+//   data: result,
+//   loading,
+// } = useRequest(() => {
+//   sendValidCode({ phone: route.query.keyword }),
+//     {
+//       manual: true, // 手动发送请求
+//     };
+// });
 
-watch(result, () => {
-  if (result.value.data.code !== 200) {
-    showToast(result.value.data.message);
-  }
-});
+// watch(result, () => {
+//   if (result.value.data.code !== 200) {
+//     showToast(result.value.data.message);
+//   }
+// });
 // 登录
 const userStore = useUserStore();
 watchEffect(() => {

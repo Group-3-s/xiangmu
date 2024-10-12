@@ -19,6 +19,7 @@
           to="/loginphone"
           plain
           class="w-[70vw] h-[12vw]"
+         
           >手机号登录</van-button
         >
 
@@ -121,7 +122,7 @@ onBeforeUnmount(() => {
   allowScroll();
 });
 
-// 路由
+
 </script>
 <style scoped>
 .container {

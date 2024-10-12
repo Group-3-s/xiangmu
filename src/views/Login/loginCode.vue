@@ -29,7 +29,9 @@
           点击刷新
         </div>
       </div> -->
-
+      <van-button @click="upDate" round type="success" loading="刷新中"
+        >点击刷新二维码</van-button
+      >
       <div class="text-[3vw] text-[#100A09] text-center mt-[10vw]">
         使用<span class="text-[#2C6AA1] mx-[1.5vw]">网易云音乐APP</span>扫码登录
       </div>
@@ -42,32 +44,71 @@
 <script setup>
 import { sendCodekey, sendCodecreate, sendCodecheck } from "@/api";
 import goBack from "@/components/goBack.vue";
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useRequest } from "vue-request";
+import { useUserStore } from "@/store";
+import { showToast } from "vant";
+// import axios from "axios";
+import localforage from "localforage";
+
 const qrimg = ref();
 const key = ref();
+const code = ref();
+
 sendCodekey().then((res) => {
   key.value = res.data.data.unikey;
 
   sendCodecreate(res).then((i) => {
     // console.log(i);
-
     qrimg.value = i.data.data.qrimg;
   });
 });
+// 轮询
+const {
+  run: upDate,
+  data: res,
+  // loading,
+} = useRequest(
+  sendCodecheck(
+    `https://netease-serrver01.vercel.app/login/qr/check?key=${
+      key.value
+    }&timestamp=${Date.now()}`
+  ),
+  {
+    pollingInterval: 1000, //+!
+    manual: true,
+  }
+);
+watch(res, () => {
+  code.value = res.data.code;
+  if (res.data.code == 800) {
+    console.log("二维码已将失效，请刷新");
+    clearInterval(pollingInterval); //+!
+  }
+  if (res.data.code == 802) return console.log("正在授权登录");
+  if (res.data.code == 803) {
+    clearInterval(pollingInterval); //+!
+    localforage.setItem("userInfo", res.data).then((res) => {
+      console.log(res);
+      showToast("登陆成功");
+      clearInterval(pollingInterval); //+!
+    });
+  }
+});
 
-// const clearA = setInterval(() => {
+// const enterInterval = setInterval(() => {
 //   sendCodecheck({ key: key.value }).then((data) => {
-//     // if (data.data.code === 802) {
-//     //   return console.log("等待确认登录");
-//     // }
-//     // if (data.data.code === 803) {
-//     //   return console.log("授权成功");
-//     //   clearInterval(clearA);
-//     //   return
-//     // }
-//     // console.log(data.data.code);
+//     if (data.data.code === 802) {
+//       return console.log("等待确认登录");
+//     }
+//     if (data.data.code === 803) {
+//       return console.log("授权成功");
+//       clearInterval(enterInterval);
+//       return;
+//     }
+//     console.log(data.data.code);
 //   });
-// }, 3000);
+// });
 </script>
 <style scoped>
 .box {
