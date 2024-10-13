@@ -23,12 +23,21 @@ export const getPlaylistSong = (id) =>
 // 推荐歌单界面收藏（收藏者api）
 export const getPlaylistSub = (id) =>
   request.get("/playlist/subscribers?limit=30", { params: { id } });
-// 推荐歌单界面最下边（最后你可能喜欢）
-export const getPlaylisttop = () => request.get("/top/playlist");
 
-// MV排行榜
+// 获取MV排行榜
 export const MvRanking = (data) =>
   request.post(`/top/mv?limit=${50}&&area=${data}`, data);
+// 歌曲播放url
+export const Song = (data) => request.get(`/song/url?id=${data}`, data);
+// 判断歌曲是否能够播放
+export const SongPermissions = (data) =>
+  request.get(`/check/music?id=${data}`, data);
+// 歌曲详细
+export const SongDelailed = (data) =>
+  request.get(`/song/detail?ids=${data}`, data);
+
+// 推荐歌单界面最下边（最后你可能喜欢）
+export const getPlaylisttop = () => request.get("/top/playlist");
 // 用户列表
 export const UserInfo = (id) => request.get(`/user/detail?uid=${"3277116167"}`);
 // 用户关注
