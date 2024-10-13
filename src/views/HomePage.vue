@@ -1,5 +1,6 @@
 <template>
   <!--BlcokType 根据传入的数据 对数据进行处理 并选择合适的组件渲染  -->
+  <Search></Search>
   <BlockType
     v-for="item in pageData"
     :data="item"
@@ -13,6 +14,7 @@ import { ref } from "vue";
 import { getHomePageData } from "@/api";
 import BlockType from "@/views/children/BlockType.vue";
 import TabBar from "@/components/Tabbar.vue";
+import Search from "./children/Search.vue";
 
 const pageData = ref([]);
 getHomePageData().then((res) => {

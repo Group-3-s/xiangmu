@@ -6,7 +6,9 @@ import App from "@/App.vue";
 import initErrorHandle from "@/utils/initErrorHandle";
 import router from "./router";
 import pinia from "./store";
+import ElementPlus from "element-plus";
+import "element-plus/dist/index.css";
 
 initErrorHandle();
 
-createApp(App).use(router).use(pinia).use(Icon).mount("#app");
+createApp(App).use(router).use(pinia).use(Icon).use(ElementPlus).mount("#app");

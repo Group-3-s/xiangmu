@@ -118,7 +118,10 @@ const allowScroll = () => {
   document.body.style.position = "";
   document.body.style.top = "";
   // 恢复滚动条位置
-  window.scrollTo(0, window.scrollY + parseInt(document.body.style.top || "0"));
+  window.scrollTo(
+    0,
+    window.scrollY + parseInt(document.body.style.top || "0", 10)
+  );
 };
 
 onMounted(() => {

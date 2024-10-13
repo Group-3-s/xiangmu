@@ -1,3 +1,4 @@
+<!-- 新歌推荐 -->
 <!-- eslint-disable max-len -->
 <template>
   <wrapper :title="props.data.name" @clickMore="showDrawer = !showDrawer">

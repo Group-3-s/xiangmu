@@ -100,6 +100,30 @@
       />
     </div>
     <div class="flex justify-around mt-[4.5vw]">
+      <!-- 分享 -->
+      <div
+        class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
+        @click="shareDrawer = !shareDrawer"
+      >
+        <Icon
+          icon="majesticons:share"
+          style="color: white"
+          class="h-[7vw] w-[7vw] mt-[1.5vw]"
+        />
+        <span class="text-white mt-[2vw] ml-[1vw]">{{ menu.shareCount }}</span>
+      </div>
+      <!-- 评论 -->
+      <!-- <router-link :to="`/playlistcomment?id=${menu.id}`"> -->
+      <div
+        @click="drawer = true"
+        class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
+      >
+        <Icon
+          icon="eva:message-circle-fill"
+          style="color: white"
+          class="h-[7vw] w-[7vw] mt-[1.5vw]"
+        />
+      </div>
       <div
         class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
         @click="shareDrawer = !shareDrawer"
@@ -120,10 +144,23 @@
           style="color: white"
           class="h-[7vw] w-[7vw] mt-[1.5vw]"
         />
+
         <span class="text-white mt-[2vw] ml-[1vw]">{{
           menu.commentCount
         }}</span>
       </div>
+    </div>
+    <!-- </router-link> -->
+    <!-- 关注 -->
+    <div
+      class="h-[10vw] w-[28.632vw] bg-red-500 rounded-[5vw] flex justify-center"
+    >
+      <Icon
+        icon="ph:folder-simple-plus-fill"
+        style="color: white"
+        class="h-[7vw] w-[7vw] mt-[1.5vw]"
+      />
+
       <div
         class="h-[10vw] w-[28.632vw] bg-red-500 rounded-[5vw] flex justify-center"
       >
@@ -132,11 +169,17 @@
           style="color: white"
           class="h-[7vw] w-[7vw] mt-[1.5vw]"
         />
+
         <span class="text-white mt-[2vw] ml-[1vw]">{{
           menu.subscribedCount
         }}</span>
       </div>
     </div>
+  </div>
+  <!-- 广告 -->
+  <div
+    class="rounded-t-lg bg-[#e2e6ed] flex justify-between h-[12vw] mt-[4vw] leading-[12vw] text-[3vw]"
+  >
     <div
       class="rounded-t-lg bg-[#e2e6ed] flex justify-between h-[12vw] mt-[4vw] leading-[12vw] text-[3vw]"
     >
@@ -145,13 +188,16 @@
           icon="mingcute:gift-2-line"
           style="color: red"
           class="m-[4vw] w-[4vw] h-[4vw]"
-        /><span>VIP5.5折！抢独家护肤礼包</span>
+        />
+        <span>VIP5.5折！抢独家护肤礼包</span>
       </div>
       <span class="mr-[6vw] text-[#888b8f]"
-        >立即抢购<Icon class="inline-block ml-[2vw]" icon="bi:chevron-right"
-      /></span>
+        >立即抢购
+        <Icon class="inline-block ml-[2vw]" icon="bi:chevron-right" />
+      </span>
     </div>
   </div>
+  <!-- 播放全部 -->
   <div>
     <div class="h-[14vw] leading-[14vw] flex justify-between">
       <div class="flex ml-[3vw]">
@@ -173,12 +219,14 @@
         />
       </div>
     </div>
+    <!-- 歌曲列表 -->
     <div>
       <div>
         <div
           v-for="(item, index) in menu.tracks"
           :key="index"
           class="flex justify-between"
+          @click="GoPlayer(item.id)"
         >
           <div class="flex h-[15vw]">
             <div
@@ -229,6 +277,7 @@
       </div>
     </router-link>
   </div>
+  <!-- 更多抽屉 -->
   <div>
     <transition name="fade">
       <div v-if="showDrawer" class="mask" @click="handleMaskClick"></div>
@@ -246,7 +295,8 @@
               icon="ph:sort-ascending"
               style="color: black"
               class="text-[8vw] w-[10vw] h-[15.5vw] mx-[3vw]"
-            /><dev>选择歌曲排序</dev>
+            />
+            <dev>选择歌曲排序</dev>
           </li>
           <li class="text-[4vw] flex h-[15.5vw] leading-[15.5vw]">
             <Icon
@@ -261,12 +311,14 @@
               icon="ph:warning"
               style="color: black"
               class="text-[8vw] w-[10vw] h-[15.5vw] mx-[3vw]"
-            /><dev>举报</dev>
+            />
+            <dev>举报</dev>
           </li>
         </ul>
       </div>
     </transition>
   </div>
+  <!-- 分享抽屉 -->
   <div>
     <transition name="fade">
       <div v-if="shareDrawer" class="mask" @click="shareMaskClick"></div>
@@ -423,6 +475,7 @@
       </div>
     </transition>
   </div>
+  <!-- 简介 -->
   <div>
     <div v-if="isOverlayVisible" class="overlay" @click="closeOverlay">
       <div>
@@ -453,16 +506,33 @@
     </div>
   </div>
   <PlaylistTop />
+  <!-- 评论页面 -->
+  <el-drawer
+    v-model="drawer"
+    title="I am the title"
+    :with-header="false"
+    direction="btt"
+    size="90%"
+    class="rounded-[3vw]"
+  >
+    <PlaylistComment />
+  </el-drawer>
+
+  <!-- <player></player> -->
 </template>
 <script setup>
 // eslint-disable-next-line import/no-cycle
-import { getPlaylistSong } from "@/api";
 import { ref, computed } from "vue";
+import { getPlaylistSong } from "@/api";
 import { useRouter, useRoute } from "vue-router";
 import { Icon } from "@iconify/vue";
 import PlaylistTop from "./PlaylistTop.vue";
 import PlaylistTopsong from "./PlaylistTopsong.vue";
+import PlaylistComment from "./PlaylistComment.vue";
 
+// import player from "../player/player.vue";
+
+const drawer = ref(false);
 const searchQuery = ref("");
 const items = ref([]); // 初始化为空数组
 const route = useRoute();
@@ -471,6 +541,10 @@ const BackHome = () => {
   router.back();
 };
 
+const GoPlayer = (id) => {
+  const query = { id };
+  router.push({ name: "playerfab", query });
+};
 const menu = ref([]);
 const collection = ref([]);
 getPlaylistSong(route.query.id).then((res) => {
@@ -554,36 +628,46 @@ const filteredItems = computed(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* 调整透明度实现变暗效果 */
-  z-index: 999; /* 确保遮罩层在抽屉下方 */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 调整透明度实现变暗效果 */
+  z-index: 999;
+  /* 确保遮罩层在抽屉下方 */
 }
+
 .drawer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60vw; /* 根据需要调整高度 */
+  height: 60vw;
+  /* 根据需要调整高度 */
   background-color: white;
   border-radius: 20px 20px 0 0;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  will-change: transform; /* 优化性能 */
+  will-change: transform;
+  /* 优化性能 */
 }
 
 /* 定义过渡的样式 */
 .slide-enter-active {
   transition: transform 0.55s ease-out;
 }
+
 .slide-leave-active {
   transition: transform 0.5s ease-in;
 }
+
 .slide-enter-from,
 .slide-leave-to {
-  transform: translateY(100%); /* 抽屉初始位置在屏幕外 */
+  transform: translateY(100%);
+  /* 抽屉初始位置在屏幕外 */
 }
+
 .a {
   text-indent: 10vw;
 }
+
 .dropdown-mask {
   position: fixed;
   top: 0;
@@ -618,6 +702,7 @@ const filteredItems = computed(() => {
 .slide-down-leave-from {
   transform: translateY(0);
 }
+
 .overlay {
   position: fixed;
   top: 0;
