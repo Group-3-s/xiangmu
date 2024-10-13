@@ -100,6 +100,7 @@
       />
     </div>
     <div class="flex justify-around mt-[4.5vw]">
+      <!-- 分享 -->
       <div
         class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
         @click="shareDrawer = !shareDrawer"
@@ -111,8 +112,10 @@
         />
         <span class="text-white mt-[2vw] ml-[1vw]">{{ menu.shareCount }}</span>
       </div>
+      <!-- 评论 -->
+      <!-- <router-link :to="`/playlistcomment?id=${menu.id}`"> -->
       <div
-        @click="comments"
+        @click="drawer = true"
         class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
       >
         <Icon
@@ -124,6 +127,8 @@
           menu.commentCount
         }}</span>
       </div>
+      <!-- </router-link> -->
+      <!-- 关注 -->
       <div
         class="h-[10vw] w-[28.632vw] bg-red-500 rounded-[5vw] flex justify-center"
       >
@@ -137,6 +142,7 @@
         }}</span>
       </div>
     </div>
+    <!-- 广告 -->
     <div
       class="rounded-t-lg bg-[#e2e6ed] flex justify-between h-[12vw] mt-[4vw] leading-[12vw] text-[3vw]"
     >
@@ -152,6 +158,7 @@
       /></span>
     </div>
   </div>
+  <!-- 播放全部 -->
   <div>
     <div class="h-[14vw] leading-[14vw] flex justify-between">
       <div class="flex ml-[3vw]">
@@ -173,6 +180,7 @@
         />
       </div>
     </div>
+    <!-- 歌曲列表 -->
     <div>
       <div>
         <div
@@ -229,6 +237,7 @@
       </div>
     </router-link>
   </div>
+  <!-- 更多抽屉 -->
   <div>
     <transition name="fade">
       <div v-if="showDrawer" class="mask" @click="handleMaskClick"></div>
@@ -267,6 +276,7 @@
       </div>
     </transition>
   </div>
+  <!-- 分享抽屉 -->
   <div>
     <transition name="fade">
       <div v-if="shareDrawer" class="mask" @click="shareMaskClick"></div>
@@ -423,6 +433,7 @@
       </div>
     </transition>
   </div>
+  <!-- 简介 -->
   <div>
     <div v-if="isOverlayVisible" class="overlay" @click="closeOverlay">
       <div>
@@ -453,16 +464,29 @@
     </div>
   </div>
   <PlaylistTop />
+  <!-- 评论页面 -->
+  <el-drawer
+    v-model="drawer"
+    title="I am the title"
+    :with-header="false"
+    direction="btt"
+    size="90%"
+    class="rounded-[3vw]"
+  >
+    <PlaylistComment />
+  </el-drawer>
 </template>
 <script setup>
 // eslint-disable-next-line import/no-cycle
-import { getPlaylistSong } from "@/api";
 import { ref, computed } from "vue";
+import { getPlaylistSong } from "@/api";
 import { useRouter, useRoute } from "vue-router";
 import { Icon } from "@iconify/vue";
 import PlaylistTop from "./PlaylistTop.vue";
 import PlaylistTopsong from "./PlaylistTopsong.vue";
+import PlaylistComment from "./PlaylistComment.vue";
 
+const drawer = ref(false);
 const searchQuery = ref("");
 const items = ref([]); // 初始化为空数组
 const route = useRoute();

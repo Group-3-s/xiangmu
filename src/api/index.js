@@ -17,12 +17,12 @@ export const sendValidCode = (data) => request.post("/captcha/sent", data);
 // 推荐歌单界面
 export const getPlaylistSong = (id) =>
   request.get("/playlist/detail", { params: { id } });
-// 推荐歌单界面收藏（收藏者api）
+
 // 歌单详情
 // export const getPlaylistSong = (data) => request.post("/playlist/detail", data);
-
+// 推荐歌单界面收藏（收藏者api）
 export const getPlaylistSub = (id) =>
-  request.get("/playlist/subscribers", { params: { id } });
+  request.get("/playlist/subscribers?limit=30", { params: { id } });
 // 推荐歌单界面最下边（最后你可能喜欢）
 export const getPlaylisttop = () => request.get("/top/playlist");
 
@@ -36,5 +36,5 @@ export const UserInfo1 = (id) =>
   request.get(`/user/follows?uid=${"3277116167"}`);
 
 // 歌单评论
-export const getPlaylistComment = (data) =>
-  request.get(`/comment/playlist?id=${705123491}&&limit=${20}`, data);
+export const getPlaylistComment = (id) =>
+  request.get(`/comment/playlist?limit=${20}`, { params: { id } });
