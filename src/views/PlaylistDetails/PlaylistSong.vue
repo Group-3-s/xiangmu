@@ -113,7 +113,6 @@
         <span class="text-white mt-[2vw] ml-[1vw]">{{ menu.shareCount }}</span>
       </div>
       <!-- 评论 -->
-      <!-- <router-link :to="`/playlistcomment?id=${menu.id}`"> -->
       <div
         @click="drawer = true"
         class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
@@ -123,44 +122,11 @@
           style="color: white"
           class="h-[7vw] w-[7vw] mt-[1.5vw]"
         />
-      </div>
-      <div
-        class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
-        @click="shareDrawer = !shareDrawer"
-      >
-        <Icon
-          icon="majesticons:share"
-          style="color: white"
-          class="h-[7vw] w-[7vw] mt-[1.5vw]"
-        />
-        <span class="text-white mt-[2vw] ml-[1vw]">{{ menu.shareCount }}</span>
-      </div>
-      <div
-        @click="comments"
-        class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
-      >
-        <Icon
-          icon="eva:message-circle-fill"
-          style="color: white"
-          class="h-[7vw] w-[7vw] mt-[1.5vw]"
-        />
-
         <span class="text-white mt-[2vw] ml-[1vw]">{{
           menu.commentCount
         }}</span>
       </div>
-    </div>
-    <!-- </router-link> -->
-    <!-- 关注 -->
-    <div
-      class="h-[10vw] w-[28.632vw] bg-red-500 rounded-[5vw] flex justify-center"
-    >
-      <Icon
-        icon="ph:folder-simple-plus-fill"
-        style="color: white"
-        class="h-[7vw] w-[7vw] mt-[1.5vw]"
-      />
-
+      <!-- 关注 -->
       <div
         class="h-[10vw] w-[28.632vw] bg-red-500 rounded-[5vw] flex justify-center"
       >
@@ -169,17 +135,12 @@
           style="color: white"
           class="h-[7vw] w-[7vw] mt-[1.5vw]"
         />
-
         <span class="text-white mt-[2vw] ml-[1vw]">{{
           menu.subscribedCount
         }}</span>
       </div>
     </div>
-  </div>
-  <!-- 广告 -->
-  <div
-    class="rounded-t-lg bg-[#e2e6ed] flex justify-between h-[12vw] mt-[4vw] leading-[12vw] text-[3vw]"
-  >
+    <!-- 广告 -->
     <div
       class="rounded-t-lg bg-[#e2e6ed] flex justify-between h-[12vw] mt-[4vw] leading-[12vw] text-[3vw]"
     >
@@ -197,6 +158,7 @@
       </span>
     </div>
   </div>
+
   <!-- 播放全部 -->
   <div>
     <div class="h-[14vw] leading-[14vw] flex justify-between">
@@ -506,7 +468,7 @@
     </div>
   </div>
   <PlaylistTop />
-  <!-- 评论页面 -->
+  <!-- 评论页面抽屉-->
   <el-drawer
     v-model="drawer"
     title="I am the title"
