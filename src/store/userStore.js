@@ -10,6 +10,7 @@ export const useUserStore = defineStore("user", {
   state() {
     return {
       userInfo: null,
+      
     };
   },
   getters: {
@@ -23,9 +24,11 @@ export const useUserStore = defineStore("user", {
       const [err, res] = await to(loginByPhone(data));
       if (res) {
         this.userInfo = res.data;
+
         router.replace("/home");
       }
     },
   },
   persist: true,
 });
+

@@ -17,18 +17,7 @@
         alt=""
         class="w-[40vw] h-[40vw] m-auto relative z-[1]"
       />
-      <!-- <div
-        class="z-[999] absolute h-[40vw] w-[40vw] top-0 left-1/2 transform -translate-x-1/2"
-      >
-        <div
-          class="absolute bg-[#dddddd] w-[40vw] h-[40vw] opacity-60 z-[2]"
-        ></div>
-        <div
-          class="shadow-lg absolute z-[3] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[#FF5A35] to-[#F81227] text-[#fff] rounded-[200px] text-center leading-[7.6vw] h-[7.6vw] w-[20vw] text-[3vw]"
-        >
-          点击刷新
-        </div>
-      </div> -->
+
       <van-button @click="upDate" round type="success" loading="刷新中"
         >点击刷新二维码</van-button
       >
@@ -44,71 +33,61 @@
 <script setup>
 import { sendCodekey, sendCodecreate, sendCodecheck } from "@/api";
 import goBack from "@/components/goBack.vue";
-import { ref, watch } from "vue";
+import { ref, registerRuntimeCompiler, watch } from "vue";
 import { useRequest } from "vue-request";
 import { useUserStore } from "@/store";
 import { showToast } from "vant";
 // import axios from "axios";
 import localforage from "localforage";
 
-const qrimg = ref();
-const key = ref();
-const code = ref();
+const qrimg = ref(); //图片
+const key = ref(); //key
+const code = ref(); //802 803 801
 
+// const codekey = ref();
 sendCodekey().then((res) => {
+  console.log(res, "unikey");
+
   key.value = res.data.data.unikey;
 
-  sendCodecreate(res).then((i) => {
+  sendCodecreate(res, key.value).then((i) => {
     // console.log(i);
+    console.log(res);
     qrimg.value = i.data.data.qrimg;
+    // codekey.value = key.value;
   });
-});
-// 轮询
-const {
-  run: upDate,
-  data: res,
-  // loading,
-} = useRequest(
-  sendCodecheck(
-    `https://netease-serrver01.vercel.app/login/qr/check?key=${
-      key.value
-    }&timestamp=${Date.now()}`
-  ),
-  {
-    pollingInterval: 1000, //+!
-    manual: true,
-  }
-);
-watch(res, () => {
-  code.value = res.data.code;
-  if (res.data.code == 800) {
-    console.log("二维码已将失效，请刷新");
-    clearInterval(pollingInterval); //+!
-  }
-  if (res.data.code == 802) return console.log("正在授权登录");
-  if (res.data.code == 803) {
-    clearInterval(pollingInterval); //+!
-    localforage.setItem("userInfo", res.data).then((res) => {
-      console.log(res);
-      showToast("登陆成功");
-      clearInterval(pollingInterval); //+!
-    });
-  }
-});
 
-// const enterInterval = setInterval(() => {
-//   sendCodecheck({ key: key.value }).then((data) => {
-//     if (data.data.code === 802) {
-//       return console.log("等待确认登录");
-//     }
-//     if (data.data.code === 803) {
-//       return console.log("授权成功");
-//       clearInterval(enterInterval);
-//       return;
-//     }
-//     console.log(data.data.code);
-//   });
-// });
+  console.log(key.value, "key");
+  // 轮询
+
+  const { run, data } = useRequest(sendCodecheck({ key: key.value }), {
+    pollingInterval: 1000,
+    manual: true,
+  });
+  //
+  // watch(
+  //   () => res,
+  //   () => {
+  //     code.value = res.data.code;
+  //     if (res.data.code == 800) {
+  //       console.log("二维码已将失效，请刷新");
+  //       clearInterval(pollingInterval);
+  //     }
+  //     if (res.data.code == 802) return console.log("正在授权登录");
+  //     if (res.data.code == 803) {
+  //       clearInterval(pollingInterval);
+  //       localforage.setItem("userInfo", res.data).then((res) => {
+  //         console.log(res);
+  //         showToast("登陆成功");
+  //         clearInterval(pollingInterval);
+  //       });
+  //     }
+  //   }
+  // );
+  // watch(){
+
+  // }
+});
 </script>
 <style scoped>
 .box {

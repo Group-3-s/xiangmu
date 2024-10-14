@@ -6,7 +6,20 @@
       <h3 class="mt-[-8vw] ml-[14vw] text-xl">手机登录</h3>
     </div>
     <br />
+
     <!-- 提示 -->
+    <div class="w-[100vw] h-[14vw] text-[#b9b9b9] ml-[5vw] mt-[10vw] text-xl">
+      未创建手机号登录后自动创建账号
+    </div>
+    <!-- phone -->
+    <Myinput
+      placeholder="请输入手机号"
+      :value="userInfo.phone"
+      @update:value="(e) => (userInfo.phone = e)"
+      class="px-[10px] mt-[10px]"
+    />
+
+    <br />
     <!-- psd-->
     <Myinput
       placeholder="请输入密码"
@@ -14,7 +27,8 @@
       :value="userInfo.password"
       @update:value="(e) => (userInfo.password = e)"
       class="px-[10px] mt-[10px]"
-    /><br />
+    />
+    <br />
     <Myinput
       placeholder="请输入验证码"
       :value="userInfo.captcha"
@@ -47,7 +61,7 @@ import { sendValidCode } from "@/api";
 import { useRequest } from "vue-request";
 import { useUserStore } from "@/store";
 
-import { ref, watchEffect } from "vue";
+import { ref, watch, watchEffect } from "vue";
 const route = useRoute();
 const router = useRouter();
 const userInfo = ref({
@@ -55,37 +69,40 @@ const userInfo = ref({
   password: "",
   captcha: "",
 });
-const keyword = route.query.keyword;
-console.log(keyword);
-const sendCode = () => {
-  sendValidCode({ phone: route.query.keyword })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+// const keyword = route.query.keyword;
+// console.log(keyword);
+// const sendCode = () => {
+//   sendValidCode({ phone: route.query.keyword })
+//     .then((res) => {
+//       console.log(res);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
 // 发送验证码
-// const {
-//   run: sendCode,
-//   data: result,
-//   loading,
-// } = useRequest(() => {
-//   sendValidCode({ phone: route.query.keyword }),
-//     {
-//       manual: true, // 手动发送请求
-//     };
-// });
+const {
+  run: sendCode,
+  data: result,
+  loading,
+} = useRequest(() => {
+  sendValidCode({ phone: userInfo.value.phone }),
+    {
+      manual: true, // 手动发送请求
+    };
+});
 
-// watch(result, () => {
-//   if (result.value.data.code !== 200) {
-//     showToast(result.value.data.message);
-//   }
-// });
+watch(result, () => {
+  if (result.value.data.code !== 200) {
+    showToast(result.value.data.message);
+  }
+});
+// 登录
+
 // 登录
 const userStore = useUserStore();
 watchEffect(() => {
+  // console.log(res);
   console.log(userStore);
 });
 </script>

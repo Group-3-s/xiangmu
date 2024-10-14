@@ -21,7 +21,7 @@ const routes = [
   },
   {
     path: "/loginprompt",
-    // name: loginPrompt,
+
     component: loginPrompt,
   },
   {

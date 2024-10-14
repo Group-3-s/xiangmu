@@ -16,10 +16,9 @@
           round
           color="#db2d1f"
           type="primary"
-          to="/loginphone"
+          to="/loginpsd"
           plain
           class="w-[70vw] h-[12vw]"
-         
           >手机号登录</van-button
         >
 
@@ -121,8 +120,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   allowScroll();
 });
-
-
 </script>
 <style scoped>
 .container {
