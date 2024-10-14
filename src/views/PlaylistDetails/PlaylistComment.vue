@@ -152,7 +152,8 @@
 import { getPlaylistComment } from "@/api";
 import { ref } from "vue";
 import { Icon } from "@iconify/vue";
-// import { useRoute } from "vue-router";
+import { useRoute } from "vue-router";
+
 const plcom = ref({});
 // const route = useRoute();
 // const total = ref();
@@ -162,7 +163,8 @@ const plcom = ref({});
 // console.log(e);
 
 // currentCategory.value = e;
-getPlaylistComment()
+const route = useRoute();
+getPlaylistComment(route.query.id)
   .then((res) => {
     console.log(res.data);
     plcom.value = res.data;

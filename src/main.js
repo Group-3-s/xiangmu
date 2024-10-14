@@ -7,6 +7,7 @@ import initErrorHandle from "@/utils/initErrorHandle";
 import router from "./router";
 import pinia from "./store";
 
+
 initErrorHandle();
 
 createApp(App).use(router).use(pinia).use(Icon).mount("#app");
