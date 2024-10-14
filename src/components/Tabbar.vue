@@ -1,5 +1,5 @@
 <template>
-  <div
+  <!-- <div
     class="fixed bottom-[0px] left-[0px] right-[0px] p-[10px] text-center bg-[#fff]"
   >
     <ul
@@ -16,7 +16,22 @@
         <span class="text-[12px]"> {{ item.title }}</span>
       </li>
     </ul>
-  </div>
+  </div> -->
+  <van-tabbar route v-model="active" active-color="#ee0a24">
+    <van-tabbar-item class="vanitem" replace to="/home" icon="home-o">发现</van-tabbar-item>
+    <van-tabbar-item replace to="/mvranking" icon="search"
+      >排行榜</van-tabbar-item
+    >
+    <van-tabbar-item replace to="/user" icon="music"
+      >我的</van-tabbar-item
+    >
+    <van-tabbar-item replace to="/home" icon="friends"
+      >关注</van-tabbar-item
+    >
+    <van-tabbar-item replace to="/home" icon="wechat"
+      >社区</van-tabbar-item
+    >
+  </van-tabbar>
 </template>
 
 <script setup>
@@ -65,6 +80,9 @@ const switchTab = (path) => {
 
 <style scoped>
 li.active {
+  color: red;
+}
+.vanitem:hover{
   color: red;
 }
 </style>
