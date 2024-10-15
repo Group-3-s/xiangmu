@@ -7,14 +7,14 @@
     </div>
     <!-- 顶部导航栏 -->
     <Tabs v-model:activeKey="activeKey" centered tabBarGutter="13vw">
-      <TabPane key="1" tab="内地" class="pane">
+      <TabPane key="内地" tab="内地" class="pane">
         <div
           class="overflow-auto px-[4vw] mt-[3vw]"
           v-for="(item, number) in mv1"
           :key="item.id"
         >
           <!-- <div v-if="currentCategory === '内地'"> -->
-          <div class="w-[92vw]">
+          <div class="w-[92vw]" @click="mvgo(item.id)">
             <div class="w-[100%] h-[52vw] relative">
               <img
                 :src="item.cover"
@@ -52,14 +52,14 @@
           <!-- </div> -->
         </div></TabPane
       >
-      <TabPane key="2" tab="港台" force-render>
+      <TabPane key="港台" tab="港台" force-render>
         <div
           class="overflow-auto px-[4vw] mt-[3vw]"
           v-for="(item, number) in mv2"
           :key="item.id"
         >
           <!-- <div v-if="currentCategory === '内地'"> -->
-          <div class="w-[92vw]">
+          <div class="w-[92vw]" @click="mvgo(item.id)">
             <div class="w-[100%] h-[52vw] relative">
               <img
                 :src="item.cover"
@@ -97,14 +97,14 @@
           <!-- </div> -->
         </div>
       </TabPane>
-       <TabPane key="3" tab="欧美" force-render>
+      <TabPane key="欧美" tab="欧美" force-render>
         <div
           class="overflow-auto px-[4vw] mt-[3vw]"
           v-for="(item, number) in mv3"
           :key="item.id"
         >
           <!-- <div v-if="currentCategory === '内地'"> -->
-          <div class="w-[92vw]">
+          <div class="w-[92vw]" @click="mvgo(item.id)">
             <div class="w-[100%] h-[52vw] relative">
               <img
                 :src="item.cover"
@@ -142,14 +142,14 @@
           <!-- </div> -->
         </div>
       </TabPane>
-       <TabPane key="4" tab="韩国" force-render>
+      <TabPane key="韩国" tab="韩国" force-render>
         <div
           class="overflow-auto px-[4vw] mt-[3vw]"
           v-for="(item, number) in mv4"
           :key="item.id"
         >
           <!-- <div v-if="currentCategory === '内地'"> -->
-          <div class="w-[92vw]">
+          <div class="w-[92vw]" @click="mvgo(item.id)">
             <div class="w-[100%] h-[52vw] relative">
               <img
                 :src="item.cover"
@@ -187,14 +187,14 @@
           <!-- </div> -->
         </div>
       </TabPane>
-       <TabPane key="5" tab="日本" force-render>
+      <TabPane key="日本" tab="日本" force-render>
         <div
           class="overflow-auto px-[4vw] mt-[3vw]"
           v-for="(item, number) in mv5"
           :key="item.id"
         >
           <!-- <div v-if="currentCategory === '内地'"> -->
-          <div class="w-[92vw]">
+          <div class="w-[92vw]" @click="mvgo(item.id)">
             <div class="w-[100%] h-[52vw] relative">
               <img
                 :src="item.cover"
@@ -446,7 +446,7 @@
 
 <script setup>
 import { ref } from "vue";
-// import { Icon } from "@iconify/vue";
+import { Icon } from "@iconify/vue";
 import { Tabs, TabPane } from "ant-design-vue";
 // eslint-disable-next-line import/no-cycle
 import {
@@ -457,9 +457,10 @@ import {
   MvRanking5,
 } from "@/api";
 import TabBar from "@/components/Tabbar.vue";
-import { genHoverStyle } from "ant-design-vue/es/input/style";
+import { useRouter } from "vue-router";
 
-const activeKey = ref("1");
+const router = useRouter();
+const activeKey = ref("内地");
 const mv1 = ref([]);
 const mv2 = ref([]);
 const mv3 = ref([]);
@@ -505,6 +506,12 @@ MvRanking5()
   .catch((err) => {
     console.log(err);
   });
+const mvgo = (id,mvid) => {
+  // eslint-disable-next-line object-shorthand, prefer-const, no-undef
+  let query = { id: id ,mvid:mvid};
+  router.push({ path: "/mvvideo", query });
+  console.log(id);
+};
 // const fn = (e) => {
 //   console.log(e);
 
@@ -520,9 +527,7 @@ MvRanking5()
 // };
 </script>
 
-<style>
-
-</style>
+<style></style>
 <!-- <style>
 nav {
   height: 44px;

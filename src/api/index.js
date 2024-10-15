@@ -56,3 +56,18 @@ export const UserInfo1 = (id) =>
 export const getPlaylistComment = (id) =>
   request.get(`/comment/playlist?limit=${20}`, { params: { id } });
 // mv播放器
+export const getMvVideo = (data) => request.post("/mv/url", data);
+// export const getMvDetail = (mvid) =>
+//   request.get(`/mv/detail?mvid=${mvid.value}`);
+// export const getMvDetailInfo = (data) =>
+//   request.get(`/mv/detail/info?mvid=${data}`, data);
+export const getMvDetail = async () => {
+  const [error, res] = await to(request.get("/mv/detail"));
+  if (error) return console.log("请求出错！");
+  return res;
+};
+export const getMvDetailInfo = async () => {
+  const [error, res] = await to(request.get("/mv/detail/info"));
+  if (error) return console.log(error);
+  return res;
+};
