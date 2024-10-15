@@ -1,10 +1,6 @@
 <template>
-  <div
-    class="fixed bottom-[0px] left-[0px] right-[0px] p-[10px] text-center bg-[#fff]"
-  >
-    <ul
-      class="aa flex flex-grow justify-between text-center text-[#9195a0] bg-white"
-    >
+  <div class="fixed bottom-[0px] left-[0px] right-[0px] p-[10px] text-center bg-[#fff]">
+    <ul class="aa flex flex-grow justify-between text-center text-[#9195a0] bg-white">
       <li
         v-for="item in routerList"
         :key="item"
@@ -40,7 +36,7 @@ const routerList = [
   },
   {
     title: "我的",
-    path:"/user",
+    path: "/user",
     iconUrl: "mingcute:music-line",
     color: "color:black",
     selected: "color:red",

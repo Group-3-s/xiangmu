@@ -2,17 +2,13 @@
 <template>
   <wrapper :title="props.data.name" @clickMore="showDrawer = !showDrawer">
     <div
-      class="w-[91vw] pt-[1vw] ml-[2vw] overflow-hidden scroll-wrapper border-[#EBEDF2]"
+      class="w-[91vw] pt-[1vw] ml-[2vw] overflow-hidden scroll-wrapper border-[#EBEDF2] mb-[50px]"
     >
       <div class="scroll-content flex w-[540vw] mb-[6.31vw]">
         <ul
           class="dark:bg-[#25272e] w-[91vw] scroll-item shadows bg-[#fff] mr-[2vw] rounded-[10px] px-[4vw] pt-[4vw] pb-[3.8vw]"
         >
-          <li
-            v-for="(item, index) in props.data.children"
-            :key="index"
-            class="flex mt-[3vw]"
-          >
+          <li v-for="(item, index) in props.data.children" :key="index" class="flex mt-[3vw]">
             <div class="flex-1">
               <div
                 class="dark:text-[#a5a7ae] text-[3.68vw] text-[#3E4558] overflow-hidden text-nowrap w-[220px]"
@@ -21,11 +17,7 @@
               </div>
             </div>
             <div class="flex-4">
-              <img
-                :src="item.imageUrl"
-                alt=""
-                class="w-[15vw] h-[15vw] rounded-[10px]"
-              />
+              <img :src="item.imageUrl" alt="" class="w-[15vw] h-[15vw] rounded-[10px]" />
             </div>
           </li>
         </ul>
@@ -46,20 +38,10 @@
         </p>
         <ul class="ml-[5vw]">
           <li class="h-[12vw] flex items-center">
-            <Icon
-              icon="iconamoon:like"
-              width="5vw"
-              height="5vw"
-              style="color: black"
-            />优先推荐
+            <Icon icon="iconamoon:like" width="5vw" height="5vw" style="color: black" />优先推荐
           </li>
           <li class="h-[12vw] flex items-center">
-            <Icon
-              icon="ri:dislike-line"
-              width="5vw"
-              height="5vw"
-              style="color: black"
-            />减少推荐
+            <Icon icon="ri:dislike-line" width="5vw" height="5vw" style="color: black" />减少推荐
           </li>
           <li class="h-[12vw] flex items-center">
             <Icon

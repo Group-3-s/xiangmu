@@ -1,9 +1,6 @@
 <!-- eslint-disable max-len -->
 <template>
-  <div
-    :style="boxStyle"
-    class="h-[85vw] bg-gradient-to-b from-[#4f6989] to-[#6e8bae] p-0 m-0"
-  >
+  <div :style="boxStyle" class="h-[85vw] bg-gradient-to-b from-[#4f6989] to-[#6e8bae] p-0 m-0">
     <div class="flex justify-between pt-[5vw]">
       <div class="flex">
         <Icon
@@ -11,16 +8,11 @@
           @click="BackHome"
           class="w-[5vw] h-[10vw] ml-[5vw] text-white"
         />
-        <span class="text-[5vw] font-semibold mt-[1.7vw] ml-[5vw] text-white"
-          >歌单</span
-        >
+        <span class="text-[5vw] font-semibold mt-[1.7vw] ml-[5vw] text-white">歌单</span>
       </div>
       <div class="flex mr-[4vw]">
         <button @click="toggleDrawer">
-          <Icon
-            icon="basil:search-outline"
-            class="h-[8vw] w-[8vw] ml-[25vw] mt-[1vw] text-white"
-          />
+          <Icon icon="basil:search-outline" class="h-[8vw] w-[8vw] ml-[25vw] mt-[1vw] text-white" />
         </button>
         <Icon
           icon="ant-design:more-outlined"
@@ -41,15 +33,10 @@
             @click="showOverlay"
             alt=""
           />
-          <div
-            class="absolute top-[1vw] right-[2vw] text-[10px] text-white flex"
-          >
-            <Icon
-              icon="ic:baseline-arrow-right"
-              width="4vw"
-              height="4vw"
-              style="color: white"
-            />{{ changeCount(menu.playCount) }}
+          <div class="absolute top-[1vw] right-[2vw] text-[10px] text-white flex">
+            <Icon icon="ic:baseline-arrow-right" width="4vw" height="4vw" style="color: white" />{{
+              changeCount(menu.playCount)
+            }}
           </div>
         </div>
         <div>
@@ -63,9 +50,7 @@
                 :src="menu.creator.avatarUrl"
                 alt=""
             /></span>
-            <span class="text-[3vw] text-white mt-[1vw]">{{
-              menu.creator.nickname
-            }}</span>
+            <span class="text-[3vw] text-white mt-[1vw]">{{ menu.creator.nickname }}</span>
             <div
               class="w-[12vw] h-[5.3vw] rounded-[2.65vw] bg-[#748caa] text-[3vw] text-center leading-[5.3vw] text-white inline-block ml-[2vw]"
             >
@@ -89,26 +74,15 @@
         {{ menu.description }}
       </div>
     </div>
-    <div
-      class="w-[5vw] h-[5vw] bg-gray-400 rounded-[2.5vw] absolute right-[2vw] top-[19vw]"
-    >
-      <Icon
-        @click="fn"
-        :icon="currentIcon"
-        class="w-[5vw] h-[5vw]"
-        style="color: white"
-      />
+    <div class="w-[5vw] h-[5vw] bg-gray-400 rounded-[2.5vw] absolute right-[2vw] top-[19vw]">
+      <Icon @click="fn" :icon="currentIcon" class="w-[5vw] h-[5vw]" style="color: white" />
     </div>
     <div class="flex justify-around mt-[4.5vw]">
       <div
         class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
         @click="shareDrawer = !shareDrawer"
       >
-        <Icon
-          icon="majesticons:share"
-          style="color: white"
-          class="h-[7vw] w-[7vw] mt-[1.5vw]"
-        />
+        <Icon icon="majesticons:share" style="color: white" class="h-[7vw] w-[7vw] mt-[1.5vw]" />
         <span class="text-white mt-[2vw] ml-[1vw]">{{ menu.shareCount }}</span>
       </div>
       <div
@@ -120,32 +94,24 @@
           style="color: white"
           class="h-[7vw] w-[7vw] mt-[1.5vw]"
         />
-        <span class="text-white mt-[2vw] ml-[1vw]">{{
-          menu.commentCount
-        }}</span>
+        <span class="text-white mt-[2vw] ml-[1vw]">{{ menu.commentCount }}</span>
       </div>
-      <div
-        class="h-[10vw] w-[28.632vw] bg-red-500 rounded-[5vw] flex justify-center"
-      >
+      <div class="h-[10vw] w-[28.632vw] bg-red-500 rounded-[5vw] flex justify-center">
         <Icon
           icon="ph:folder-simple-plus-fill"
           style="color: white"
           class="h-[7vw] w-[7vw] mt-[1.5vw]"
         />
-        <span class="text-white mt-[2vw] ml-[1vw]">{{
-          menu.subscribedCount
-        }}</span>
+        <span class="text-white mt-[2vw] ml-[1vw]">{{ menu.subscribedCount }}</span>
       </div>
     </div>
     <div
       class="rounded-t-lg bg-[#e2e6ed] flex justify-between h-[12vw] mt-[4vw] leading-[12vw] text-[3vw]"
     >
       <div class="flex">
-        <Icon
-          icon="mingcute:gift-2-line"
-          style="color: red"
-          class="m-[4vw] w-[4vw] h-[4vw]"
-        /><span>VIP5.5折！抢独家护肤礼包</span>
+        <Icon icon="mingcute:gift-2-line" style="color: red" class="m-[4vw] w-[4vw] h-[4vw]" /><span
+          >VIP5.5折！抢独家护肤礼包</span
+        >
       </div>
       <span class="mr-[6vw] text-[#888b8f]"
         >立即抢购<Icon class="inline-block ml-[2vw]" icon="bi:chevron-right"
@@ -163,14 +129,8 @@
         ><span class="text-[3vw] mt-[1vw]">({{ menu.tracks.length }})</span>
       </div>
       <div class="flex mr-[5vw]">
-        <Icon
-          icon="hugeicons:download-01"
-          class="w-[6vw] h-[6vw] mt-[4vw] mr-[4vw]"
-        />
-        <Icon
-          icon="flowbite:bars-from-left-outline"
-          class="w-[6vw] h-[6vw] mt-[4vw]"
-        />
+        <Icon icon="hugeicons:download-01" class="w-[6vw] h-[6vw] mt-[4vw] mr-[4vw]" />
+        <Icon icon="flowbite:bars-from-left-outline" class="w-[6vw] h-[6vw] mt-[4vw]" />
       </div>
     </div>
     <div>
@@ -182,9 +142,7 @@
           @click="GoPlayer(item.id)"
         >
           <div class="flex h-[15vw]">
-            <div
-              class="text-[#999999] text-[4vw] font-sans leading-[15vw] mx-[5vw]"
-            >
+            <div class="text-[#999999] text-[4vw] font-sans leading-[15vw] mx-[5vw]">
               {{ index + 1 }}
             </div>
             <div class="mt-[2vw]">
@@ -209,23 +167,13 @@
   <!-- 歌单收藏者 -->
   <div class="flex justify-between h-[16vw]">
     <div class="flex mt-[4.5vw]">
-      <div
-        v-for="item in collection.slice(0, 5)"
-        class="w-[8vw] h-[8vw] ml-[3vw]"
-        :key="item.id"
-      >
-        <img
-          :src="item.avatarUrl"
-          class="h-[8vw] w-[8vw] rounded-[4vw]"
-          alt=""
-        />
+      <div v-for="item in collection.slice(0, 5)" class="w-[8vw] h-[8vw] ml-[3vw]" :key="item.id">
+        <img :src="item.avatarUrl" class="h-[8vw] w-[8vw] rounded-[4vw]" alt="" />
       </div>
     </div>
     <router-link :to="`/playlistcoll?id=${menu.id}`">
       <div class="flex leading-[16vw]">
-        <div class="text-[3vw] text-[#999999]">
-          {{ menu.subscribedCount }}人收藏
-        </div>
+        <div class="text-[3vw] text-[#999999]">{{ menu.subscribedCount }}人收藏</div>
         <Icon icon="bi:chevron-right" class="mt-[6vw] mx-[2vw]" />
       </div>
     </router-link>
@@ -236,9 +184,7 @@
     </transition>
     <transition name="slide">
       <div v-if="showDrawer" class="drawer">
-        <div
-          class="h-[13vw] text-[4vw] text-[#aaadb5] leading-[13vw] pl-[4vw] border-b-[1px]"
-        >
+        <div class="h-[13vw] text-[4vw] text-[#aaadb5] leading-[13vw] pl-[4vw] border-b-[1px]">
           <span>歌单：</span><span>{{ menu.name }}</span>
         </div>
         <ul>
@@ -274,9 +220,7 @@
     </transition>
     <transition name="slide">
       <div v-if="shareDrawer" class="drawer">
-        <div class="h-[13vw] text-[4vw] text-[#666666] leading-[13vw] pl-[4vw]">
-          分享
-        </div>
+        <div class="h-[13vw] text-[4vw] text-[#666666] leading-[13vw] pl-[4vw]">分享</div>
         <ul class="flex border-b-[1px] pb-[4vw]">
           <li class="mx-[3vw]">
             <div>
@@ -381,20 +325,11 @@
             placeholder="搜索歌单内歌曲"
             v-model="searchQuery"
           />
-          <span
-            class="text-lg pt-[5vw] pl-[3vw]"
-            style="color: white"
-            @click="closSpan"
-            >取消</span
-          >
+          <span class="text-lg pt-[5vw] pl-[3vw]" style="color: white" @click="closSpan">取消</span>
         </div>
         <div class="bg-white h-[100%]">
           <div class="bg-white">
-            <div
-              v-for="item in filteredItems"
-              :key="item.id"
-              class="flex justify-between h-[20vw]"
-            >
+            <div v-for="item in filteredItems" :key="item.id" class="flex justify-between h-[20vw]">
               <ul class="ml-[4vw]">
                 <li class="text-[3.8vw] m-[1vw]">
                   {{ item.name }}
@@ -409,9 +344,7 @@
                     class="w-[4vw] h-[4vw] rounded-[2vw]"
                     :src="menu.creator.avatarUrl"
                     alt=""
-                  /><span class="text-[3.1vw] text-[#848484]">{{
-                    menu.creator.nickname
-                  }}</span>
+                  /><span class="text-[3.1vw] text-[#848484]">{{ menu.creator.nickname }}</span>
                 </li>
               </ul>
               <Icon
@@ -432,10 +365,7 @@
           :src="menu.coverImgUrl"
         />
         <div style="color: gray" class="mt-[30vw]">{{ menu.name }}</div>
-        <div
-          class="w-[78vw] mt-[6vw] h-[1vw] border-b-2"
-          style="color: gray"
-        ></div>
+        <div class="w-[78vw] mt-[6vw] h-[1vw] border-b-2" style="color: gray"></div>
         <div class="mt-[3vw]">
           <span style="color: gray" class="text-lg">标签：</span>
           <span
@@ -446,9 +376,7 @@
           >
         </div>
         <div class="mt-[5vw]">
-          <span style="color: gray" class="text-lg">{{
-            menu.description
-          }}</span>
+          <span style="color: gray" class="text-lg">{{ menu.description }}</span>
         </div>
       </div>
     </div>

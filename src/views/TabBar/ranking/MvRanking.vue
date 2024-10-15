@@ -9,10 +9,7 @@
     <nav>
       <ul>
         <li v-for="category in categories" :key="category">
-          <button
-            :class="{ active: currentCategory === category }"
-            @click="fn(category)"
-          >
+          <button :class="{ active: currentCategory === category }" @click="fn(category)">
             <!-- @click="currentCategory = category" -->
             {{ category }}
           </button>
@@ -22,11 +19,7 @@
 
     <!-- 页面内容 -->
     <!-- // eslint-disable-next-line vue/require-v-for-key -->
-    <div
-      class="overflow-auto px-[4vw] mt-[3vw]"
-      v-for="(item, number) in mv"
-      :key="item.id"
-    >
+    <div class="overflow-auto px-[4vw] mt-[3vw]" v-for="(item, number) in mv" :key="item.id">
       <!-- 根据当前类别显示内容 -->
       <div v-if="currentCategory === '内地'">
         <div class="w-[92vw]">
@@ -36,28 +29,20 @@
               alt=""
               class="w-[100%] h-[52vw] bg-black rounded-[3vw] mb-[2.7vw]"
             />
-            <div
-              class="text-[#fff] text-[2.6vw] absolute top-[2vw] right-[2vw] flex items-center"
-            >
-              <Icon
-                icon="solar:play-bold"
-                style="color: #fdffff"
-                class="mr-[0.5vw]"
-              />
+            <div class="text-[#fff] text-[2.6vw] absolute top-[2vw] right-[2vw] flex items-center">
+              <Icon icon="solar:play-bold" style="color: #fdffff" class="mr-[0.5vw]" />
               <div>{{ item.playCount }}</div>
             </div>
           </div>
           <div class="h-[15vw] flex items-center flex-wrap">
             <div class="flex h-[5vw] w-[100vw]">
-              <span
-                class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]"
-                >{{ number + 1 }}</span
-              >
+              <span class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]">{{
+                number + 1
+              }}</span>
 
-              <span
-                class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]"
-                >{{ item.name }}</span
-              >
+              <span class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]">{{
+                item.name
+              }}</span>
             </div>
             <div class="flex-1 line-clamp-1 text-[#7c7c7c] text-[2vw]">
               <span>{{ item.artistName }}</span>
@@ -75,28 +60,20 @@
               alt=""
               class="w-[100%] h-[52vw] bg-black rounded-[3vw] mb-[2.7vw]"
             />
-            <div
-              class="text-[#fff] text-[2.6vw] absolute top-[2vw] right-[2vw] flex items-center"
-            >
-              <Icon
-                icon="solar:play-bold"
-                style="color: #fdffff"
-                class="mr-[0.5vw]"
-              />
+            <div class="text-[#fff] text-[2.6vw] absolute top-[2vw] right-[2vw] flex items-center">
+              <Icon icon="solar:play-bold" style="color: #fdffff" class="mr-[0.5vw]" />
               <div>{{ item.playCount }}</div>
             </div>
           </div>
           <div class="h-[15vw] flex items-center flex-wrap">
             <div class="flex h-[5vw] w-[100vw]">
-              <span
-                class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]"
-                >{{ number + 1 }}</span
-              >
+              <span class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]">{{
+                number + 1
+              }}</span>
 
-              <span
-                class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]"
-                >{{ item.name }}</span
-              >
+              <span class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]">{{
+                item.name
+              }}</span>
             </div>
             <div class="flex-1 line-clamp-1 text-[#7c7c7c] text-[2vw]">
               <span>{{ item.artistName }}</span>
@@ -104,10 +81,6 @@
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 7cd665a58d1c65fed4349f2aafed6bc6031a74a1
       <div v-if="currentCategory === '欧美'">
         <div class="w-[92vw]">
           <div class="w-[100%] h-[52vw] relative">
@@ -116,28 +89,20 @@
               alt=""
               class="w-[100%] h-[52vw] bg-black rounded-[3vw] mb-[2.7vw]"
             />
-            <div
-              class="text-[#fff] text-[2.6vw] absolute top-[2vw] right-[2vw] flex items-center"
-            >
-              <Icon
-                icon="solar:play-bold"
-                style="color: #fdffff"
-                class="mr-[0.5vw]"
-              />
+            <div class="text-[#fff] text-[2.6vw] absolute top-[2vw] right-[2vw] flex items-center">
+              <Icon icon="solar:play-bold" style="color: #fdffff" class="mr-[0.5vw]" />
               <div>{{ item.playCount }}</div>
             </div>
           </div>
           <div class="h-[15vw] flex items-center flex-wrap">
             <div class="flex h-[5vw] w-[100vw]">
-              <span
-                class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]"
-                >{{ number + 1 }}</span
-              >
+              <span class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]">{{
+                number + 1
+              }}</span>
 
-              <span
-                class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]"
-                >{{ item.name }}</span
-              >
+              <span class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]">{{
+                item.name
+              }}</span>
             </div>
             <div class="flex-1 line-clamp-1 text-[#7c7c7c] text-[2vw]">
               <span>{{ item.artistName }}</span>
@@ -153,28 +118,20 @@
               alt=""
               class="w-[100%] h-[52vw] bg-black rounded-[3vw] mb-[2.7vw]"
             />
-            <div
-              class="text-[#fff] text-[2.6vw] absolute top-[2vw] right-[2vw] flex items-center"
-            >
-              <Icon
-                icon="solar:play-bold"
-                style="color: #fdffff"
-                class="mr-[0.5vw]"
-              />
+            <div class="text-[#fff] text-[2.6vw] absolute top-[2vw] right-[2vw] flex items-center">
+              <Icon icon="solar:play-bold" style="color: #fdffff" class="mr-[0.5vw]" />
               <div>{{ item.playCount }}</div>
             </div>
           </div>
           <div class="h-[15vw] flex items-center flex-wrap">
             <div class="flex h-[5vw] w-[100vw]">
-              <span
-                class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]"
-                >{{ number + 1 }}</span
-              >
+              <span class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]">{{
+                number + 1
+              }}</span>
 
-              <span
-                class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]"
-                >{{ item.name }}</span
-              >
+              <span class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]">{{
+                item.name
+              }}</span>
             </div>
             <div class="flex-1 line-clamp-1 text-[#7c7c7c] text-[2vw]">
               <span>{{ item.artistName }}</span>
@@ -190,28 +147,20 @@
               alt=""
               class="w-[100%] h-[52vw] bg-black rounded-[3vw] mb-[2.7vw]"
             />
-            <div
-              class="text-[#fff] text-[2.6vw] absolute top-[2vw] right-[2vw] flex items-center"
-            >
-              <Icon
-                icon="solar:play-bold"
-                style="color: #fdffff"
-                class="mr-[0.5vw]"
-              />
+            <div class="text-[#fff] text-[2.6vw] absolute top-[2vw] right-[2vw] flex items-center">
+              <Icon icon="solar:play-bold" style="color: #fdffff" class="mr-[0.5vw]" />
               <div>{{ item.playCount }}</div>
             </div>
           </div>
           <div class="h-[15vw] flex items-center flex-wrap">
             <div class="flex h-[5vw] w-[100vw]">
-              <span
-                class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]"
-                >{{ number + 1 }}</span
-              >
+              <span class="w-[5.3vw] text-[4.3vw] mr-[2.8vw] text-center text-[red]">{{
+                number + 1
+              }}</span>
 
-              <span
-                class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]"
-                >{{ item.name }}</span
-              >
+              <span class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]">{{
+                item.name
+              }}</span>
             </div>
             <div class="flex-1 line-clamp-1 text-[#7c7c7c] text-[2vw]">
               <span>{{ item.artistName }}</span>
@@ -235,12 +184,9 @@ const mv = ref([]);
 const categories = ["内地", "港台", "欧美", "韩国", "日本"];
 const currentCategory = ref("内地"); // 默认选中 '内地'
 const fn = (e) => {
-  console.log(e);
-
   currentCategory.value = e;
   MvRanking(e)
     .then((res) => {
-      console.log(res);
       mv.value = res.data.data;
     })
     .catch((err) => {

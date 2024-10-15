@@ -2,6 +2,7 @@
 <template>
   <div class="pt-[1px]">
     <div class="relative">
+      <!-- 侧边栏Icon -->
       <Icon
         icon="gravity-ui:bars-ascending-align-left"
         width="4vw"
