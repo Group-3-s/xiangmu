@@ -69,8 +69,9 @@
         <!-- 歌曲歌词 -->
         <div v-else @click="isLyric">
           <p
-            v-for="item in Lyric"
+            v-for="(item, index) in Lyric"
             :key="item"
+            :class="{ active: index === currentLyricIndex }"
             class="text-[hsla(0,0%,88.2%,.8)] line-clamp-2 w-[100%] h-[12vw] px-[4vw] flex justify-center text-center"
           >
             {{ item.word }}
@@ -128,11 +129,11 @@
       </div>
     </div>
   </div>
-  <audio ref="audioPlayer" :src="SongUrl" :loop="loop" currentTime=""></audio>
+  <audio ref="audioPlayer" :src="SongUrl" :loop="loop" @ended="ended" controls></audio>
 </template>
 <script setup>
 import { Icon } from "@iconify/vue";
-import { ref } from "vue";
+import { ref, onUnmounted, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { Song, SongPermissions, SongDelailed, getLyric } from "@/api";
 import { HandleLyric } from "./utils";
@@ -143,21 +144,50 @@ const Songdelailed = ref([]);
 const Lyric = ref();
 const { query } = route;
 // 控制是否展示播放图标
-const isbtnShow = ref("ture");
+const isbtnShow = ref(true);
 // 控制播放器是否播放
 const audioPlayer = ref(null);
 // 控制是否展示循环播放图标
-const handoff = ref("true");
+const handoff = ref(true);
 // 控制是否循环播放
-const loop = ref("fasle");
+const loop = ref(false);
 // 控制歌词展示
-const isLyricshow = ref("true");
+const isLyricshow = ref(true);
 // 获取音乐地址
 const SongUrl = ref();
 // 当前的时间
-const currentTime = ref();
-
 const interVal = ref(0);
+// 歌词索引值
+const currentLyricIndex = ref(0);
+
+// 组件加载时挂载audioPlayer
+onMounted(() => {
+  audioPlayer.value.addEventListener("canplay", () => {});
+});
+
+// 根据定时器更新歌词
+const updateLyricIndex = () => {
+  const currentTime = audioPlayer.value.currentTime;
+  console.log(currentTime);
+
+  // 确保索引没有超出歌词数组的长度，防止越界
+  // 确保当前播放时间大于当前索引指向的歌词的时间
+  let index = 0;
+  while (index < Lyric.value.length && currentTime > Lyric.value[index].time) {
+    // eslint-disable-next-line no-plusplus
+    index++;
+  }
+  currentLyricIndex.value = index - 1;
+};
+// 定时器
+const updateTime = () => {
+  updateLyricIndex();
+  if (!isbtnShow.value) {
+    interVal.value = setInterval(updateLyricIndex, 1000);
+    // 每1秒更新一次歌词
+  }
+};
+
 // 控制磁盘显隐
 const isLyric = () => {
   if (isLyricshow.value) {
@@ -166,11 +196,9 @@ const isLyric = () => {
     isLyricshow.value = true;
   }
 };
-
 // 获取歌词
 getLyric(query.id).then((res) => {
   Lyric.value = HandleLyric(res.data.lrc.lyric);
-  console.log(HandleLyric(res.data.lrc.lyric));
 });
 // 获取歌曲详细/切换图标
 SongDelailed(query.id).then((res) => {
@@ -202,26 +230,16 @@ SongPermissions(query.id).then((res) => {
   }
 });
 
-const updateTime = () => {
-  const index = -1;
-  Lyric.value.array.forEach((line, i) => {
-    if (line.time > currentTime.value) {
-      index = i - 1;
-      return;
-    }
-  });
-};
-
 // 点击切换是否播放音频/切换图标显示
 const SongPlay = () => {
   if (isbtnShow.value) {
     audioPlayer.value.play();
     updateisbtnShow(false);
-    updateTime(); // 播放时调用函数进行传值
+    updateTime();
   } else {
     audioPlayer.value.pause();
     updateisbtnShow(true);
-    clearInterval(interVal); // 暂停清除定时器
+    clearInterval(interVal.value);
   }
 };
 
@@ -229,6 +247,17 @@ const SongPlay = () => {
 const backPalylist = () => {
   router.back();
 };
+
+// 歌曲播放完毕后结束循环
+const ended = () => {
+  clearInterval(interVal.value);
+  updateisbtnShow(true);
+};
+
+// 组件关闭时销毁定时器
+onUnmounted(() => {
+  clearInterval(interVal.value);
+});
 </script>
 
 <style scoped>
@@ -265,5 +294,11 @@ const backPalylist = () => {
   100% {
     transform: rotateZ(360deg);
   }
+}
+.active {
+  color: white; /* 当前行的颜色 */
+  /* background-color: black; 当前行的背景颜色 */
+  /* overflow-y: auto; /* 允许垂直滚动 */
+  /* height: 100px; */
 }
 </style>

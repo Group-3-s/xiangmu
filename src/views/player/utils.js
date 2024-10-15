@@ -18,7 +18,7 @@ export const HandleLyric = (lyric) => {
     let timestr = part[0].substring(1);
     let parts = timestr.split(":");
     let obj = {
-      time: converToSeconds(parts).toFixed(2) * 1000,
+      time: converToSeconds(parts),
       word: part[1],
     };
 
