@@ -25,7 +25,6 @@ const routes = [
   },
   {
     path: "/loginprompt",
-    name: "loginprompt",
     component: () => import("@/views/Login/loginPrompt.vue"),
   },
   {
