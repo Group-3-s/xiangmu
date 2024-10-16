@@ -506,9 +506,9 @@ MvRanking5()
   .catch((err) => {
     console.log(err);
   });
-const mvgo = (id,mvid) => {
+const mvgo = (id) => {
   // eslint-disable-next-line object-shorthand, prefer-const, no-undef
-  let query = { id: id ,mvid:mvid};
+  let query = { id: id };
   router.push({ path: "/mvvideo", query });
   console.log(id);
 };

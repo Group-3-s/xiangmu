@@ -180,7 +180,7 @@ getMvDetail({ id: route.query.id })
   .then((res) => {
     console.log(res.data.data);
     mvdetail.value = res.data.data;
-    // console.log(mvdetail.value);
+    console.log(mvdetail.value);
   })
   .catch((err) => {
     console.log(err);
@@ -188,7 +188,7 @@ getMvDetail({ id: route.query.id })
 // 获取右侧数据
 getMvDetailInfo({ id: route.query.id })
   .then((res) => {
-    // console.log(res);
+    console.log(res.data);
     mvdetailinfo.value = res.data;
     // console.log(mvdetailinfo.value);
   })
