@@ -6,7 +6,7 @@
     @clickTitle="titleHander"
     class="my-[3vw]"
   >
-    <BetterScroll :config="{ scrollX: true, scrollY: false }" :dep="props.data">
+    <div class="flex flex-col h-[190px] flex-wrap max-[430px] overflow-auto aa">
       <div
         v-for="item in props.data.children"
         :key="item.id"
@@ -20,19 +20,16 @@
           @click="getlist(item.id)"
         />
         <div class="absolute top-[0vw] right-[2vw] text-[10px] text-white flex">
-          <Icon
-            icon="ic:baseline-arrow-right"
-            width="4vw"
-            height="4vw"
-            style="color: white"
-          />{{ changeCount(item.count) }}
+          <Icon icon="ic:baseline-arrow-right" width="4vw" height="4vw" style="color: white" />{{
+            changeCount(item.count)
+          }}
         </div>
 
         <div class="a overflow-hidden w-[130px] text-[13px] mt-[10px]">
           {{ item.title }}
         </div>
       </div>
-    </BetterScroll>
+    </div>
   </wrapper>
   <div>
     <transition name="fade">
@@ -48,20 +45,10 @@
         </p>
         <ul class="ml-[5vw]">
           <li class="h-[12vw] flex items-center">
-            <Icon
-              icon="iconamoon:like"
-              width="5vw"
-              height="5vw"
-              style="color: black"
-            />优先推荐
+            <Icon icon="iconamoon:like" width="5vw" height="5vw" style="color: black" />优先推荐
           </li>
           <li class="h-[12vw] flex items-center">
-            <Icon
-              icon="ri:dislike-line"
-              width="5vw"
-              height="5vw"
-              style="color: black"
-            />减少推荐
+            <Icon icon="ri:dislike-line" width="5vw" height="5vw" style="color: black" />减少推荐
           </li>
           <li class="h-[12vw] flex items-center">
             <Icon
@@ -144,6 +131,9 @@ const changeCount = (num) => {
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   will-change: transform; /* 优化性能 */
+}
+.aa {
+  scrollbar-width: none;
 }
 
 /* 定义过渡的样式 */

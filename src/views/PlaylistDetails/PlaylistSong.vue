@@ -403,8 +403,7 @@ const BackHome = () => {
 };
 
 const GoPlayer = (id) => {
-  const query = { id };
-  router.push({ name: "playerfab", query });
+  router.push({ name: "playerfab", query: { id } });
 };
 const menu = ref([]);
 const collection = ref([]);

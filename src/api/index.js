@@ -19,7 +19,6 @@ export const getPlaylistSong = (id) => request.get("/playlist/detail", { params:
 // 推荐歌单界面收藏（收藏者api）
 // 歌单详情
 // export const getPlaylistSong = (data) => request.post("/playlist/detail", data);
-
 export const getPlaylistSub = (id) =>
   request.get("/playlist/subscribers?limit=30", { params: { id } });
 

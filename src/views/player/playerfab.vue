@@ -1,6 +1,9 @@
 <template>
-  <div class="relative h-[100vh] pb-[12vw] bg-gray-500">
-    <div class="absolute z-[3] flex flex-wrap h-[100%] pb-[7.5vw]">
+  <div
+    class="relative h-[100vh] pb-[12vw] bg-cover bg-no-repeat"
+    :style="{ 'background-image': `url(${bgi})` }"
+  >
+    <div class="absolute z-[3] flex flex-wrap h-[100%] pb-[7.5vw] bg-gray-500/50">
       <div class="h-[15vw] w-[100vw] flex items-center px-[4vw] justify-between">
         <Icon
           icon="fe:arrow-down"
@@ -31,7 +34,7 @@
         />
       </div>
       <!-- 歌曲中间部分 -->
-      <div class="relative top-[2%] w-[100vw] h-[120vw] overflow-scroll">
+      <div class="relative top-[7%] w-[100vw] h-[120vw] overflow-scroll">
         <!-- 歌曲磁盘 -->
         <div v-if="isLyricshow" @click="isLyric">
           <div
@@ -80,17 +83,28 @@
       </div>
       <div>
         <!-- 歌曲上部功能部分 -->
-        <div v-if="isLyricshow" class="w-[100vw] mt-[5vw] flex justify-evenly items-center">
-          <div>
-            <Icon icon="icon-park-outline:like" width="6vw" height="6vw" style="color: white" />
+        <div class="w-[100vw] mt-[25vw]">
+          <div v-if="isLyricshow" class="flex justify-evenly items-center">
+            <div>
+              <Icon icon="icon-park-outline:like" width="6vw" height="6vw" style="color: white" />
+            </div>
+            <Icon icon="iconoir:download-circle" width="6vw" height="6vw" style="color: white" />
+            <Icon icon="fluent:people-20-regular" width="6vw" height="6vw" style="color: white" />
+            <Icon icon="uil:comment-alt-message" width="6vw" height="6vw" style="color: white" />
+            <Icon icon="mingcute:more-2-fill" width="6vw" height="6vw" style="color: white" />
           </div>
-          <Icon icon="iconoir:download-circle" width="6vw" height="6vw" style="color: white" />
-          <Icon icon="fluent:people-20-regular" width="6vw" height="6vw" style="color: white" />
-          <Icon icon="uil:comment-alt-message" width="6vw" height="6vw" style="color: white" />
-          <Icon icon="mingcute:more-2-fill" width="6vw" height="6vw" style="color: white" />
         </div>
-        <div>
-          <input type="range" class="w-[80%] h-[0.06vw] text-white ml-[10%]" min="0" />
+        <!-- 进度条 -->
+        <div class="my-[1rem]">
+          <input
+            type="range"
+            class="w-[80%] h-[0.06vw] text-white ml-[10%]"
+            min="0"
+            max="duration"
+            v-model="interVal"
+            step="0.05"
+          />
+          {{ duration }}
         </div>
         <div class="h-[12.3vw] flex w-[100vw] items-center justify-evenly">
           <div @click="handoff1">
@@ -129,7 +143,7 @@
       </div>
     </div>
   </div>
-  <audio ref="audioPlayer" :src="SongUrl" :loop="loop" @ended="ended" controls></audio>
+  <audio ref="audioPlayer" :src="SongUrl" :loop="loop" @ended="ended"></audio>
 </template>
 <script setup>
 import { Icon } from "@iconify/vue";
@@ -159,7 +173,10 @@ const SongUrl = ref();
 const interVal = ref(0);
 // 歌词索引值
 const currentLyricIndex = ref(0);
+// 歌曲总时长
+const duration = ref(0);
 
+const bgi = ref();
 // 组件加载时挂载audioPlayer
 onMounted(() => {
   audioPlayer.value.addEventListener("canplay", () => {});
@@ -167,8 +184,10 @@ onMounted(() => {
 
 // 根据定时器更新歌词
 const updateLyricIndex = () => {
-  const currentTime = audioPlayer.value.currentTime;
-  console.log(currentTime);
+  const { currentTime } = audioPlayer.value;
+  duration.value = audioPlayer.value.duration;
+  // console.log(currentTime);
+  // console.log(duration.value);
 
   // 确保索引没有超出歌词数组的长度，防止越界
   // 确保当前播放时间大于当前索引指向的歌词的时间
@@ -203,6 +222,9 @@ getLyric(query.id).then((res) => {
 // 获取歌曲详细/切换图标
 SongDelailed(query.id).then((res) => {
   Songdelailed.value = res.data.songs;
+  bgi.value = res.data.songs[0].al.picUrl;
+  console.log(bgi.value);
+
   // console.log(Songdelailed.value);
 });
 // 控制播放图标
@@ -235,11 +257,13 @@ const SongPlay = () => {
   if (isbtnShow.value) {
     audioPlayer.value.play();
     updateisbtnShow(false);
-    updateTime();
+    updateTime(); // 播放时则调用函数
+    console.log(query);
   } else {
     audioPlayer.value.pause();
     updateisbtnShow(true);
-    clearInterval(interVal.value);
+    updateTime();
+    clearInterval(interVal.value); // 结束时则关闭循环
   }
 };
 

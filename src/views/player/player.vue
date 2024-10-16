@@ -6,45 +6,19 @@
       <div
         class="w-[10vw] h-[10vw] relative flex items-center justify-center rotateAnimation paused-animation"
       >
-        <img
-          class="w-[7vw] h-[7vw] rounded-[50%]"
-          :src="Songdelailed[0].al.picUrl"
-          alt=""
-        />
+        <img class="w-[7vw] h-[7vw] rounded-[50%]" :src="Songdelailed[0].al.picUrl" alt="" />
       </div>
-      <div
-        class="text-[3vw] w-[60vw] text-ellipsis overflow-hidden whitespace-nowrap ml-[2vw]"
-      >
+      <div class="text-[3vw] w-[60vw] text-ellipsis overflow-hidden whitespace-nowrap ml-[2vw]">
         <span class="text-[#3E485E]">{{ Songdelailed[0].al.name }}</span>
         <span class="text-[#7B8591]">{{ Songdelailed[0].ar[0].name }}</span>
       </div>
     </div>
-    <div
-      class="w-[5.6vw] h-[5.6vw] relative ml-[2.2vw] overflow-hidden"
-      @click="SongPlay()"
-    >
-      <Icon
-        icon="octicon:play-16"
-        width="5vw"
-        height="5vw"
-        style="color: black"
-        v-if="isbtnShow"
-      />
-      <Icon
-        icon="gg:play-pause-o"
-        width="5vw"
-        height="5vw"
-        style="color: black"
-        v-else
-      />
+    <div class="w-[5.6vw] h-[5.6vw] relative ml-[2.2vw] overflow-hidden" @click="SongPlay()">
+      <Icon icon="octicon:play-16" width="5vw" height="5vw" style="color: black" v-if="isbtnShow" />
+      <Icon icon="gg:play-pause-o" width="5vw" height="5vw" style="color: black" v-else />
     </div>
     <div class="pl-[4.5vw]">
-      <Icon
-        icon="mage:playlist-alternate-fill"
-        width="5vw"
-        height="5vw"
-        style="color: black"
-      />
+      <Icon icon="mage:playlist-alternate-fill" width="5vw" height="5vw" style="color: black" />
     </div>
   </div>
   <audio ref="audioPlayer" :src="SongUrl"></audio>
