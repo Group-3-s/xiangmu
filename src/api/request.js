@@ -36,22 +36,22 @@ http.interceptors.request.use(async (config) => {
 // //配置响应拦截器 (回调函数)
 // // 在开发者还没有拿到响应数据前，拦截器先拿到
 // // 只有通过拦截器响应，才能获得
-http.interceptors.response.use(
-  (response) => {
-    // 请求成功，业务是否成功不关心
+// http.interceptors.response.use(
+//   (response) => {
+//     // 请求成功，业务是否成功不关心
 
-    console.log(response);
+//     console.log(response);
 
-    if (response.data.code !== 200) {
-      // 业务不成功
-      return Promise.reject(response);
-    }
-    return response;
-  },
-  (error) => {
-    console.log(error);
-  }
-);
+//     if (response.data.code !== 200) {
+//       // 业务不成功
+//       return Promise.reject(response);
+//     }
+//     return response;
+//   },
+//   (error) => {
+//     console.log(error);
+//   }
+// );
 // // 拦截器的作用是：改写请求参数和响应数据
 
 export default http;
