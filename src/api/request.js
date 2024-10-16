@@ -32,6 +32,22 @@ http.interceptors.request.use(async (config) => {
   // console.log("config:", config);
   return config;
 });
+// 配置响应拦截器（回调函数）
+// 在开发者还没有拿到响应数据前 拦截器先拿到
+// 只有通过拦截器 响应才能获得
+http.interceptors.response.use(
+  (response) => {
+    // 请求成功
+    if (response.data.code !== 200) {
+      // 业务不成功
+      return Promise.reject(response);
+    }
+    return response;
+  },
+  (error) => {
+    console.log(error);
+  }
+);
 
 // //配置响应拦截器 (回调函数)
 // // 在开发者还没有拿到响应数据前，拦截器先拿到

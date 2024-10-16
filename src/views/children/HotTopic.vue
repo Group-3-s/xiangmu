@@ -1,3 +1,4 @@
+<!-- 热门话题 -->
 <template>
   <wrapper :title="props.data.name" @clickMore="showDrawer = !showDrawer">
     <div
@@ -76,6 +77,7 @@
 <script setup>
 import { defineProps, ref } from "vue";
 import Wrapper from "@/components/Wrapper.vue";
+import { Icon } from "@iconify/vue";
 
 const showDrawer = ref(false);
 

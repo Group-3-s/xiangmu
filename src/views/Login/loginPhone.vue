@@ -35,7 +35,8 @@ import { ref, reactive, watch } from "vue";
 // import router from "vue-router"
 import { useRouter } from "vue-router";
 const router = useRouter();
-const userInfo = reactive({
+
+const userInfo = ref({
   phone: "",
   // password: "",
   // captcha: "",

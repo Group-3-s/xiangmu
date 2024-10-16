@@ -1,39 +1,67 @@
-import MvRanking from "@/views/TabBar/ranking/MvRanking.vue";
-import loginPrompt from "@/views/Login/loginPrompt.vue";
-import loginPhone from "@/views/Login/loginPhone.vue";
-import loginPassword from "@/views/Login/loginPassword.vue";
-import loginCode from "@/views/Login/loginCode.vue";
-
 const routes = [
-  // {
-  //   path: "/",
-  //   redirect: "/home",
-  // },
+  {
+    path: "/",
+    redirect: "/home",
+  },
   {
     path: "/home",
     // 按需引用 首页
-    component: () => import("@/views/HomPage.vue"),
+    component: () => import("@/views/HomePage.vue"),
   },
   {
     path: "/mvranking",
-    component: MvRanking,
+    name: "mvranking",
+    component: () => import("@/views/TabBar/ranking/MvRanking.vue"),
+  },
+  {
+    path: "/PlaylistSong",
+    name: "PlaylistSong",
+    component: () => import("@/views/PlaylistDetails/PlaylistSong.vue"),
+  },
+  {
+    path: "/playlistcoll",
+    name: "playlistcoll",
+    component: () => import("@/views/PlaylistDetails/PlaylistColl.vue"),
   },
   {
     path: "/loginprompt",
-
-    component: loginPrompt,
-  },
-  {
-    path: "/loginphone",
-    component: loginPhone,
+    component: () => import("@/views/Login/loginPrompt.vue"),
   },
   {
     path: "/loginpsd",
-    component: loginPassword,
+    name: "loginpsd",
+    component: () => import("@/views/Login/loginPassword.vue"),
+  },
+  // {path :"/logincaptcha",
+  //   component:loginCaptcha
+  {
+    path: "/user",
+    component: () => import("@/views/user/UserInfo.vue"),
   },
   {
+    path: "/userfollows",
+    component: () => import("@/views/user/UserFollows.vue"),
+  },
+  // }
+  {
     path: "/logincode",
-    component: loginCode,
+    name: "logincode",
+    component: () => import("@/views/Login/loginCode.vue"),
+  },
+  {
+    path: "/palyer",
+    name: "palyer",
+    component: () => import("@/views/player/player.vue"),
+  },
+  {
+    path: "/playerfab",
+    name: "playerfab",
+    component: () => import("@/views/player/playerfab.vue"),
+  },
+  // 歌单评论
+  {
+    path: "/playlistcomment",
+    component: () => import("@/views/PlaylistDetails/PlaylistComment.vue"),
   },
 ];
 

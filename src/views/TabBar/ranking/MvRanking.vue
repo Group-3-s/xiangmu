@@ -23,9 +23,9 @@
     <!-- 页面内容 -->
     <!-- // eslint-disable-next-line vue/require-v-for-key -->
     <div
+      class="overflow-auto px-[4vw] mt-[3vw]"
       v-for="(item, number) in mv"
       :key="item.id"
-      class="overflow-auto px-[4vw] mt-[3vw]"
     >
       <!-- 根据当前类别显示内容 -->
       <div v-if="currentCategory === '内地'">
@@ -217,6 +217,7 @@
       </div>
     </div>
   </div>
+  <TabBar></TabBar>
 </template>
 
 <script setup>
@@ -224,6 +225,7 @@ import { ref } from "vue";
 import { Icon } from "@iconify/vue";
 // eslint-disable-next-line import/no-cycle
 import { MvRanking } from "@/api";
+import TabBar from "@/components/Tabbar.vue";
 
 const mv = ref([]);
 const categories = ["内地", "港台", "欧美", "韩国", "日本"];

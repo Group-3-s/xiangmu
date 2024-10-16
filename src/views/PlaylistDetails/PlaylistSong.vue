@@ -1,6 +1,9 @@
 <!-- eslint-disable max-len -->
 <template>
-  <div class="h-[85vw] bg-gradient-to-b from-[#4f6989] to-[#6e8bae] p-0 m-0">
+  <div
+    :style="boxStyle"
+    class="h-[85vw] bg-gradient-to-b from-[#4f6989] to-[#6e8bae] p-0 m-0"
+  >
     <div class="flex justify-between pt-[5vw]">
       <div class="flex">
         <Icon
@@ -26,51 +29,78 @@
         />
       </div>
     </div>
-    <div class="flex m-[3.8vw]">
-      <div>
-        <img
-          class="w-[28vw] h-[28vw] rounded-[3vw] text-white"
-          :src="menu.coverImgUrl"
-          @click="showOverlay"
-          alt=""
-        />
-      </div>
-      <div>
-        <div class="text-[4vw] font-semibold ml-[3vw] mr-[4vw] text-white">
-          {{ menu.name }}
-        </div>
-        <div class="ml-[3vw] mt-[2vw] flex flex-row">
-          <span
-            ><img
-              class="h-[6vw] w-[6vw] rounded-[3vw] mr-[2vw]"
-              :src="menu.creator.avatarUrl"
-              alt=""
-          /></span>
-          <span class="text-[3vw] text-white mt-[1vw]">{{
-            menu.creator.nickname
-          }}</span>
+    <div v-if="isViss">
+      <PlaylistTopsong />
+    </div>
+    <div v-if="isVis">
+      <div class="flex m-[3.8vw]">
+        <div class="relative">
+          <img
+            class="w-[28vw] h-[28vw] rounded-[3vw] text-white"
+            :src="menu.coverImgUrl"
+            @click="showOverlay"
+            alt=""
+          />
           <div
-            class="w-[12vw] h-[5.3vw] rounded-[2.65vw] bg-[#748caa] text-[3vw] text-center leading-[5.3vw] text-white inline-block ml-[2vw]"
+            class="absolute top-[1vw] right-[2vw] text-[10px] text-white flex"
           >
-            +关注
+            <Icon
+              icon="ic:baseline-arrow-right"
+              width="4vw"
+              height="4vw"
+              style="color: white"
+            />{{ changeCount(menu.playCount) }}
           </div>
         </div>
-        <div class="mt-[2vw] ml-[1vw]">
-          <span
-            v-for="item in menu.algTags"
-            :key="item.length"
-            class="inline-block bg-[#b8bfc9] ml-[2vw] text-[3vw] rounded-[1vw] text-white opacity-80 px-[1vw] py-[0.5vw]"
-            >{{ item }}></span
-          >
+        <div>
+          <div class="text-[4vw] font-semibold ml-[3vw] mr-[4vw] text-white">
+            {{ menu.name }}
+          </div>
+          <div class="ml-[3vw] mt-[2vw] flex flex-row">
+            <span
+              ><img
+                class="h-[6vw] w-[6vw] rounded-[3vw] mr-[2vw]"
+                :src="menu.creator.avatarUrl"
+                alt=""
+            /></span>
+            <span class="text-[3vw] text-white mt-[1vw]">{{
+              menu.creator.nickname
+            }}</span>
+            <div
+              class="w-[12vw] h-[5.3vw] rounded-[2.65vw] bg-[#748caa] text-[3vw] text-center leading-[5.3vw] text-white inline-block ml-[2vw]"
+            >
+              +关注
+            </div>
+          </div>
+          <div class="mt-[2vw] ml-[1vw]">
+            <span
+              v-for="item in menu.algTags"
+              :key="item.length"
+              class="inline-block bg-[#b8bfc9] ml-[2vw] text-[3vw] rounded-[1vw] text-white opacity-80 px-[1vw] py-[0.5vw]"
+              >{{ item }}></span
+            >
+          </div>
         </div>
+      </div>
+      <div
+        class="mx-[3.8vw] text-[#c0cbd8] text-[3.162vw] line-clamp-1 mt-[3.675vw]"
+        @click="showOverlay"
+      >
+        {{ menu.description }}
       </div>
     </div>
     <div
-      class="mx-[3.8vw] text-[#c0cbd8] text-[3.162vw] line-clamp-1 mt-[3.675vw]"
+      class="w-[5vw] h-[5vw] bg-gray-400 rounded-[2.5vw] absolute right-[2vw] top-[19vw]"
     >
-      {{ menu.description }}
+      <Icon
+        @click="fn"
+        :icon="currentIcon"
+        class="w-[5vw] h-[5vw]"
+        style="color: white"
+      />
     </div>
     <div class="flex justify-around mt-[4.5vw]">
+      <!-- 分享 -->
       <div
         class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
         @click="shareDrawer = !shareDrawer"
@@ -82,7 +112,9 @@
         />
         <span class="text-white mt-[2vw] ml-[1vw]">{{ menu.shareCount }}</span>
       </div>
+      <!-- 评论 -->
       <div
+        @click="drawer = true"
         class="h-[10vw] w-[28.632vw] bg-slate-300 rounded-[5vw] flex justify-center"
       >
         <Icon
@@ -94,6 +126,7 @@
           menu.commentCount
         }}</span>
       </div>
+      <!-- 关注 -->
       <div
         class="h-[10vw] w-[28.632vw] bg-red-500 rounded-[5vw] flex justify-center"
       >
@@ -107,6 +140,7 @@
         }}</span>
       </div>
     </div>
+    <!-- 广告 -->
     <div
       class="rounded-t-lg bg-[#e2e6ed] flex justify-between h-[12vw] mt-[4vw] leading-[12vw] text-[3vw]"
     >
@@ -115,13 +149,17 @@
           icon="mingcute:gift-2-line"
           style="color: red"
           class="m-[4vw] w-[4vw] h-[4vw]"
-        /><span>VIP5.5折！抢独家护肤礼包</span>
+        />
+        <span>VIP5.5折！抢独家护肤礼包</span>
       </div>
       <span class="mr-[6vw] text-[#888b8f]"
-        >立即抢购<Icon class="inline-block ml-[2vw]" icon="bi:chevron-right"
-      /></span>
+        >立即抢购
+        <Icon class="inline-block ml-[2vw]" icon="bi:chevron-right" />
+      </span>
     </div>
   </div>
+
+  <!-- 播放全部 -->
   <div>
     <div class="h-[14vw] leading-[14vw] flex justify-between">
       <div class="flex ml-[3vw]">
@@ -143,12 +181,14 @@
         />
       </div>
     </div>
+    <!-- 歌曲列表 -->
     <div>
       <div>
         <div
           v-for="(item, index) in menu.tracks"
           :key="index"
           class="flex justify-between"
+          @click="GoPlayer(item.id)"
         >
           <div class="flex h-[15vw]">
             <div
@@ -175,10 +215,11 @@
       </div>
     </div>
   </div>
+  <!-- 歌单收藏者 -->
   <div class="flex justify-between h-[16vw]">
     <div class="flex mt-[4.5vw]">
       <div
-        v-for="item in collection"
+        v-for="item in collection.slice(0, 5)"
         class="w-[8vw] h-[8vw] ml-[3vw]"
         :key="item.id"
       >
@@ -189,13 +230,16 @@
         />
       </div>
     </div>
-    <div class="flex leading-[16vw]">
-      <div class="text-[3vw] text-[#999999]">
-        {{ menu.subscribedCount }}人收藏
+    <router-link :to="`/playlistcoll?id=${menu.id}`">
+      <div class="flex leading-[16vw]">
+        <div class="text-[3vw] text-[#999999]">
+          {{ menu.subscribedCount }}人收藏
+        </div>
+        <Icon icon="bi:chevron-right" class="mt-[6vw] mx-[2vw]" />
       </div>
-      <Icon icon="bi:chevron-right" class="mt-[6vw] mx-[2vw]" />
-    </div>
+    </router-link>
   </div>
+  <!-- 更多抽屉 -->
   <div>
     <transition name="fade">
       <div v-if="showDrawer" class="mask" @click="handleMaskClick"></div>
@@ -213,7 +257,8 @@
               icon="ph:sort-ascending"
               style="color: black"
               class="text-[8vw] w-[10vw] h-[15.5vw] mx-[3vw]"
-            /><dev>选择歌曲排序</dev>
+            />
+            <dev>选择歌曲排序</dev>
           </li>
           <li class="text-[4vw] flex h-[15.5vw] leading-[15.5vw]">
             <Icon
@@ -228,12 +273,14 @@
               icon="ph:warning"
               style="color: black"
               class="text-[8vw] w-[10vw] h-[15.5vw] mx-[3vw]"
-            /><dev>举报</dev>
+            />
+            <dev>举报</dev>
           </li>
         </ul>
       </div>
     </transition>
   </div>
+  <!-- 分享抽屉 -->
   <div>
     <transition name="fade">
       <div v-if="shareDrawer" class="mask" @click="shareMaskClick"></div>
@@ -292,6 +339,7 @@
               style="color: #7cc955"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
+            <div class="text-center">微信</div>
           </li>
           <li>
             <Icon
@@ -299,20 +347,23 @@
               style="color: #57a8ec"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
+            <div class="text-center">QQ</div>
           </li>
           <li>
             <Icon
               icon="ant-design:dingtalk"
-              style="color: #d8544e"
+              style="color: #529af1"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
+            <div class="text-center">钉钉</div>
           </li>
           <li>
             <Icon
               icon="fa6-brands:microblog"
-              style="color: #529af1"
+              style="color: #d8544e"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
+            <div class="text-center">微博</div>
           </li>
           <li class="mr-[3vw]">
             <Icon
@@ -320,16 +371,18 @@
               style="color: gray"
               class="text-[12vw] bg-[#f7f7f7] rounded-[7vw] mb-[2vw]"
             />
+            <div class="text-center">更多</div>
           </li>
         </ul>
       </div>
     </transition>
   </div>
+  <!-- 歌单搜索栏 -->
   <div>
     <div v-if="drawerVisible" class="dropdown-mask" @click="toggleDrawer"></div>
     <transition name="slide-down">
       <div v-if="drawerVisible" class="dropdown-box">
-        <div>
+        <div class="bg-[#4f6989] h-[18vw]">
           <Icon
             icon="weui:search-filled"
             class="w-[7vw] h-[7vw] absolute top-[5vw] left-[6vw]"
@@ -339,14 +392,52 @@
             type="text"
             class="bg-[#6e8bae] w-[80vw] h-[8vw] a rounded-[20vw] mt-[5vw] ml-[5vw]"
             placeholder="搜索歌单内歌曲"
+            v-model="searchQuery"
           />
-          <span class="text-lg pt-[5vw] pl-[3vw]" style="color: white"
+          <span
+            class="text-lg pt-[5vw] pl-[3vw]"
+            style="color: white"
+            @click="closSpan"
             >取消</span
           >
+        </div>
+        <div class="bg-white h-[100%]">
+          <div class="bg-white">
+            <div
+              v-for="item in filteredItems"
+              :key="item.id"
+              class="flex justify-between h-[20vw]"
+            >
+              <ul class="ml-[4vw]">
+                <li class="text-[3.8vw] m-[1vw]">
+                  {{ item.name }}
+                </li>
+                <li class="flex text-[3.1vw] text-[#848484] ml-[1vw]">
+                  <span class="line-clamp-1">{{ item.ar[0].name }}</span>
+                  <span class="mx-[1vw]">-</span>
+                  <span class="line-clamp-1">{{ item.al.name }}</span>
+                </li>
+                <li class="flex ml-[1vw]">
+                  <img
+                    class="w-[4vw] h-[4vw] rounded-[2vw]"
+                    :src="menu.creator.avatarUrl"
+                    alt=""
+                  /><span class="text-[3.1vw] text-[#848484]">{{
+                    menu.creator.nickname
+                  }}</span>
+                </li>
+              </ul>
+              <Icon
+                icon="ant-design:more-outlined"
+                class="text-[8vw] text-[#9195a1] mt-[3.5vw] mr-[4vw]"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </transition>
   </div>
+  <!-- 简介 -->
   <div>
     <div v-if="isOverlayVisible" class="overlay" @click="closeOverlay">
       <div>
@@ -377,26 +468,51 @@
     </div>
   </div>
   <PlaylistTop />
+  <!-- 评论页面抽屉-->
+  <el-drawer
+    v-model="drawer"
+    title="I am the title"
+    :with-header="false"
+    direction="btt"
+    size="90%"
+    class="rounded-[3vw]"
+  >
+    <PlaylistComment />
+  </el-drawer>
+
+  <!-- <player></player> -->
 </template>
 <script setup>
-import { getPlaylistSong, getPlaylistSub } from "@/api";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+// eslint-disable-next-line import/no-cycle
+import { ref, computed } from "vue";
+import { getPlaylistSong } from "@/api";
+import { useRouter, useRoute } from "vue-router";
 import { Icon } from "@iconify/vue";
 import PlaylistTop from "./PlaylistTop.vue";
+import PlaylistTopsong from "./PlaylistTopsong.vue";
+import PlaylistComment from "./PlaylistComment.vue";
 
+// import player from "../player/player.vue";
+
+const drawer = ref(false);
+const searchQuery = ref("");
+const items = ref([]); // 初始化为空数组
+const route = useRoute();
 const router = useRouter();
 const BackHome = () => {
   router.back();
 };
+
+const GoPlayer = (id) => {
+  const query = { id };
+  router.push({ name: "playerfab", query });
+};
 const menu = ref([]);
 const collection = ref([]);
-getPlaylistSong().then((res) => {
+getPlaylistSong(route.query.id).then((res) => {
+  items.value = res.data.playlist.tracks;
   menu.value = res.data.playlist;
-  collection.value = res.data.playlist.subscribers.slice(0, 5);
-  console.log(res);
-});
-getPlaylistSub().then((res) => {
+  collection.value = res.data.playlist.subscribers;
   console.log(res);
 });
 const showDrawer = ref(false);
@@ -407,10 +523,13 @@ const shareDrawer = ref(false);
 const shareMaskClick = () => {
   shareDrawer.value = false;
 };
-
+// 搜索功能
 const drawerVisible = ref(false);
 const toggleDrawer = () => {
   drawerVisible.value = !drawerVisible.value;
+};
+const closSpan = () => {
+  drawerVisible.value = false;
 };
 const isOverlayVisible = ref(false);
 
@@ -420,6 +539,49 @@ const showOverlay = () => {
 const closeOverlay = () => {
   isOverlayVisible.value = false;
 };
+// eslint-disable-next-line consistent-return
+const changeCount = (num) => {
+  if (num >= 100000000) {
+    return `${(num / 100000000).toFixed(2)}亿`;
+  }
+  if (num >= 10000) {
+    return `${(num / 10000).toFixed(2)}万`;
+  }
+};
+const icon1 = "mingcute:down-line";
+const icon2 = "mingcute:up-line";
+const defaultIcon = ref(true);
+const isLarge = ref(false);
+const isVis = ref(true);
+const isViss = ref(false);
+
+// eslint-disable-next-line arrow-body-style
+const currentIcon = computed(() => {
+  return defaultIcon.value ? icon1 : icon2;
+});
+const fn = () => {
+  defaultIcon.value = !defaultIcon.value;
+  isViss.value = !isViss.value;
+  isVis.value = !isVis.value;
+  isLarge.value = !isLarge.value;
+};
+// eslint-disable-next-line arrow-body-style
+const boxStyle = computed(() => {
+  return {
+    height: isLarge.value ? "110vw" : "85vw",
+  };
+});
+// 搜索功能
+// 计算过滤后的列表
+// eslint-disable-next-line arrow-body-style
+const filteredItems = computed(() => {
+  return items.value.filter(
+    (item) =>
+      // eslint-disable-next-line comma-dangle, implicit-arrow-linebreak
+      item.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+    // eslint-disable-next-line function-paren-newline
+  );
+});
 </script>
 <style scoped>
 .mask {
@@ -428,36 +590,46 @@ const closeOverlay = () => {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* 调整透明度实现变暗效果 */
-  z-index: 999; /* 确保遮罩层在抽屉下方 */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 调整透明度实现变暗效果 */
+  z-index: 999;
+  /* 确保遮罩层在抽屉下方 */
 }
+
 .drawer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60vw; /* 根据需要调整高度 */
+  height: 60vw;
+  /* 根据需要调整高度 */
   background-color: white;
   border-radius: 20px 20px 0 0;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  will-change: transform; /* 优化性能 */
+  will-change: transform;
+  /* 优化性能 */
 }
 
 /* 定义过渡的样式 */
 .slide-enter-active {
   transition: transform 0.55s ease-out;
 }
+
 .slide-leave-active {
   transition: transform 0.5s ease-in;
 }
+
 .slide-enter-from,
 .slide-leave-to {
-  transform: translateY(100%); /* 抽屉初始位置在屏幕外 */
+  transform: translateY(100%);
+  /* 抽屉初始位置在屏幕外 */
 }
+
 .a {
   text-indent: 10vw;
 }
+
 .dropdown-mask {
   position: fixed;
   top: 0;
@@ -472,12 +644,12 @@ const closeOverlay = () => {
   position: fixed;
   top: 0;
   left: 0;
-  height: 15vw;
+  height: 100%;
   width: 100%;
   max-height: 100vh;
   overflow: auto;
   z-index: 999;
-  background-color: #4f6989;
+  /* background-color: #4f6989; */
   transform: translateY(0%);
   transition: transform 0.3s ease-in-out;
 }
@@ -492,6 +664,7 @@ const closeOverlay = () => {
 .slide-down-leave-from {
   transform: translateY(0);
 }
+
 .overlay {
   position: fixed;
   top: 0;

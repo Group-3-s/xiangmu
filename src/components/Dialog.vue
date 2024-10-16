@@ -25,10 +25,13 @@
 </template>
 
 <script setup>
-import { Dialog } from "vant";
-import { ref, onMounted } from "vue";
+import { ref , onMounted } from "vue";
+// import { Popup } from "vant";
 
-const show = ref(true);
+const showPopup = ref(false);
+onMounted(() => {
+  showPopup.value = true;
+});
 </script>
 
 <style scoped>
