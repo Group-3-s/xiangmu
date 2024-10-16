@@ -25,10 +25,10 @@
 </template>
 
 <script setup>
-import { Song, SongPermissions, SongDelailed } from "@/api/index";
 import { useRoute, useRouter } from "vue-router";
 import { ref } from "vue";
 import { Icon } from "@iconify/vue";
+import { Song, SongPermissions, SongDelailed } from "@/api";
 
 const route = useRoute();
 const router = useRouter();

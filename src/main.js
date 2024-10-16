@@ -6,7 +6,8 @@ import App from "@/App.vue";
 import initErrorHandle from "@/utils/initErrorHandle";
 import router from "./router";
 import pinia from "./store";
+import eventBus from "vue3-eventbus";
 
 initErrorHandle();
 
-createApp(App).use(router).use(pinia).use(Icon).mount("#app");
+createApp(App).use(router).use(pinia).use(Icon).use(eventBus).mount("#app");
