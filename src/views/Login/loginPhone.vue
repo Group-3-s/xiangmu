@@ -21,7 +21,8 @@
       color="#fff9f7"
       type="primary"
       plain
-      to="/loginpsd"
+      @click="enterPasd"
+      :disabled="isValidPhoneNumber"
       class="w-[70vw] h-[12vw] btn"
       >下一步</van-button
     >
@@ -30,12 +31,42 @@
 <script setup>
 import goBack from "@/components/goBack.vue";
 import Myinput from "@/components/Myinput.vue";
-import { ref } from "vue";
+import { ref, reactive, watch } from "vue";
+// import router from "vue-router"
+import { useRouter } from "vue-router";
+const router = useRouter();
+
 const userInfo = ref({
   phone: "",
   // password: "",
   // captcha: "",
 });
+
+const isValidPhoneNumber = ref(true);
+const regex = /^1[3-9]\d{9}$/;
+
+// 判断是否输入电话号码
+watch(
+  () => userInfo.phone,
+  (newValue, oldValue) => {
+    if (!newValue) {
+      // alert("请输入电话号码");
+      isValidPhoneNumber.value = false;
+    } else if (regex.test(newValue)) {
+      // alert("请输入正确的电话号码");
+      isValidPhoneNumber.value = false;
+    } else {
+      isValidPhoneNumber.value = true;
+    }
+  }
+);
+
+// 方法用于跳转到下一个页面
+const enterPasd = () => {
+  if ((isValidPhoneNumber.value = true)) {
+    router.push({ path: "/loginpsd", query: { keyword: userInfo.phone } });
+  }
+};
 </script>
 <style scoped>
 ::v-deep(.btn) {

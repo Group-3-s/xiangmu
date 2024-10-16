@@ -16,7 +16,7 @@
           round
           color="#db2d1f"
           type="primary"
-          to="/loginphone"
+          to="/loginpsd"
           plain
           class="w-[70vw] h-[12vw]"
           >手机号登录</van-button
@@ -108,7 +108,10 @@ const allowScroll = () => {
   document.body.style.position = "";
   document.body.style.top = "";
   // 恢复滚动条位置
-  window.scrollTo(0, window.scrollY + parseInt(document.body.style.top || "0"));
+  window.scrollTo(
+    0,
+    window.scrollY + parseInt(document.body.style.top || "0", 10)
+  );
 };
 
 onMounted(() => {
@@ -120,8 +123,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   allowScroll();
 });
-
-// 路由
 </script>
 <style scoped>
 .container {

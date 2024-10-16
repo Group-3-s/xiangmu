@@ -8,14 +8,16 @@
   >
     <BetterScroll :config="{ scrollX: true, scrollY: false }" :dep="props.data">
       <div
-        @click="clickHandler"
         v-for="item in props.data.children"
         :key="item.id"
         class="h-[180px] w-[130px] mx-[2vw] relative border-[#EBEDF2]"
+        @click.stop="clickHandler(item.id)"
       >
+        <!-- <router-link :to="`/playlistsong?id=${item.id}`"> -->
         <img
           class="w-[31.624vw] h-[31.453vw] rounded-[3vw] Shadow-custom"
           :src="item.imageUrl"
+          @click="getlist(item.id)"
         />
         <div class="absolute top-[0vw] right-[2vw] text-[10px] text-white flex">
           <Icon
@@ -80,12 +82,21 @@ import BetterScroll from "@/components/BetterScroll.vue";
 import Wrapper from "@/components/Wrapper.vue";
 import { Icon } from "@iconify/vue";
 
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
 const showDrawer = ref(false);
 const props = defineProps({
   data: {},
 });
 const clickHandler = () => {};
-
+const getlist = (id) => {
+  // eslint-disable-next-line prefer-const, object-shorthand
+  let query = { id: id };
+  router.push({ path: "/playlistsong", query });
+  console.log(id);
+};
 // const moreHandler = () => {};
 
 const handleMaskClick = () => {

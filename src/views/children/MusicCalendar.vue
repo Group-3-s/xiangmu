@@ -1,3 +1,4 @@
+<!-- 音乐日历 -->
 <template>
   <wrapper :title="props.data.name" @clickMore="showDrawer = !showDrawer">
     <div
@@ -76,6 +77,7 @@
 <script setup>
 import Wrapper from "@/components/Wrapper.vue";
 import { defineProps, ref } from "vue";
+import { Icon } from "@iconify/vue";
 
 const showDrawer = ref(false);
 
