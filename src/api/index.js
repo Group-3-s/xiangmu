@@ -14,19 +14,19 @@ export const loginByPhone = (data) => request.post("/login/cellphone", data);
 // 接收验证码api
 export const sendValidCode = (data) => request.post("/captcha/sent", data);
 // 二维码
-export const sendCodekey = (data) =>
-  request.post(`/login/qr/key?timestamp=${Date.now()}&noCookie=true`, data);
-export const sendCodecreate = (data) =>
-  request.post(`/login/qr/create?qrimg=true&timestamp=${Date.now()} `, data);
-export const sendCodecheck = (data) => {
-  console.log(data);
-  // 把一个地址当做参数给传递过去了
-  
-  return request.post(
-    `/login/qr/check?timestamp=${Date.now()}&noCookie=true`,
-    data
-  );
-};
+// export const sendCodekey = (data) =>
+//   request.post(`/login/qr/key?timestamp=${Date.now()}&noCookie=true`, data);
+// export const sendCodecreate = (data) =>
+//   request.post(`/login/qr/create?qrimg=true&timestamp=${Date.now()} `, data);
+
+// export const sendCodecheck = (data) => {
+//   console.log(data);
+//   // 把一个地址当做参数给传递过去了 会报错：参数错误
+//   return request.post(
+//     `/login/qr/check?timestamp=${Date.now()}&noCookie=true`,
+//     data
+//   );
+// };
 
 export const getPlaylistSong = () =>
   request.get("/playlist/detail?id=8725882112");

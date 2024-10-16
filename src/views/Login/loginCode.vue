@@ -4,98 +4,135 @@
       <goBack></goBack>
       <div class="text-[4vw] text-[#696969]">游客登录</div>
     </div>
-
     <img
       src="/public/logo.fill.svg"
       alt=""
       class="w-[38vw] mx-auto mt-[7vw] mb-[9vw]"
     />
     <!-- 二维码 -->
-    <div class="relative">
-      <img
-        :src="qrimg"
-        alt=""
-        class="w-[40vw] h-[40vw] m-auto relative z-[1]"
-      />
-
-      <van-button @click="upDate" round type="success" loading="刷新中"
-        >点击刷新二维码</van-button
-      >
-      <div class="text-[3vw] text-[#100A09] text-center mt-[10vw]">
-        使用<span class="text-[#2C6AA1] mx-[1.5vw]">网易云音乐APP</span>扫码登录
-      </div>
+    <img
+      :src="qrimgs"
+      alt=""
+      style="width: 200px; height: 200px"
+      class="w-[38vw] mx-auto mt-[7vw] mb-[9vw]"
+    />
+    <div class="text-[3vw] text-[#100A09] text-center mt-[10vw]">
+      使用<span class="text-[#2C6AA1] mx-[1.5vw]">网易云音乐APP</span>扫码登录
     </div>
-
-    <!-- bottom -->
-    <div class="box absolute bottom-[0px]"></div>
   </div>
 </template>
 <script setup>
-import { sendCodekey, sendCodecreate, sendCodecheck } from "@/api";
-import goBack from "@/components/goBack.vue";
-import { ref, registerRuntimeCompiler, watch } from "vue";
-import { useRequest } from "vue-request";
-import { useUserStore } from "@/store";
-import { showToast } from "vant";
-// import axios from "axios";
+import { ref, onMounted, watch } from "vue";
+import axios from "axios";
+import { useRouter } from "vue-router";
 import localforage from "localforage";
+const router = useRouter();
 
-const qrimg = ref(); //图片
-const key = ref(); //key
-const code = ref(); //802 803 801
+// 定义响应式数据
+const unikey = ref(""); // key
+const qrurl = ref("");
+const qrimgs = ref(""); // 二维码图片
+const qrCheckData = ref({}); // 状态
+const isLogin = ref(false); // 是否登录
 
-// const codekey = ref();
-sendCodekey().then((res) => {
-  console.log(res, "unikey");
+// 获取二维码的key值
+const getKey = async () => {
+  const res = await axios.get(
+    "https://netease-serrver01.vercel.app/login/qr/key",
+    {
+      params: {
+        timerstamp: new Date().getTime(),
+      },
+    }
+  );
+  if (res.data.code === 200) {
+    unikey.value = res.data.data.unikey;
+    loginQqr(unikey.value);
+  }
+};
 
-  key.value = res.data.data.unikey;
+// 通过key去获取二维码
+const loginQqr = async (key) => {
+  const res = await axios.get(
+    "https://netease-serrver01.vercel.app/login/qr/create",
+    {
+      params: {
+        timerstamp: new Date().getTime(), // 传入参数时间戳
+        qrimg: true,
+        key: key,
+      },
+    }
+  );
+  if (res.data.code === 200) {
+    qrurl.value = res.data.data.qrurl;
+    qrimgs.value = res.data.data.qrimg;
+    qrCheck();
+  }
+};
 
-  sendCodecreate(res, key.value).then((i) => {
-    // console.log(i);
-    console.log(res);
-    qrimg.value = i.data.data.qrimg;
-    // codekey.value = key.value;
-  });
+// 获取二维码的状态
+const qrCheck = async () => {
+  const res = await axios.get(
+    "https://netease-serrver01.vercel.app/login/qr/check",
+    {
+      params: {
+        key: unikey.value,
+        timerstamp: new Date().getTime(), // 传入参数时间戳
+        withCredentials: true, //解决跨域请求
+      },
+    }
+  );
+  if (res.data.code === 200) {
+    qrCheckData.value = res.data;
+    localforage.setItem("cookie", res.data.cookie);
+    isLogin.value = true;
+  }
+};
 
-  console.log(key.value, "key");
-  // 轮询
+// 获取登录之后的状态
+const getStatus = async () => {
+  const res = await axios.get(
+    `https://netease-serrver01.vercel.app/login/status?cookie=${localforage.getItem(
+      "cookie"
+    )}`
+  );
+  if (res.data.code === 200) {
+    localforage.setItem("isLogin", res.data.data.account.status);
+    localforage.setItem("userid", res.data.data.account.id);
+    localforage.setItem("avatarUrl", res.data.data.profile.avatarUrl);
+    localforage.setItem("nickname", res.data.data.profile.nickname);
+  }
+};
 
-  const { run, data } = useRequest(sendCodecheck({ key: key.value }), {
-    pollingInterval: 1000,
-    manual: true,
-  });
-  //
-  // watch(
-  //   () => res,
-  //   () => {
-  //     code.value = res.data.code;
-  //     if (res.data.code == 800) {
-  //       console.log("二维码已将失效，请刷新");
-  //       clearInterval(pollingInterval);
-  //     }
-  //     if (res.data.code == 802) return console.log("正在授权登录");
-  //     if (res.data.code == 803) {
-  //       clearInterval(pollingInterval);
-  //       localforage.setItem("userInfo", res.data).then((res) => {
-  //         console.log(res);
-  //         showToast("登陆成功");
-  //         clearInterval(pollingInterval);
-  //       });
-  //     }
-  //   }
-  // );
-  // watch(){
-
-  // }
+// 组件挂载时执行
+onMounted(() => {
+  getKey();
 });
+
+// 观察isLogin的变化
+watch(isLogin, async (newVal) => {
+  if (newVal) {
+    getStatus();
+  }
+});
+
+// 定时检查二维码状态
+const checkQRCodeStatus = () => {
+  setInterval(async () => {
+    const code = qrCheckData.value.code;
+    if (code === 801) {
+      // 二维码等待扫码
+    } else if (code === 802) {
+      // 二维码待确认
+    } else if (code === 803) {
+      // 二维码授权登录成功
+      localforage.setItem("user", true);
+      router.push("/home");
+    }
+  }, 2000);
+};
+
+// 开始检查二维码状态
+checkQRCodeStatus();
 </script>
-<style scoped>
-.box {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 55vw;
-  background-image: url("/public/背景.png");
-  background-size: cover;
-}
-</style>
+<style scoped></style>
