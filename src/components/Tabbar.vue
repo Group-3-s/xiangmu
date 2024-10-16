@@ -32,9 +32,13 @@
       >社区</van-tabbar-item
     >
   </van-tabbar>
+  <player class=""></player>
+
 </template>
 
 <script setup>
+import player from "@/views/player/player.vue";
+
 // import { Icon } from "@iconify/vue";
 // import { useRouter } from "vue-router";
 // import { ref, onMounted } from "vue";
