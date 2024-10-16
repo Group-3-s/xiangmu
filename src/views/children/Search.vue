@@ -102,10 +102,10 @@
           icon="noto:red-heart"
           width="6vw"
           height="6vw"
-          class="absolute left-[10vw] bottom-[2vw]"
+          class="absolute left-[2.4rem] top-[0.4rem]"
         />
         <input
-          class="h-[8vw] absolute left-[16vw] top-[0vw] bg-[#f1f1f1]"
+          class="h-[2rem] leading-relaxed absolute left-[4.5rem] top-[0] bg-[#f1f1f1]"
           type="text"
           placeholder="离别开出花-就是南方..."
         />

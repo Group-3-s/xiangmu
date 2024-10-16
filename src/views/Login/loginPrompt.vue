@@ -1,17 +1,7 @@
 <template>
   <div class="bg-[#db2d1f] container relative">
     <!-- 自动弹框 -->
-    <!-- <Dialog> -->
-    <!-- <div>服务条款和隐私政策提示</div>
-      <div>
-        欢迎使用网易云音乐! 在您使用网易云音乐前，请您认真阅读并了解
-        <a href="">《服务条款》</a>和<a href=""> 《隐私政策》</a>。
-      </div>
-      <div>
-        如您未满14周岁,您还需通知您的监护人共同阅读《儿童隐私政策》， 点击“同
-        意”即表示您和您的监护人已阅读并同意全部条款。
-      </div> -->
-    <!-- </Dialog> -->
+    <Dialog></Dialog>
     <div class="content">
       <Icon
         icon="ri:netease-cloud-music-fill"
@@ -26,7 +16,7 @@
           round
           color="#db2d1f"
           type="primary"
-          to="/loginphone"
+          to="/loginpsd"
           plain
           class="w-[70vw] h-[12vw]"
           >手机号登录</van-button
@@ -102,7 +92,7 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 import { Icon } from "@iconify/vue";
 // import { showDialog } from "vant";
 // import { Button } from "vant";
-// import Dialog from "@/components/Dialog.vue";
+import Dialog from "@/components/Dialog.vue";
 // 禁止滚动
 const isModalVisible = ref(false);
 const preventScroll = () => {
@@ -133,8 +123,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   allowScroll();
 });
-
-// 路由
 </script>
 <style scoped>
 .container {

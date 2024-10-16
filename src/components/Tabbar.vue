@@ -18,23 +18,22 @@
     </ul>
   </div> -->
   <van-tabbar route v-model="active" active-color="#ee0a24">
-    <van-tabbar-item class="vanitem" replace to="/home" icon="home-o">发现</van-tabbar-item>
+    <van-tabbar-item class="vanitem" replace to="/home" icon="home-o"
+      >发现</van-tabbar-item
+    >
     <van-tabbar-item replace to="/mvranking" icon="search"
       >排行榜</van-tabbar-item
     >
-    <van-tabbar-item replace to="/user" icon="music"
-      >我的</van-tabbar-item
-    >
-    <van-tabbar-item replace to="/home" icon="friends"
-      >关注</van-tabbar-item
-    >
-    <van-tabbar-item replace to="/home" icon="wechat"
-      >社区</van-tabbar-item
-    >
+    <van-tabbar-item replace to="/user" icon="music">我的</van-tabbar-item>
+    <van-tabbar-item replace to="/home" icon="friends">关注</van-tabbar-item>
+    <van-tabbar-item replace to="/home" icon="wechat">社区</van-tabbar-item>
   </van-tabbar>
+  <player class=""></player>
 </template>
 
 <script setup>
+import player from "@/views/player/player.vue";
+
 // import { Icon } from "@iconify/vue";
 // import { useRouter } from "vue-router";
 // import { ref, onMounted } from "vue";
@@ -79,10 +78,7 @@
 </script>
 
 <style scoped>
-li.active {
-  color: red;
-}
-.vanitem:hover{
+.vanitem:hover {
   color: red;
 }
 </style>

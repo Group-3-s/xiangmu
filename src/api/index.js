@@ -56,3 +56,7 @@ export const UserInfo1 = (id) =>
 export const getPlaylistComment = (id) =>
   request.get(`/comment/playlist?limit=${20}`, { params: { id } });
 // mv播放器
+export const getMvVideo = (data) => request.post("/mv/url", data);
+export const getMvDetail = (data) => request.get(`/mv/detail?mvid=${data.id}`,data);
+export const getMvDetailInfo = (data) =>
+  request.get(`/mv/detail/info?mvid=${data.id}`);

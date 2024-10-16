@@ -25,7 +25,6 @@ const routes = [
   },
   {
     path: "/loginprompt",
-    name: "loginprompt",
     component: () => import("@/views/Login/loginPrompt.vue"),
   },
   {
@@ -63,6 +62,11 @@ const routes = [
   {
     path: "/playlistcomment",
     component: () => import("@/views/PlaylistDetails/PlaylistComment.vue"),
+  },
+  // Mv播放器
+  {
+    path: "/mvvideo",
+    component: () => import("@/views/TabBar/ranking/MvVideo.vue"),
   },
 ];
 
