@@ -87,7 +87,7 @@
                 class="mt-[0.3rem]"
               />
             </div>
-            <div class="text-[#ffffff] overflow-hidden w-[70%]">
+            <div class="text-[#ffffff] h-[24px] flex overflow-hidden  w-[70%] ">
               <span class="scrollani text-[3.5vw] inline-block">{{
                 mvdetail.name
               }}</span>
@@ -103,11 +103,11 @@
         </div>
         <!-- 右侧数据栏 -->
         <div class="w-[10vw] text-[#eaeaea]">
-          <div class="flex items-center flex-wrap justify-center mb-[4vw]">
+          <div class="flex items-center flex-col justify-center mb-[4vw]">
             <Icon icon="ant-design:like-filled" style="color: #eaeaea" />
             <span class="text-[3vw]">{{ mvdetailinfo.likedCount }}</span>
           </div>
-          <div class="flex items-center flex-wrap justify-center mb-[4vw]">
+          <div class="flex items-center flex-col justify-center mb-[4vw]">
             <Icon
               icon="fa-solid:comment-dots"
               style="color: #eaeaea"
@@ -115,11 +115,11 @@
             />
             <span class="text-[3vw]">{{ mvdetailinfo.commentCount }}</span>
           </div>
-          <div class="flex items-center flex-wrap justify-center mb-[4vw]">
+          <div class="flex items-center flex-col justify-center mb-[4vw]">
             <Icon icon="icon-park-solid:share-two" style="color: #eaeaea" />
             <span class="text-[3vw]">{{ mvdetailinfo.shareCount }}</span>
           </div>
-          <div class="flex items-center flex-wrap justify-center mb-[4vw]">
+          <div class="flex items-center flex-col justify-center mb-[4vw]">
             <Icon icon="mdi:favorite-box-multiple" style="color: #eaeaea" />
             <span class="text-[3vw]">收藏</span>
           </div>
@@ -166,29 +166,31 @@ const mvdetailinfo = ref([]);
 const video = ref([]);
 const route = useRoute();
 const router = useRouter();
+// 获取播放视频地址
 getMvVideo({ id: route.query.id })
   .then((res) => {
-    console.log(res.data);
+    // console.log(res.data);
     video.value = res.data;
   })
   .catch((err) => {
     console.log(err);
   });
-
+// 获取歌名
 getMvDetail({ id: route.query.id })
   .then((res) => {
     console.log(res.data.data);
     mvdetail.value = res.data.data;
-    console.log(mvdetail.value);
+    // console.log(mvdetail.value);
   })
   .catch((err) => {
     console.log(err);
   });
+// 获取右侧数据
 getMvDetailInfo({ id: route.query.id })
   .then((res) => {
-    console.log(res.data);
+    // console.log(res);
     mvdetailinfo.value = res.data;
-    console.log(mvdetailinfo.value);
+    // console.log(mvdetailinfo.value);
   })
   .catch((err) => {
     console.log(err);
