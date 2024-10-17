@@ -4,6 +4,7 @@ import to from "await-to-js";
 // eslint-disable-next-line import/no-cycle, import/no-named-as-default
 import request from "./request";
 
+// 首页
 export const getHomePageData = async () => {
   const [error, res] = await to(request.get("/homepage/block/page"));
   if (error) return console.log("请求出错！");
@@ -22,8 +23,18 @@ export const getPlaylistSub = (id) =>
   request.get("/playlist/subscribers?limit=30", { params: { id } });
 
 // 获取MV排行榜
-export const MvRanking = (data) =>
-  request.post(`/top/mv?limit=${50}&&area=${data}`, data);
+// export const MvRanking = (data) =>
+//   request.post(`/top/mv?limit=${50}&&area=${data}`,data);
+export const MvRanking1 = (data) =>
+  request.post("/top/mv?limit=50&area=内地", data);
+export const MvRanking2 = (data) =>
+  request.post("/top/mv?limit=50&area=港台", data);
+export const MvRanking3 = (data) =>
+  request.post("/top/mv?limit=50&area=欧美", data);
+export const MvRanking4 = (data) =>
+  request.post("/top/mv?limit=50&area=韩国", data);
+export const MvRanking5 = (data) =>
+  request.post("/top/mv?limit=50&area=日本", data);
 // 歌曲播放url
 export const Song = (data) => request.get(`/song/url?id=${data}`, data);
 // 判断歌曲是否能够播放
@@ -44,3 +55,8 @@ export const UserInfo1 = (id) =>
 // 歌单评论
 export const getPlaylistComment = (id) =>
   request.get(`/comment/playlist?limit=${20}`, { params: { id } });
+// mv播放器
+export const getMvVideo = (data) => request.post("/mv/url", data);
+export const getMvDetail = (data) => request.get(`/mv/detail?mvid=${data.id}`,data);
+export const getMvDetailInfo = (data) =>
+  request.get(`/mv/detail/info?mvid=${data.id}`);
