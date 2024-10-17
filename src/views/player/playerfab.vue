@@ -149,6 +149,7 @@
 import { Icon } from "@iconify/vue";
 import { ref, onUnmounted, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import { Song, SongPermissions, SongDelailed, getLyric } from "@/api/index";
 import { HandleLyric } from "./utils";
 

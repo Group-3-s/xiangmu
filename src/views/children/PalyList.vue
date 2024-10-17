@@ -65,11 +65,10 @@
 </template>
 <script setup>
 import { defineProps, ref } from "vue";
-import BetterScroll from "@/components/BetterScroll.vue";
-import Wrapper from "@/components/Wrapper.vue";
 import { Icon } from "@iconify/vue";
-
 import { useRouter } from "vue-router";
+// eslint-disable-next-line import/no-unresolved
+import Wrapper from "@/components/Wrapper.vue";
 
 const router = useRouter();
 

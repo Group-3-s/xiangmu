@@ -386,10 +386,11 @@
 </template>
 <script setup>
 // eslint-disable-next-line import/no-cycle
-import { getPlaylistSong } from "@/api";
 import { ref, computed } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { Icon } from "@iconify/vue";
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import { getPlaylistSong } from "@/api";
 import PlaylistTop from "./PlaylistTop.vue";
 import PlaylistTopsong from "./PlaylistTopsong.vue";
 // import player from "../player/player.vue";

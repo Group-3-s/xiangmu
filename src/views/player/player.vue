@@ -28,6 +28,7 @@
 import { useRoute, useRouter } from "vue-router";
 import { ref } from "vue";
 import { Icon } from "@iconify/vue";
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import { Song, SongPermissions, SongDelailed } from "@/api";
 
 const route = useRoute();
