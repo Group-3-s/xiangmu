@@ -8,13 +8,14 @@
     class="m-[3vw]"
   />
   <TabBar></TabBar>
+
 </template>
 <script setup>
 import { ref } from "vue";
 import { getHomePageData } from "@/api";
 import BlockType from "@/views/children/BlockType.vue";
 import TabBar from "@/components/Tabbar.vue";
-import Search from "./children/Search.vue";
+import Search from "@/views/children/Search.vue";
 
 const pageData = ref([]);
 getHomePageData().then((res) => {
