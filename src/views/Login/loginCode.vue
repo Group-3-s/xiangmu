@@ -21,13 +21,12 @@
     </div>
   </div>
 </template>
-<script setup>
+<!-- <script setup>
 import { ref, onMounted, watch } from "vue";
-// import axios from "axios";
-// import to from "await-to-js";
 import request from "@/api/request";
 import { useRouter } from "vue-router";
 import localforage from "localforage";
+// import axios from "axios";
 
 // 定义响应式数据
 const unikey = ref("");
@@ -48,7 +47,7 @@ const getKey = async () => {
     unikey.value = res.data.data.unikey;
     loginQqr(unikey.value);
   } catch (error) {
-    console.log("Error getting key:", error);
+    console.log(error);
   }
 };
 
@@ -66,7 +65,7 @@ const loginQqr = async (key) => {
     qrimgs.value = res.data.data.qrimg;
     qrCheck();
   } catch (error) {
-    console.log("Error getting QR code:", error);
+    console.log(error);
   }
 };
 
@@ -87,23 +86,23 @@ const qrCheck = async () => {
       console.log(res.data);
     }
   } catch (error) {
-    console.log("Error checking QR code:", error);
+    console.log(error);
   }
 };
 
 // 获取登录之后的状态
 const getStatus = async () => {
   try {
-    const res = await to (request.get(
+    const res = await request.get(
       `/login/status?cookie=${localforage.getItem("cookie")}`
-    ))
+    );
     localforage.setItem("isLogin", res.data.data.account.status);
     localforage.setItem("userid", res.data.data.account.id);
     localforage.setItem("avatarUrl", res.data.data.profile.avatarUrl);
     localforage.setItem("nickname", res.data.data.profile.nickname);
     console.log(res.data);
   } catch (error) {
-    console.log("Error getting status:", error);
+    console.log(error);
   }
 };
 
@@ -113,10 +112,140 @@ const getUinfo = async () => {
     const res = await request.get(`/user/detail?uid=32953014`);
     console.log(res.data);
   } catch (error) {
-    console.log("Error getting user info:", error);
+    console.log(error);
   }
 };
 
+// 定时检查二维码状态
+const intervalRef = ref(
+  setInterval(() => {
+    qrCheck();
+  }, 5000)
+);
+// 监听isLogin的变化
+watch(isLogin, async (newValue) => {
+  if (newValue) {
+    clearInterval(intervalRef.value);
+    await getStatus();
+    getUinfo();
+    // router.push("/home");
+    router.replace("/home");
+  }
+});
+
+onMounted(() => {
+  getKey();
+});
+</script> -->
+<script setup>
+import { ref, onMounted, watch } from "vue";
+import axios from "axios";
+import { useRouter } from "vue-router";
+import localforage from "localforage";
+
+// 定义响应式数据
+const unikey = ref("");
+const qrurl = ref("");
+const qrimgs = ref("");
+const qrCheckData = ref({});
+const isLogin = ref(false);
+const router = useRouter();
+
+// 获取二维码的key值
+const getKey = async () => {
+  try {
+    const res = await axios.get(
+      "https://netease-serrver01.vercel.app/login/qr/key",
+      {
+        params: {
+          timerstamp: new Date().getTime(),
+        },
+      }
+    );
+    unikey.value = res.data.data.unikey;
+    loginQqr(unikey.value);
+  } catch (error) {
+    console.error("Error getting key:", error);
+  }
+};
+
+// 通过key去获取二维码
+const loginQqr = async (key) => {
+  try {
+    const res = await axios.get(
+      "https://netease-serrver01.vercel.app/login/qr/create",
+      {
+        params: {
+          timerstamp: new Date().getTime(),
+          qrimg: true,
+          key: key,
+        },
+      }
+    );
+    qrurl.value = res.data.data.qrurl;
+    qrimgs.value = res.data.data.qrimg;
+    qrCheck();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 获取二维码的状态
+const qrCheck = async () => {
+  try {
+    const res = await axios.get(
+      "https://netease-serrver01.vercel.app/login/qr/check",
+      {
+        params: {
+          key: unikey.value,
+          timerstamp: new Date().getTime(),
+          withCredentials: true,
+        },
+      }
+    );
+    qrCheckData.value = res.data;
+    if (res.data.code === 803) {
+      localforage.setItem("cookie", res.data.cookie);
+      isLogin.value = true;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 获取登录之后的状态
+const getStatus = async () => {
+  try {
+    const res = await axios.get(
+      `https://netease-serrver01.vercel.app/login/status?cookie=${localforage.getItem(
+        "cookie"
+      )}`
+    );
+    localforage.setItem("isLogin", res.data.data.account.status);
+    localforage.setItem("userid", res.data.data.account.id);
+    localforage.setItem("avatarUrl", res.data.data.profile.avatarUrl);
+    localforage.setItem("nickname", res.data.data.profile.nickname);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 获取用户信息
+const getUinfo = async () => {
+  try {
+    const res = await axios.get(
+      `https://netease-serrver01.vercel.app/user/detail?uid=32953014`
+    );
+    console.log(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+const intervalRef = ref(
+  setInterval(() => {
+    qrCheck();
+  }, 5000)
+);
 // 监听isLogin的变化
 watch(isLogin, async (newValue) => {
   if (newValue) {
@@ -128,11 +257,6 @@ watch(isLogin, async (newValue) => {
 });
 
 // 定时检查二维码状态
-const intervalRef = ref(
-  setInterval(() => {
-    qrCheck();
-  }, 5000)
-);
 
 onMounted(() => {
   getKey();
