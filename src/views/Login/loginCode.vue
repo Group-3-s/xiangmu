@@ -94,9 +94,9 @@ const qrCheck = async () => {
 // 获取登录之后的状态
 const getStatus = async () => {
   try {
-    const res = await to (request.get(
+    const res = await request.get(
       `/login/status?cookie=${localforage.getItem("cookie")}`
-    ))
+    );
     localforage.setItem("isLogin", res.data.data.account.status);
     localforage.setItem("userid", res.data.data.account.id);
     localforage.setItem("avatarUrl", res.data.data.profile.avatarUrl);
@@ -110,7 +110,7 @@ const getStatus = async () => {
 // 获取用户信息
 const getUinfo = async () => {
   try {
-    const res = await request.get(`/user/detail?uid=32953014`);
+    const res = await request.get("/user/detail?uid=32953014");
     console.log(res.data);
   } catch (error) {
     console.log("Error getting user info:", error);
