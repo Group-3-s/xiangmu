@@ -33,4 +33,4 @@ export const UserInfo1 = (id) =>
 
 // 歌单评论
 export const getPlaylistComment = (data) =>
-  request.get(`/comment/playlist?limit=${20}`, data);
+  request.get(`/comment/playlist?limit=${20}&id=${data.id}`, data);
