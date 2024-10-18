@@ -2,21 +2,19 @@
 <!-- eslint-disable max-len -->
 <template>
   <wrapper :title="props.data.name" @clickMore="showDrawer = !showDrawer">
-    <div class="flex flex-col h-[230px] flex-wrap max-[430px] overflow-auto aa">
+    <div class="flex flex-col h-[250px] flex-wrap max-[430px] overflow-auto aa">
       <div
         class="flex mx-[10px] my-[5px] w-[350px]"
         v-for="item in props.data.children"
         :key="item.resourceId"
       >
         <img
-          class="w-[14.872vw] h-[14.872vw] rounded-[1.5vw]"
+          class="w-[14.872vw] h-[14.872vw] rounded-[1.5vw] justify-center pt-[0rem]"
           :src="item.uiElement.image.imageUrl"
           alt=""
         />
-        <div class="pl-[2vw]">
-          <span class="font-bold text-[#3e4659]">
-            {{ item.uiElement.mainTitle.title }}</span
-          >
+        <div class="flex-1 pt-[2.85vw] ml-[1vw]">
+          <span class="font-bold text-[#3e4659]"> {{ item.uiElement.mainTitle.title }}</span>
           <div>
             <span
               class="inline-block w-[30.897vw] h-[3.59vw] bg-[#f5e7e9] text-[#eb4d44] text-[10px] rounded-[15px] text-center overflow-hidden"
@@ -41,20 +39,10 @@
         </p>
         <ul class="ml-[5vw]">
           <li class="h-[12vw] flex items-center">
-            <Icon
-              icon="iconamoon:like"
-              width="5vw"
-              height="5vw"
-              style="color: black"
-            />优先推荐
+            <Icon icon="iconamoon:like" width="5vw" height="5vw" style="color: black" />优先推荐
           </li>
           <li class="h-[12vw] flex items-center">
-            <Icon
-              icon="ri:dislike-line"
-              width="5vw"
-              height="5vw"
-              style="color: black"
-            />减少推荐
+            <Icon icon="ri:dislike-line" width="5vw" height="5vw" style="color: black" />减少推荐
           </li>
           <li class="h-[12vw] flex items-center">
             <Icon

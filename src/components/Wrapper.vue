@@ -17,7 +17,7 @@
       <Icon
         @click="emit('clickMore')"
         icon="ri:more-2-fill"
-        class="text-[3.761vw] text-[#9195a1] absolute top-[4vw] right-[0px]"
+        class="dark:text-[#e9ebf2] text-[#3d475b] w-[4vw] h-[6vw] iconify iconify--ri"
       />
     </div>
     <slot />

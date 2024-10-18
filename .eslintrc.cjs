@@ -32,5 +32,11 @@ module.exports = {
         extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
       },
     },
+    plugins: ["pinia"],
+    rules: {
+      "pinia/no-actionsryn": "error",
+      "pinia/no-getters-as-actions": "error",
+      // 可以添加更多 Pinia 相关的规则
+    },
   },
 };

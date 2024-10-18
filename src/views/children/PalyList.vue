@@ -95,9 +95,11 @@ const titleHander = () => {};
 const changeCount = (num) => {
   if (num >= 100000000) {
     return `${(num / 100000000).toFixed(2)}亿`;
-  }
-  if (num >= 10000) {
+    // eslint-disable-next-line no-else-return
+  } else if (num >= 10000) {
     return `${(num / 10000).toFixed(2)}万`;
+  } else {
+    return num;
   }
 };
 </script>

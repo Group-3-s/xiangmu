@@ -381,8 +381,11 @@
       </div>
     </div>
   </div>
+  <van-action-sheet v-model:show="show" title="标题">
+    <div class="content">内容</div>
+  </van-action-sheet>
+  <player></player>
   <PlaylistTop />
-  <!-- <player></player> -->
 </template>
 <script setup>
 // eslint-disable-next-line import/no-cycle
@@ -393,7 +396,7 @@ import { Icon } from "@iconify/vue";
 import { getPlaylistSong } from "@/api";
 import PlaylistTop from "./PlaylistTop.vue";
 import PlaylistTopsong from "./PlaylistTopsong.vue";
-// import player from "../player/player.vue";
+import player from "../player/player.vue";
 
 const searchQuery = ref("");
 const items = ref([]); // 初始化为空数组

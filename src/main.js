@@ -1,9 +1,10 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 // eslint-disable-next-line import/no-unresolved
 import "@/style.css";
 import "vant/lib/index.css";
 import { Icon } from "@iconify/vue";
-import eventBus from "vue3-eventbus";
+
 // eslint-disable-next-line import/no-unresolved
 import App from "@/App.vue";
 // eslint-disable-next-line import/no-unresolved, import/extensions
@@ -13,4 +14,6 @@ import pinia from "./store";
 
 initErrorHandle();
 
-createApp(App).use(router).use(pinia).use(Icon).use(eventBus).mount("#app");
+const app = createApp(App);
+
+app.use(router).use(pinia).use(Icon).mount("#app");

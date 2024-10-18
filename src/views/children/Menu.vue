@@ -11,7 +11,7 @@
       <div class="relative">
         <img :src="item.iconUrl" class="w-[15vw] filter" alt="" />
         <span
-          class="text-[2.564vw] text-white absolute top-[54%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+          class="dark:text-[#1a1c23] absolute text-center top-[-1vw] w-[15vw] h-[19vw] leading-[19vw] items-center text-[3.5vw] text-[#fff] font-[800]"
           v-if="index === 0"
           >{{ new Date().getDate() }}</span
         >

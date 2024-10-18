@@ -1,6 +1,8 @@
 <!-- 搜索框 -->
 <template>
-  <div class="pt-[1px]">
+  <div
+    class="pt-[1px] dark:from-[#2c1a2b] dark:to-[#1a1c23] bg-gradient-to-b from-[#E6E6FB] to-[#f1f1f1] opacity-0.4"
+  >
     <div class="relative">
       <!-- 侧边栏Icon -->
       <Icon
@@ -27,7 +29,7 @@
           class="absolute left-[10vw] bottom-[2vw]"
         />
         <input
-          class="h-[8vw] absolute left-[16vw] top-[0vw] bg-[#f1f1f1]"
+          class="h-[8vw] absolute left-[16vw] top-[0vw] bg-transparent"
           type="text"
           placeholder="离别开出花-就是南方..."
         />
