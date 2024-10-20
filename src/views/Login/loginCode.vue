@@ -36,45 +36,6 @@ const qrCheckData = ref({});
 const isLogin = ref(false); // 是否登录
 const router = useRouter();
 
-// 获取二维码的key值
-const getKey = async () => {
-  try {
-    const res = await axios.get(
-      "https://netease-serrver01.vercel.app/login/qr/key",
-      {
-        params: {
-          timerstamp: new Date().getTime(),
-        },
-      }
-    );
-    unikey.value = res.data.data.unikey;
-    loginQqr(unikey.value);
-  } catch (error) {
-    console.log("获取key失败:", error);
-  }
-};
-
-// 通过key去获取二维码
-const loginQqr = async (key) => {
-  try {
-    const res = await axios.get(
-      "https://netease-serrver01.vercel.app/login/qr/create",
-      {
-        params: {
-          timerstamp: new Date().getTime(),
-          qrimg: true,
-          key: key,
-        },
-      }
-    );
-    qrurl.value = res.data.data.qrurl;
-    qrimgs.value = res.data.data.qrimg;
-    qrCheck();
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 // 获取二维码的状态
 const qrCheck = async () => {
   try {
@@ -95,6 +56,45 @@ const qrCheck = async () => {
     // }
   } catch (error) {
     console.log(error);
+  }
+};
+// 通过key去获取二维码
+const loginQqr = async (key) => {
+  try {
+    const res = await axios.get(
+      "https://netease-serrver01.vercel.app/login/qr/create",
+      {
+        params: {
+          timerstamp: new Date().getTime(),
+          qrimg: true,
+          // eslint-disable-next-line object-shorthand
+          key: key,
+        },
+      }
+    );
+    qrurl.value = res.data.data.qrurl;
+    qrimgs.value = res.data.data.qrimg;
+    qrCheck();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 获取二维码的key值
+const getKey = async () => {
+  try {
+    const res = await axios.get(
+      "https://netease-serrver01.vercel.app/login/qr/key",
+      {
+        params: {
+          timerstamp: new Date().getTime(),
+        },
+      }
+    );
+    unikey.value = res.data.data.unikey;
+    loginQqr(unikey.value);
+  } catch (error) {
+    console.log("获取key失败:", error);
   }
 };
 
@@ -119,8 +119,9 @@ const getStatus = async () => {
 // 监听登录信息
 watch(isLogin, async (newVal) => {
   if (newVal) {
-    let times = setInterval(async () => {
+    const times = setInterval(async () => {
       await qrCheck();
+      // eslint-disable-next-line prefer-destructuring
       const code = qrCheckData.value.code;
       if (code === 803) {
         sessionStorage.setItem("user", true);
