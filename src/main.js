@@ -1,5 +1,4 @@
 import { createApp } from "vue";
-import { createPinia } from "pinia";
 // eslint-disable-next-line import/no-unresolved
 import "@/style.css";
 import "vant/lib/index.css";

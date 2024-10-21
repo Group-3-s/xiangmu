@@ -22,7 +22,7 @@
               style="color: white"
             />{{ changeCount(item.playCount) }}
           </div>
-          <div class="mt-[2vw] line-clamp-2 text-[#ffffff]">
+          <div class="mt-[2vw] line-clamp-2 text-[#f2eeee]">
             {{ item.name }}
           </div>
         </div>
