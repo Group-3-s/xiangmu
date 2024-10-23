@@ -56,6 +56,7 @@
 <script setup>
 import goBack from "@/components/goBack.vue";
 import Myinput from "@/components/Myinput.vue";
+// import loginPhone from "@/views/Login/loginPhone.vue";
 import { useRoute, useRouter } from "vue-router";
 import { sendValidCode } from "@/api";
 import { useRequest } from "vue-request";
@@ -97,7 +98,6 @@ watch(result, () => {
     showToast(result.value.data.message);
   }
 });
-// 登录
 
 // 登录
 const userStore = useUserStore();
