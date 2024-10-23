@@ -1,20 +1,23 @@
 <template>
   <div>
-    <div class="flex justify-between relative">
-      <span
-        @click="emit('clickTitle')"
-        class="text-[#3e4659] font-bold my-[3vw] ml-[5vw]"
-        >{{ props.title
-        }}<Icon
+    <div class="flex justify-between items-center h-[12vw]">
+      <div class="flex items-center">
+        <span
+          @click="emit('clickTitle')"
+          class="dark:text-[#e9ebf2] text-[#374d5b] text-[4vw] font-[800]"
+          >{{ props.title }}</span
+        >
+        <Icon
           icon="ic:baseline-arrow-forward-ios"
           width="3vw"
           height="3vw"
-          class="absolute top-[4.5vw] left-[21vw]"
-      /></span>
+          class="dark:text-[#e9ebf2] text-[#3d475b] font-[800] w-[4vw] h-[4vw] iconify iconify--mingcute"
+        />
+      </div>
       <Icon
         @click="emit('clickMore')"
         icon="ri:more-2-fill"
-        class="text-[3.761vw] text-[#9195a1] absolute top-[4vw] right-[0px]"
+        class="dark:text-[#e9ebf2] text-[#3d475b] w-[4vw] h-[6vw] iconify iconify--ri"
       />
     </div>
     <slot />
